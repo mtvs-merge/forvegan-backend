@@ -1,1 +1,2 @@
-# forvegan
+# Forepe
+#### 비건 레시피 공유 플랫폼
