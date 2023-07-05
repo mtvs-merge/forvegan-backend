@@ -29,7 +29,7 @@
 
   <tr>
     <td align="center"><strong>Kim Ji Soo</strong></td>
-    <td align="center"><strong>Son Jung In</strong></td>
+    <td align="center"><strong>Kim Dae Cheol</strong></td>
     <td align="center"><strong>Ra Hyeon Ji</strong></td>
     <td align="center"><strong>Park So Yeon</strong></td>
     <td align="center"><strong>Lee You Yeol</strong></td>
