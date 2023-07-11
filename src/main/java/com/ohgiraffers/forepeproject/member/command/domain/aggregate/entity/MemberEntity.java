@@ -1,5 +1,12 @@
-package com.ohgiraffers.forepeproject.memberTree.query.domain.entity;
+package com.ohgiraffers.forepeproject.member.command.domain.aggregate.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class MemberEntity {
 
     private int memberNum;
