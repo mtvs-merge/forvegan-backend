@@ -1,5 +1,6 @@
 package com.ohgiraffers.forepeproject.comment.command.domain.aggregate.entity;
 
+import com.ohgiraffers.forepeproject.comment.command.domain.aggregate.vo.CommentWriter;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,6 +26,7 @@ public class CommentEntity {
             strategy = GenerationType.SEQUENCE,
             generator = "COMMENT_SEQ_GENERATOR"
     )
+
     @Column(name = "COMMENT_NUM")
     private int commentNum;
 
@@ -32,8 +34,8 @@ public class CommentEntity {
     private String commentDetail;
     @Column(name = "COMMENT_DATE")
     private String commentDate;
-    @Column(name = "COMMENT_WRITER")
-    private String commentWriter;
+    @Embedded
+    private CommentWriter commentWriter;
     @Column(name = "COMMENT_POSTNUM")
     private int commentPostNum;
     @Column(name = "COMMENT_LIKE")
