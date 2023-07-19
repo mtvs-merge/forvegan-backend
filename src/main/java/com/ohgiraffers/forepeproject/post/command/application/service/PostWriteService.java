@@ -1,4 +1,4 @@
 package com.ohgiraffers.forepeproject.post.command.application.service;
 
-public class Service {
+public class PostWriteService {
 }

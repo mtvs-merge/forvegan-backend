@@ -1,4 +1,4 @@
 package com.ohgiraffers.forepeproject.post.command.application.controller;
 
-public class Controller {
+public class PostWriteController {
 }
