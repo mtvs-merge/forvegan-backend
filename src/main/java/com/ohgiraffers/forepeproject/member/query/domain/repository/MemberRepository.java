@@ -1,24 +1,21 @@
 package com.ohgiraffers.forepeproject.member.query.domain.repository;
 
-import org.apache.ibatis.annotations.Param;
+
+import com.ohgiraffers.forepeproject.member.command.domain.aggregate.entity.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-import java.lang.reflect.Member;
 import java.util.List;
+import java.util.Optional;
 
-public interface MemberRepository extends JpaRepository<Member, Integer> {
 
-    @Query(value = "SELECT MEMBER_NUM, MEMBER_NAME, MEMBER_ID, MEMBER_PWD, MEMBER_NICKNAME, BLACKLIST, REPORT_COUNT, JOIN_DATE, LEVEL_UP_POINT " +
-            "FROM MEMBER " +
-            "ORDER BY MEMBER_NUM ASC",
-            nativeQuery = true)
-    List<Member> findAllMember();
+public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
 
-    @Query(value = "SELECT MEMBER_NUM, MEMBER_NAME, MEMBER_ID, MEMBER_PWD, MEMBER_NICKNAME, BLACKLIST, REPORT_COUNT, JOIN_DATE, LEVEL_UP_POINT " +
-            "FROM MEMBER " +
-            "WHERE MEMBER_NUM LIKE :memberNum" +
-            "ORDER BY MEMBER_NUM DESC",
-            nativeQuery = true)
-    List<Member> findByMember(@Param("memberNum")int memberNum);
+    Optional<MemberEntity> findByMemberNickname(String memberNickname);
+
+    List<MemberEntity> findByMemberNickName(@Param("memberNickname")String memberNickname, @Param("joinDate")String joinDate);
+
+    @Query("SELECT m FROM Member AS m WHERE m.socialLogin LIKE :socialLogin AND m.socialId = :socialId")
+    MemberEntity findBySocialId(String socialLogin, long socialId);
 }

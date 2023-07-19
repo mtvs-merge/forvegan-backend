@@ -2,6 +2,8 @@ package com.ohgiraffers.forepeproject.member.command.application.dto;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -10,6 +12,14 @@ import lombok.*;
 public class MemberDTO {
     private int MemberNum;
     private String MemberName;
+    private String socialLogin;
+    private long socialId;
+    private String email;
+    private String accessToken;
+    private long accessTokenExpireDate;
+    private String refreshToken;
+    private long refreshTokenExpireDate;
+    private LocalDateTime signUpDate;
     private String MemberId;
     private String MemberPwd;
     private String MemberNickname;
@@ -17,4 +27,5 @@ public class MemberDTO {
     private int reportCount;
     private String joinDate;
     private int LevelUpPoint;
+    private String lastAccessDate;
 }
