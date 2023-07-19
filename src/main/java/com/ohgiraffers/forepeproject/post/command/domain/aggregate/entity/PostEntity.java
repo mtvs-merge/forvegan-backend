@@ -1,4 +1,4 @@
-package com.ohgiraffers.forepeproject.board.command.domain.aggregate.entity;
+package com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity;
 
 import lombok.*;
 
