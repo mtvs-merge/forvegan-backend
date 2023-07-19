@@ -1,6 +1,7 @@
 package com.ohgiraffers.forepeproject.member.command.domain.aggregate.entity;
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -38,7 +39,7 @@ public class MemberEntity {
     @Column(name = "MEMBER_PWD")
     private int memberPwd;
 
-    @Column(name = "MEMBER_NICKNAME")
+    @Column(name = "MEMBER_NICKNAME", unique = true)
     private String memberNickName;
 
     @Column(name = "BLACKLIST")
@@ -47,11 +48,34 @@ public class MemberEntity {
     @Column(name = "REPORT_COUNT")
     private int reportCount;
 
+    @CreatedDate
     @Column(name = "JOIN_DATE")
     private String joinDate;
 
     @Column(name = "LEVEL_UP_POINT")
     private int levelUpPoint;
+
+    @Column(name = "SOCIAL_LOGIN")
+    private String socialLogin;
+
+    @Column(name = "SOCIAL_ID")
+    private long socialId;
+
+    @Column(name = "ACCESS_TOKEN")
+    private String accessToken;
+
+    @Column(name = "ACCESS_TOKEN_EXPIRE_DATE")
+    private long accessTokenExpireDate;
+
+    @Column(name = "REFRESH_TOKEN")
+    private String refreshToken;
+
+    @Column(name = "REFRESH_TOKEN_EXPIRE_DATE")
+    private long refreshTokenExpireDate;
+
+    public int getMemberNum() {
+        return memberNum;
+    }
 
     @PrePersist
     public void onPrePersist() {
