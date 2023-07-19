@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "com.ohgiraffers.forepeproject")
+@ComponentScan("com.ohgiraffers.forepeproject")
 public class BeanConfiguration {
 
     public BeanConfiguration() {}

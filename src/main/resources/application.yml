@@ -23,9 +23,11 @@ spring:
           auto: update
 
 
-mybatis:
-  type-aliases-package:
-  mapper-locations:
+#  mybatis:
+#    type-aliases-package: com.ohgiraffers.forepeproject.postAttachment.command.domain.aggregate.entity
+#    mapper-locations: mybatis/mapper/*.xml
+#    config : mybatis-config.xml
+
 
 
 #jwt:
