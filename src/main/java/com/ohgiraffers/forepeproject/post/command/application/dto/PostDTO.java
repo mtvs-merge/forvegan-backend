@@ -1,9 +1,10 @@
 package com.ohgiraffers.forepeproject.post.command.application.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+
+// dto = controller와 service에서 사용됨
+//       ㄴ 화면에서 직접 받고, 넘기는 객체!
+//       ㄴ 요청 데이터를 수신한다.
 
 @Getter
 @Setter
@@ -24,4 +25,6 @@ public class PostDTO {
     private String attachment;
     private int postMemberNum;
 }
+
+
 
