@@ -124,43 +124,101 @@
 
 
 
-            <div class="col-12">
+        <div class="col-12">
           <div class="form-floating">
             <input type="text" class="form-control" id="subject" placeholder="Subject">
             <label for="subject">제목</label>
           </div>
         </div>
-        <div class="col-12">
-          <!--        첨부파일            -->
-          <input type="file" onchange="readURL(this);">
-          <img id="preview" style="width:100px"/>
-          <script>
-            function readURL(input) {
-              if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                  document.getElementById('preview').src = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
-              } else {
-                document.getElementById('preview').src = "";
-              }
-            }
-          </script>
+        <div class="col-12" style="width:70%">
+
           <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 500px"></textarea>
-
-            <label for="message">내용</label>
-
+            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px;"></textarea>
+            <label for="message">step 1. </label>
           </div>
+
+
         </div>
+
+        <!--        첨부파일            -->
+        <input type="file" onchange="readURL(this);" >
+        <img id="preview" style="width:100px"/>
+        <script>
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                document.getElementById('preview').src = e.target.result;
+              };
+              reader.readAsDataURL(input.files[0]);
+            } else {
+              document.getElementById('preview').src = "";
+            }
+          }
+        </script>
+
+        <div class="col-12" style="width:70%">
+
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px;"></textarea>
+            <label for="message">step 2. </label>
+          </div>
+
+
+        </div>
+
+        <!--        첨부파일            -->
+        <input type="file" onchange="readURL(this);" >
+        <img id="preview" style="width:100px"/>
+        <script>
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                document.getElementById('preview').src = e.target.result;
+              };
+              reader.readAsDataURL(input.files[0]);
+            } else {
+              document.getElementById('preview').src = "";
+            }
+          }
+        </script>
+
+        <div class="col-12" style="width:70%">
+
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px;"></textarea>
+            <label for="message">step 3. </label>
+          </div>
+
+
+        </div>
+
+        <!--        첨부파일            -->
+        <input type="file" onchange="readURL(this);" >
+        <img id="preview" style="width:100px"/>
+        <script>
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                document.getElementById('preview').src = e.target.result;
+              };
+              reader.readAsDataURL(input.files[0]);
+            } else {
+              document.getElementById('preview').src = "";
+            }
+          }
+        </script>
+
         <div class="col-12">
           <button class="btn btn-primary rounded-pill py-1 px-3" type="submit" style="font-size:20px">레시피 발행</button>
         </div>
+
       </div>
     </form>
-    </div>
   </div>
+</div>
 </div>
 <!-- Products End -->
 
