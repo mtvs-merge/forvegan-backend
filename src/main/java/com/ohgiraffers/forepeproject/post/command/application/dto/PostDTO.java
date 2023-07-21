@@ -13,15 +13,16 @@ import lombok.*;
 public class PostDTO {
 
     private int postNum;
+    private int postLike;
     private String postName;
     private String postWriter;
     private String postHighlight;
-    private String postShowState;
+    private String postState;
     private String postDate;
     private String postDetail;
     private int views;
     private int postCategoryNum;
-    private String postAttachmentNum;
+    private String attachment;
     private int postMemberNum;
 
     public static Object toEntity() {
