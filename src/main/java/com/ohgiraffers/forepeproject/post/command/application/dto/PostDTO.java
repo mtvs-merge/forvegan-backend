@@ -24,6 +24,10 @@ public class PostDTO {
     private int postCategoryNum;
     private String attachment;
     private int postMemberNum;
+
+    public static Object toEntity() {
+        return null;
+    }
 }
 
 
