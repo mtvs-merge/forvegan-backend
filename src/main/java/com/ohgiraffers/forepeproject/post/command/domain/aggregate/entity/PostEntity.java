@@ -37,9 +37,6 @@ public class PostEntity {
     @Column(name = "POST_NUM", nullable = false)
     private int postNum;
 
-    @Column(name = "POST_LIKE")
-    private int postLike;
-
     @Column(name = "POST_NAME", length = 20, nullable = false)
     private String postName;
 
@@ -49,8 +46,8 @@ public class PostEntity {
     @Column(name = "POST_HIGHLIGHT")
     private String postHighlight;
 
-    @Column(name = "POST_STATE")
-    private String postState;
+    @Column(name = "POST_SHOW_STATE")
+    private String postShowState;
 
     @Column(name = "POST_DATE", nullable = false)
     private String postDate;
@@ -65,8 +62,8 @@ public class PostEntity {
     @Column(name = "POST_CATEGORY_NUM",nullable = false)
     private int postCategoryNum;
 
-    @Column(name = "ATTACHMENT")
-    private String attachment;
+    @Column(name = "POST_ATTACHMENT_NUM")
+    private String postAttachmentNum;
 
     @Column(name = "POST_MEMBER_NUM")
     private int postMemberNum;
@@ -85,12 +82,12 @@ public class PostEntity {
 
     @Builder
     public PostEntity (int postNum, String postName, String postWriter,
-                       String postState, String postDate, String postDetail, int views,
+                       String postShowState, String postDate, String postDetail, int views,
                        int postCategoryNum, int postMemberNum){
         this.postNum = postNum;
         this.postName = postName;
         this.postDate = postDate;
-        this.postState = postState;
+        this.postShowState = postShowState;
         this.postDetail = postDetail;
         this.views = views;
         this.postWriter = postWriter;
