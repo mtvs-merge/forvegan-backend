@@ -13,8 +13,8 @@ import lombok.*;
 public class PostDTO {
 
     private int postNum;
-    private int postLike;
     private String postName;
+    private int postLike;
     private String postWriter;
     private String postHighlight;
     private String postState;
