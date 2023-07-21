@@ -133,6 +133,10 @@
 
 ## 디렉토리 구조
 
+## DB 모델링
+<img width="600ㄴ" alt="image" src="https://github.com/mtvs-merge/forvegan-backend/assets/119282494/1a72f7a7-f4f6-45ed-a65c-3ac7fcc2bfeb">
+
+
 
 
 
