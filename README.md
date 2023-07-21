@@ -36,8 +36,7 @@
     <td align="center"><strong>김대철</strong></td>
     <td align="center"><strong>라현지</strong></td>
     <td align="center"><strong>박소연</strong></td>
-    <td align="center"><strong>이유열</strong></td> 
-    <td align="center"><strong>백승진</strong></td>
+    <td align="center"><strong>이유열</strong></td>
   </tr>
   
   <tr>
@@ -46,8 +45,6 @@
     <td align="center"><a href="https://github.com/raxchaz"><img src="https://avatars.githubusercontent.com/raxchaz" width="150px;" alt="">
     <td align="center"><a href="https://github.com/happy-baechuchu"><img src="https://avatars.githubusercontent.com/u/134986794?v=4" width="150px;" alt="">
     <td align="center"><a href="https://github.com/youyeul301"><img src="https://avatars.githubusercontent.com/u/84696773?v=4" width="150px;" alt="">
-    <td align="center"><a href="https://github.com/ej20001000"><img src="https://avatars.githubusercontent.com/u/53468197?v=4" width="150px;" alt="">
-    
    
   </tr>
   <tr>
@@ -56,16 +53,14 @@
     <td align="center"><a href="https://github.com/raxchaz"><b>@raxchaz</b></td>
     <td align="center"><a href="https://github.com/happy-baechuchu"><b>@happy-baechuchu</b></td>
     <td align="center"><a href="https://github.com/youyeul301"><b>@youyeul301</b></td>
-    <td align="center"><a href="https://github.com/ej20001000"><b>@ej20001000</b></td>
   </tr>
 
    <tr>
-    <td align="center"><strong>회원</strong></td>
-    <td align="center"><strong>신고</strong></td>
+    <td align="center"><strong>로그인</strong></td>
+    <td align="center"><strong>마이 페이지</strong></td>
     <td align="center"><strong>게시판</strong></td>
     <td align="center"><strong>댓글 <br> 화면구현</strong></td>
     <td align="center"><strong>관리자 페이지</strong></td>
-    <td align="center"><strong>게시판 / 신고</strong></td>
   </tr>
 </table>
 <br>
@@ -132,10 +127,6 @@
 <br>
 
 ## 디렉토리 구조
-
-## DB 모델링
-<img width="600ㄴ" alt="image" src="https://github.com/mtvs-merge/forvegan-backend/assets/119282494/1a72f7a7-f4f6-45ed-a65c-3ac7fcc2bfeb">
-
 
 
 
