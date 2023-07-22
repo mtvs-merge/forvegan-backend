@@ -53,7 +53,7 @@ public class LoginService {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id", "94407d0193a445443e41394304ebfacd");
-        params.add("redirect_uri", "http://localhost:3000/oauth");
+        params.add("redirect_uri", "http://forepe.store:8888/auth/kakao/callback");
         params.add("code", code);
 
         HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest =
@@ -65,6 +65,10 @@ public class LoginService {
                 kakaoTokenRequest,
                 String.class
         );
+
+        System.out.println("accessTokenResponse = " + accessTokenResponse);
+        System.out.println("accessTokenResponse = " + accessTokenResponse.getHeaders());
+        System.out.println("accessTokenResponse = " + accessTokenResponse.getBody());
 
         ObjectMapper objectMapper = new ObjectMapper();
         OauthTokenDTO oauthToken = null;
@@ -84,7 +88,7 @@ public class LoginService {
         MemberDTO foundmember = new MemberDTO();
 
         // 해당 유저의 가입 이력이 없을 경우
-        if (memberService.findBySocialId("KAKAO", kakaoProfileDTO.getId()) == null) {
+        if (memberService.findBySocialId("KAKAO", String.valueOf(kakaoProfileDTO.getId())) == null) {
 
             MemberDTO newMember = new MemberDTO();
 
@@ -100,31 +104,20 @@ public class LoginService {
             memberService.registNewUser(newMember);
         }
 
-        foundmember = memberService.findBySocialId("KAKAO", kakaoProfileDTO.getId());
+        foundmember = memberService.findBySocialId("KAKAO", String.valueOf(kakaoProfileDTO.getId()));
 
-        Date accessExpireDate = new Date(foundmember.getAccessTokenExpireDate());
-
-        if (accessExpireDate.before(new Date())) {
-            RenewTokenDTO renewedToken = renewKakaoToken(foundmember);
-
-            if(renewedToken.getRefresh_token() != null) {
-
-                foundmember.setRefreshToken(renewedToken.getRefresh_token());
-                foundmember.setRefreshTokenExpireDate(renewedToken.getRefresh_token_expires_in());
-            }
-
-            foundmember.setAccessToken(renewedToken.getAccess_token());
-            foundmember.setAccessTokenExpireDate(renewedToken.getExpires_in() + System.currentTimeMillis());
-        }
+        foundmember.setRefreshToken(oauthToken.getRefresh_token());
+        foundmember.setAccessToken(oauthToken.getAccess_token());
+        foundmember.setRefreshTokenExpireDate(oauthToken.getRefresh_token_expires_in() + System.currentTimeMillis());
+        foundmember.setAccessTokenExpireDate(oauthToken.getExpires_in() + System.currentTimeMillis());
 
         return tokenProvider.generateMemberTokenDTO(foundmember);
 
     }
 
-    private RenewTokenDTO renewKakaoToken(MemberDTO foundmember) {
+    private RenewTokenDTO renewKakaoToken(MemberDTO foundMember) {
 
         RestTemplate rt = new RestTemplate();
-        rt.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
@@ -132,9 +125,9 @@ public class LoginService {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "refresh_token");
         params.add("client_id", "94407d0193a445443e41394304ebfacd");
-        params.add("refresh_token", foundmember.getRefreshToken());
+        params.add("refresh_token", foundMember.getRefreshToken());
 
-        System.out.println("refresh" + foundmember.getRefreshToken());
+        System.out.println("refresh" + foundMember.getRefreshToken());
 
         HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest =
                 new HttpEntity<>(params, headers);
@@ -167,7 +160,7 @@ public class LoginService {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("authorization", "Bearer" + accessToken);
-        headers.add("Content-type", "application/x-www-form-urlencoded;charset=urf-8");
+        headers.add("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
 
         HttpEntity<MultiValueMap<String, String>> kakaoProfileRequest =
                 new HttpEntity<>(headers);

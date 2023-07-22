@@ -1,9 +1,14 @@
 package com.ohgiraffers.forepeproject.post.command.application.controller;
 
+import com.ohgiraffers.forepeproject.common.ResponseDto;
 import com.ohgiraffers.forepeproject.post.command.domain.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +36,8 @@ public class PostController {
     public String main(Model model) {
         return "main";
     }
+
+
 }
 
 //    @GetMapping("/")
