@@ -26,6 +26,7 @@ public class PostCreateService {
     @Transactional
     public int savePost(PostDTO postDTO){
 
+        return 0;
     }
 
 }
