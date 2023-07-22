@@ -12,6 +12,7 @@ import lombok.ToString;
 @ToString
 public class PostDeleteDTO {
 
+
     private int postNum;
     private String postState;
     private String postDetail;

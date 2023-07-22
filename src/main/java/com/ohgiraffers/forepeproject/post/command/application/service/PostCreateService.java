@@ -20,9 +20,9 @@ public class PostCreateService {
         this.postsRepository = postsRepository;
     }
 
-    @Transactional
-    public int savePost(PostDTO postDTO){
-        return postsRepository.save(PostDTO.toEntity()).getId();
-    }
+//    @Transactional
+//    public static int savePost(PostDTO postDTO){
+//        return postsRepository.save(PostDTO.toEntity()).getId();
+//    }
 
 }

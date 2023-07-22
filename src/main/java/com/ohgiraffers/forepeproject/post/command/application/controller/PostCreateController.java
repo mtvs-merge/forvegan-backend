@@ -33,11 +33,11 @@ public class PostCreateController {
         return "post/create.html";
     }
 
-    @PostMapping("/post")
-    public String create(PostDTO postDTO){
-        PostCreateService.savePost(postDTO);
-        return "redirect:/";
-    }
+//    @PostMapping("/post")
+//    public String create(PostDTO postDTO){
+//        PostCreateService.savePost(postDTO);
+//        return "redirect:/";
+//    }
 }
 
 //
