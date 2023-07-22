@@ -15,13 +15,15 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/posts")
+@RestController
 public class PostCreateController {
 
+    @Autowired
     private PostCreateService postCreateService;
 
-    public PostCreateController(PostCreateService postCreateService){
-        this.postCreateService = postCreateService;
-    }
+//    public PostCreateController(PostCreateService postCreateService){
+//        this.postCreateService = postCreateService;
+//    }
 
     @GetMapping("/")
     public String List(){

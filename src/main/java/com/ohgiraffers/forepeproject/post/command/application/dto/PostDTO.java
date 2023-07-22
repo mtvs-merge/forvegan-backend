@@ -1,6 +1,5 @@
 package com.ohgiraffers.forepeproject.post.command.application.dto;
 
-import com.ohgiraffers.forepeproject.post.command.domain.repository.PostRepository;
 import lombok.*;
 
 // dto = controller와 service에서 사용됨
@@ -28,11 +27,6 @@ public class PostDTO {
 
     public static Object toEntity() {
         return null;
-    }
-
-    public PostRepository save(Object entity) {
-        PostRepository postRepository = null;
-        return postRepository;
     }
 }
 
