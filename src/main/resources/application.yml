@@ -13,7 +13,6 @@ spring:
     allow-circular-references: true
 
   jpa:
-    generate-ddl: false
     show-sql: true
     database: mysql
     properties:
@@ -21,7 +20,18 @@ spring:
         '[format_sql]': true
         hbm2ddl:
           auto: update
+    hibernate:
+      ddl-auto: create
 
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 10MB
+
+mybatis:
+  type-aliases-package: com.ohgiraffers.forepeproject.postAttachment.query.domain.entity
+  config: config/mybatis/mybatis-config.xml
+  mapper-locations: config/mybatis/mapper/*.xml
 
 #  mybatis:
 #    type-aliases-package: com.ohgiraffers.forepeproject.postAttachment.command.domain.aggregate.entity
@@ -30,8 +40,8 @@ spring:
 
 
 
-#jwt:
-#  secret: asdfjp298pafo1320efqw0udvnh0er0h412r08byfdq9dsvh02143908hfeqwn80fdqs0nfdqs0n412013rq0nqefn08dfas0das730732g86923kjefho43y592y095r2wofhw92yt832y5r920woqhjfwoty28rt02ty230hwot92ty0923752rywohr9wyf823y8329yt0wyf9stgf932y20gfy9w8yh28it2y3y239836y25720hw8fy83r49y23y8
+jwt:
+  secret: asdfjp298pafo1320efqw0udvnh0er0h412r08byfdq9dsvh02143908hfeqwn80fdqs0nfdqs0n412013rq0nqefn08dfas0das730732g86923kjefho43y592y095r2wofhw92yt832y5r920woqhjfwoty28rt02ty230hwot92ty0923752rywohr9wyf823y8329yt0wyf9stgf932y20gfy9w8yh28it2y3y239836y25720hw8fy83r49y23y8
 
 #logging:
 #  level:

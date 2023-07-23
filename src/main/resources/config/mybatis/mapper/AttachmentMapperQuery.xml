@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AttachmentMapperQuery">
+    <resultMap  id="testMap" type="com.ohgiraffers.forepeproject.postAttachment.query.domain.entity.AttachmentMybatisResponse">
+        <result property="attachNum" column="ATTACH_NUM"/>
+        <result property="attachName" column="ATTACH_NAME"/>
+        <result property="attachRename" column="ATTACH_RENAME"/>
+        <result property="fileType" column="FILE_TYPE"/>
+        <result property="fileSize" column="FILESIZE"/>
+        <result property="deleteYN" column="DELETE_YN"/>
+        <result property="postNum" column="POST_NUM"/>
+    </resultMap>
+    <select id="findAllByPostIds" resultType="com.ohgiraffers.forepeproject.postAttachment.query.domain.entity.AttachmentMybatisResponse">
+        SELECT
+            *
+        FROM
+            ATTACHMENT
+        WHERE
+            DELETE_YN = 'N'
+         AND POST_NUM = #{postId}
+        ORDER BY
+            ATTACH_NUM
+    </select>
+</mapper>

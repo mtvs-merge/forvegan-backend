@@ -1,8 +1,7 @@
 package com.ohgiraffers.forepeproject.postAttachment.command.domain.repository;
 
 
-import com.ohgiraffers.forepeproject.postAttachment.command.domain.aggregate.entity.AttachmentMybatis;
-import com.ohgiraffers.forepeproject.postAttachment.command.domain.aggregate.entity.AttachmentMybatisResponse;
+import com.ohgiraffers.forepeproject.postAttachment.command.domain.aggregate.entity.Attachment;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -11,11 +10,9 @@ import java.util.List;
 @Repository
 @Mapper
 public interface AttachmentMapper {
-    int insertFiles(List<AttachmentMybatis> files);
+    void insertFiles(List<Attachment> files);
 
-    List<AttachmentMybatisResponse> findAllByPostId(Long postId);
+    void deleteAllByPostId(Long postNum);
 
-    int deleteAllByPostId(Long postNum);
-
-    int modifyAllByPostId(Long postNum);
+    void modifyAllByPostId(Long postNum);
 }
