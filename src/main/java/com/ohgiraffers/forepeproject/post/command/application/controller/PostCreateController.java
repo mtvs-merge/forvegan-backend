@@ -1,63 +1,34 @@
 package com.ohgiraffers.forepeproject.post.command.application.controller;
 
 import com.ohgiraffers.forepeproject.post.command.application.dto.PostCreateDTO;
-import com.ohgiraffers.forepeproject.post.command.application.dto.PostDTO;
 import com.ohgiraffers.forepeproject.post.command.application.service.PostCreateService;
-import com.ohgiraffers.forepeproject.post.command.application.service.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
-@Controller
-@RequestMapping("/posts")
 @RestController
+@RequestMapping("/posts")
 public class PostCreateController {
+    private final PostCreateService postCreateService;
 
-    @Autowired
-    private PostCreateService postCreateService;
-
-//    public PostCreateController(PostCreateService postCreateService){
-//        this.postCreateService = postCreateService;
-//    }
-
-    @GetMapping("/")
-    public String List(){
-        return "post/list.html";
+    public PostCreateController(PostCreateService postCreateService) {
+        this.postCreateService = postCreateService;
     }
 
-    @GetMapping("/post")
-    public String create(){
-        return "post/create.html";
+    @PostMapping
+    public ResponseEntity<Post> createPost(@RequestBody PostCreateDTO createDTO) {
+        Post createdPost = postCreateService.createPost(createDTO);
+        return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
     }
 
-//    @PostMapping("/post")
-//    public String create(PostDTO postDTO){
-//        PostCreateService.savePost(postDTO);
-//        return "redirect:/";
-//    }
+    public static class Post {
+        public void setPostDetail(String postDetail) {
+        }
+
+        public void setPostName(String postName) {
+        }
+    }
 }
 
-//
-//    private PostCreateService postCreateService;
-//
-//    public PostCreateController(PostCreateService postCreateService){
-//        this.postCreateService = postCreateService;
-//    }
-//
-//    @GetMapping("/create")
-//    public String createPostForm(Model model){
-//        model.addAttribute("PostCreateDTO", new PostCreateDTO());
-//        return "create";
-//    }
-//
-//    @PostMapping("/create")
-//    public String createPostForm(@ModelAttribute PostCreateDTO postCreateDTO){
-//        postCreateService.savePost(postCreateDTO);
-//        return "redirect:/list";
-//        // 새로운 게시물을 생성한다면, 게시물 목록 페이지로 이동한다.
-//    }
