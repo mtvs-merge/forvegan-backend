@@ -3,6 +3,7 @@ package com.ohgiraffers.forepeproject.post.command.application.service;
 import com.ohgiraffers.forepeproject.post.command.application.controller.PostCreateController;
 import com.ohgiraffers.forepeproject.post.command.application.dto.PostCreateDTO;
 import com.ohgiraffers.forepeproject.post.command.domain.repository.PostRepository;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 @Service
