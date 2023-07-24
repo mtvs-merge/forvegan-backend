@@ -23,12 +23,9 @@ public class PostDeleteService {
     @Transactional
     public void deletePost(PostDeleteDTO postDeleteDTO) {
 
-        PostEntity postEntity = postRepository.getReferenceById(postDeleteDTO.getPostNum());
+        PostEntity pe = postRepository.getReferenceById(postDeleteDTO.getPostNum());
 
-        postEntity.setPostState("N");
-
-        postRepository.save(postEntity);
-        postRepository.flush();
+        pe.setPostState("N");
 
     }
 

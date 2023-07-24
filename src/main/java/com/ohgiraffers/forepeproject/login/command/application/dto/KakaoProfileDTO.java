@@ -28,6 +28,8 @@ public class KakaoProfileDTO {
         private String email;
 
     }
+
+
 }
 
 

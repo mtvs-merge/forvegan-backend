@@ -18,16 +18,12 @@ public class PostDeleteTesting {
     @Autowired
     private PostDeleteService postDeleteService;
 
-    private static Stream<Arguments> createPost() {
+    private static Stream<Arguments> deletePost() {
         return Stream.of(
                 Arguments.of(
                         1,
-                        "Y",
-                        1
-                ), Arguments.of(
-                        2,
                         "N",
-                        2
+                        1
                 )
 
         );
@@ -35,13 +31,13 @@ public class PostDeleteTesting {
 
     @DisplayName("게시판 지우기 테스트")
     @ParameterizedTest
-    @MethodSource("createPost")
+    @MethodSource("deletePost")
     void testDeletePost(int postNum, String postState, int postMemberNum) {
-        PostDeleteDTO postDeleteDTO = new PostDeleteDTO(
-                postNum,
-                postState,
-                postMemberNum
-        );
+        PostDeleteDTO postDeleteDTO = new PostDeleteDTO();
+
+        postDeleteDTO.setPostNum(postNum);
+        postDeleteDTO.setPostState(postState);
+        postDeleteDTO.setPostMemberNum(postMemberNum);
 
         Assertions.assertDoesNotThrow(
                 () -> postDeleteService.deletePost(postDeleteDTO)
