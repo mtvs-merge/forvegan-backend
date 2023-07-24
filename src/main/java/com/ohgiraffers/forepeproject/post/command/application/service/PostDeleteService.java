@@ -3,6 +3,7 @@ package com.ohgiraffers.forepeproject.post.command.application.service;
 import com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity.enumType.ResponesEnum;
 import com.ohgiraffers.forepeproject.post.command.domain.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 @Service
