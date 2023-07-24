@@ -40,6 +40,16 @@ public class ReportEntity {
     @Column(name ="REPORT_REASON")
     private String reportReason;
 
+    public ReportEntity(int reportNum, String reportDate, int reportCommentNum, int reportPostNum, String reporter, String reportee, String reportReason) {
+        this.reportNum = reportNum;
+        this.reportDate = reportDate;
+        this.reportCommentNum = reportCommentNum;
+        this.reportPostNum = reportPostNum;
+        this.reporter = reporter;
+        this.reportee = reportee;
+        this.reportReason = reportReason;
+    }
+
     @PrePersist
     public void onPrePersist() { this.reportDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));}
 }
