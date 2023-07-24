@@ -25,18 +25,18 @@ public class PostDTO {
     private String postAttachmentNum;
     private int postMemberNum;
 
-    public PostDTO(int postNum, String postName, int postLike, String postWriter, String postHighlight, String postState, String postDate, String postDetail, int views, int postCategoryNum, String attachment, int postMemberNum) {
+    public PostDTO(int postNum, String postName, int postLike, String postWriter, String postHighlight, String postShowState, String postDate, String postDetail, int views, int postCategoryNum, String postAttachmentNum, int postMemberNum) {
         this.postNum = postNum;
         this.postName = postName;
         this.postLike = postLike;
         this.postWriter = postWriter;
         this.postHighlight = postHighlight;
-        this.postState = postState;
+        this.postShowState = postShowState;
         this.postDate = postDate;
         this.postDetail = postDetail;
         this.views = views;
         this.postCategoryNum = postCategoryNum;
-        this.attachment = attachment;
+        this.postAttachmentNum = postAttachmentNum;
         this.postMemberNum = postMemberNum;
     }
 }
