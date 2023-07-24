@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ import java.util.List;
 public class AttachmentService {
     AttachmentMapper attachmentMapper;
     FileUtils fileUtils;
+
 
     @Autowired
     public AttachmentService(AttachmentMapper attachmentMapper,FileUtils fileUtils){
@@ -29,8 +32,7 @@ public class AttachmentService {
         if(CollectionUtils.isEmpty(files)){
             return result;
         }
-//         dto -> entity builder
-        List<Attachment> uploadFiles = new ArrayList<>();
+
         for (AttachmentDTO file : files){
             Attachment attachment=new Attachment(
                     file.getAttachName(),
@@ -38,12 +40,11 @@ public class AttachmentService {
                     file.getFileType(),
                     new FileSize(file.getSize())
             );
+            attachment.setDeleteYN("N");
             attachment.setPostNum(postNum);
-            uploadFiles.add(attachment);
+            attachmentMapper.save(attachment);
         }
-
-//      save (insert)
-        attachmentMapper.insertFiles(uploadFiles);
+        result =1;
 
         return result;
     }
@@ -56,19 +57,19 @@ public class AttachmentService {
         if(postNum <=0){
             return result;
         }
-
-       attachmentMapper.deleteAllByPostId(postNum);
+        attachmentMapper.del(postNum);
+//       attachmentMapper.deleteAllByPostId(postNum);
 
         return result;
     }
-
+    @Transactional
     public int modifyAllByPostId(long postNum,List<AttachmentDTO> files){
         int result = 0;
         if(postNum <=0){
             return result;
         }
-
-        attachmentMapper.modifyAllByPostId(postNum);
+        attachmentMapper.modify(postNum);
+//        attachmentMapper.modifyAllByPostId(postNum);
         addAttachment(postNum,files);
         return result;
     }
