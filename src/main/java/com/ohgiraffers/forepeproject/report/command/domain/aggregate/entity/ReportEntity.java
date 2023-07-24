@@ -13,13 +13,13 @@ import java.time.format.DateTimeFormatter;
 @ToString
 @Entity(name = "Report")
 @Table(name = "REPORT")
-@SequenceGenerator(
-        name = "REPORT_SEQ_GENERATOR",
-        sequenceName = "SEQ_REPORT_NUM",
-        initialValue = 1,
-        allocationSize = 1
-)
 public class ReportEntity {
+    @SequenceGenerator(
+            name = "REPORT_SEQ_GENERATOR",
+            sequenceName = "SEQ_REPORT_NUM",
+            initialValue = 1,
+            allocationSize = 1
+    )
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
