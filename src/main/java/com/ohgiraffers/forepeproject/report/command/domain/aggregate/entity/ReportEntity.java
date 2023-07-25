@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @ToString
@@ -25,19 +24,19 @@ public class ReportEntity {
             strategy = GenerationType.SEQUENCE,
             generator = "REPORT_SEQ_GENERATOR"
     )
-    @Column(name = "REPORT_NUM")
+    @Column(name = "REPORT_NUM",nullable = false)
     private int reportNum;
-    @Column(name = "REPORT_DATE")
+    @Column(name = "REPORT_DATE",length =45,nullable = false )
     private String reportDate;
     @Column(name = "REPORT_COMMENT_NUM")
     private int reportCommentNum;
     @Column(name = "REPORT_POST_NUM")
     private int reportPostNum;
-    @Column(name = "REPORTER")
+    @Column(name = "REPORTER",nullable = false)
     private String reporter;
-    @Column(name = "REPORTEE")
+    @Column(name = "REPORTEE",length = 45,nullable = false)
     private String reportee;
-    @Column(name ="REPORT_REASON")
+    @Column(name ="REPORT_REASON",length = 45,nullable = false)
     private String reportReason;
 
     public ReportEntity(int reportNum, String reportDate, int reportCommentNum, int reportPostNum, String reporter, String reportee, String reportReason) {
