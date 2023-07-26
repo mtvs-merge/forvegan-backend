@@ -21,14 +21,15 @@ public class ReportController {
     @PostMapping("/hi")
     public void saveReport(HttpServletRequest request) {
         ReportDTO reportDTO = new ReportDTO();
-        reportDTO.setReportNum(Integer.parseInt(request.getParameter("reported_member_no")));
-        reportDTO.setReportDate(request.getParameter("report_member_no"));
         reportDTO.setReportCommentNum(Integer.parseInt(request.getParameter("review_no")));
         reportDTO.setReportNum(Integer.parseInt(request.getParameter("report_type")));
         reportDTO.setReporter(request.getParameter("report_member_no"));
-        reportDTO.setReportee(request.getParameter("report_member_no"));
-        reportDTO.setReportReason(request.getParameter("report_member_no"));
+        reportDTO.setReportee(request.getParameter("reporter_no"));
+        reportDTO.setReportReason(request.getParameter("reportee_no"));
+        reportDTO.setReportReason(request.getParameter("reportReason_no"));
+
 
     }
+
 
 }
