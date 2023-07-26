@@ -7,22 +7,23 @@ import com.ohgiraffers.forepeproject.login.command.application.dto.OauthTokenDTO
 import com.ohgiraffers.forepeproject.login.command.application.service.LoginService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
 @Controller
-@RequestMapping("/api/kakao")
+@RequestMapping("/api/v1/login")
 public class LoginController {
 
     private final LoginService loginService;
@@ -58,6 +59,5 @@ public class LoginController {
 
         return null;
     }
-
 
 }

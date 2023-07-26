@@ -28,4 +28,6 @@ public class MemberDTO {
     private String joinDate;
     private int LevelUpPoint;
     private String lastAccessDate;
+    private String preferredLocation;
+    private String preferredType;
 }
