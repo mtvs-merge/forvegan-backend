@@ -53,7 +53,7 @@ public class LoginService {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id", "94407d0193a445443e41394304ebfacd");
-        params.add("redirect_uri", "http://localhost:3000/oauth");
+        params.add("redirect_uri", "http://localhost:8888/auth/kakao/callback");
         params.add("code", code);
 
         HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest =
@@ -117,6 +117,8 @@ public class LoginService {
             foundmember.setAccessTokenExpireDate(renewedToken.getExpires_in() + System.currentTimeMillis());
         }
 
+
+
         return tokenProvider.generateMemberTokenDTO(foundmember);
 
     }
@@ -166,7 +168,7 @@ public class LoginService {
 
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("authorization", "Bearer" + accessToken);
+        headers.add("authorization", "Bearer " + accessToken);
         headers.add("Content-type", "application/x-www-form-urlencoded;charset=urf-8");
 
         HttpEntity<MultiValueMap<String, String>> kakaoProfileRequest =
@@ -193,4 +195,6 @@ public class LoginService {
 
         return kakaoProfileDTO;
     }
+
+
 }

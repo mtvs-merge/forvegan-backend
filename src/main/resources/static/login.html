@@ -104,15 +104,41 @@
 <div class="container-fluid py-5">
     <div class="container">
         <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <a href="">
+            <!-- 인가 코드를 받기 위해 카카오 인가 페이지로 이동하는 버튼 -->
+            <a onclick="sendKakaoAuthRequest()">
                 <img src="img/kakao_login_large_narrow.png">
             </a>
             <p style="margin-top: 100px;">카카오로만 로그인 할 수 있음~~~</p>
         </div>
-
     </div>
 </div>
 <!-- Testimonial End -->
+
+<!-- Script to check login status -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    function sendKakaoAuthRequest() {
+        // 카카오 인가 페이지로 이동
+        window.location.href = 'https://kauth.kakao.com/oauth/authorize?client_id=94407d0193a445443e41394304ebfacd&redirect_uri=http://localhost:8888/auth/kakao/callback&response_type=code';
+    }
+    function onKakaoLoginSuccess(jwtToken) {
+        // jwtToken을 로컬 스토리지에 저장
+        localStorage.setItem('accessToken', jwtToken);
+
+        // 로그인 완료 후 메인 페이지로 리다이렉트 또는 원하는 동작 수행
+        window.location.href = 'index.html'; // 메인 페이지로 이동
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const jwtToken = urlParams.get('code');
+    if (jwtToken) {
+        onKakaoLoginSuccess(jwtToken);
+    }
+
+
+</script>
+
+
 
 
 

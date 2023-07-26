@@ -12,9 +12,9 @@ import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
 
-    Optional<MemberEntity> findByMemberNickname(String memberNickname);
-
-    List<MemberEntity> findByMemberNickName(@Param("memberNickname")String memberNickname, @Param("joinDate")String joinDate);
+//    Optional<MemberEntity> findByMemberNickname(String memberNickname);
+//
+//    List<MemberEntity> findByMemberNickName(@Param("memberNickname")String memberNickname, @Param("joinDate")String joinDate);
 
     @Query("SELECT m FROM Member AS m WHERE m.socialLogin LIKE :socialLogin AND m.socialId = :socialId")
     MemberEntity findBySocialId(String socialLogin, long socialId);

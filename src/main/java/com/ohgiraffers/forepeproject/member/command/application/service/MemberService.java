@@ -48,5 +48,7 @@ public class MemberService {
 
         return memberRepository.save(modelMapper.map(newMember, MemberEntity.class)).getMemberNum();
     }
+
+
 }
 
