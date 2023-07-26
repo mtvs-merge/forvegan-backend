@@ -29,6 +29,14 @@ public class PostCreateController {
 
         public void setPostName(String postName) {
         }
+
+        public String getPostDetail() {
+            return null;
+        }
+
+        public String getPostName() {
+            return null;
+        }
     }
 }
 

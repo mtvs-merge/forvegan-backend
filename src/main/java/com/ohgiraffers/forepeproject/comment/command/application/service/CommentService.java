@@ -16,15 +16,15 @@ public class CommentService {
         this.commentsRepository = commentsRepository;
     }
 
-    public Comment createComment(CommentDTO commentDTO) {
+    public CommentEntity createComment(CommentDTO commentDTO) {
         CommentEntity commentEntity = new CommentEntity();
         commentEntity.setCommentDetail(commentDTO.getComments());
 
-        return commentsRepository.save(commentEntity);
+        return (CommentEntity) commentsRepository.save(commentEntity);
     }
 
     public CommentDTO readComment(Long id) {
-        CommentEntity commentEntity = (CommentEntity) commentsRepository.findById(id)
+        CommentEntity commentEntity = (CommentEntity) commentsRepository.findById()
                 .orElseThrow(() -> new EntityNotFoundException("댓글을 찾을 수 없습니다."));
 
         CommentDTO commentDTO = new CommentDTO();
@@ -35,7 +35,7 @@ public class CommentService {
     }
 
     public Comment updateComment(Long id, CommentDTO commentDTO) {
-        CommentEntity commentEntity = (CommentEntity) commentsRepository.findById(id)
+        CommentEntity commentEntity = (CommentEntity) commentsRepository.findById()
                 .orElseThrow(() -> new EntityNotFoundException("댓글을 찾을 수 없습니다."));
 
         commentEntity.setCommentNum(commentDTO.getCommentNum());
@@ -44,9 +44,12 @@ public class CommentService {
     }
 
     public void deleteComment(Long id) {
-        CommentEntity commentEntity = (CommentEntity) commentsRepository.findById(id)
+        CommentEntity commentEntity = (CommentEntity) commentsRepository.findById()
                 .orElseThrow(() -> new EntityNotFoundException("댓글을 찾을 수 없습니다."));
 
         commentsRepository.delete(commentEntity);
+    }
+
+    public void updateComment(Long commentNum) {
     }
 }

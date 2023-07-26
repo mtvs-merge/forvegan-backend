@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Repository
 public class CommentsRepository {
-    public Optional<Object> findById(Long id) {
+    public Optional<Object> findById() {
         return null;
     }
 

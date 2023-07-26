@@ -3,7 +3,6 @@ package com.ohgiraffers.forepeproject.post.command.application.service;
 import com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity.enumType.ResponesEnum;
 import com.ohgiraffers.forepeproject.post.command.domain.repository.PostsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,9 +15,9 @@ public class PostUpdateService {
         this.postsRepository = postsRepository;
     }
 
-    public ResponesEnum updatePost(Long PostNum){
+    public ResponesEnum updatePost(Long PostNum, Long postNum){
         try{
-            postsRepository.findById();
+            postsRepository.findById(postNum);
             return ResponesEnum.SUCCESS;
         } catch (Exception exception){
             return ResponesEnum.FAILURE;
