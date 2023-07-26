@@ -13,17 +13,32 @@ import lombok.*;
 public class PostDTO {
 
     private int postNum;
-    private int postLike;
     private String postName;
+    private int postLike;
     private String postWriter;
     private String postHighlight;
-    private String postState;
+    private String postShowState;
     private String postDate;
     private String postDetail;
     private int views;
     private int postCategoryNum;
-    private String attachment;
+    private String postAttachmentNum;
     private int postMemberNum;
+
+    public PostDTO(int postNum, String postName, int postLike, String postWriter, String postHighlight, String postShowState, String postDate, String postDetail, int views, int postCategoryNum, String postAttachmentNum, int postMemberNum) {
+        this.postNum = postNum;
+        this.postName = postName;
+        this.postLike = postLike;
+        this.postWriter = postWriter;
+        this.postHighlight = postHighlight;
+        this.postShowState = postShowState;
+        this.postDate = postDate;
+        this.postDetail = postDetail;
+        this.views = views;
+        this.postCategoryNum = postCategoryNum;
+        this.postAttachmentNum = postAttachmentNum;
+        this.postMemberNum = postMemberNum;
+    }
 }
 
 
