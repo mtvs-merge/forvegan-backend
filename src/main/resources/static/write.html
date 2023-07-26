@@ -107,62 +107,78 @@
 <!-- Page Header End -->
 
 
-<!-- About Start -->
+<!-- Write Start -->
 <div class="container-fluid product py-5">
   <div class="container py-5">
 
+  <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+    <p class="fs-5 fw-medium fst-italic text-primary">레시피 작성해주세요!</p>
+    <h1 class="display-6">레시피 작성 화면 - 수정 중</h1>
+  </div>
 
-
-    <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-      <p class="fs-5 fw-medium fst-italic text-primary">레시피 작성해주세요!</p>
-      <h1 class="display-6">레시피 작성 화면 - 수정 중</h1>
+  <form action="" method="post">
+    <div class="form-group">
+      <label for="title">제목</label>
+<!-- placeholder 속성 입력한 데이터가 없는 경우 배경으로 나타난다.실제적으로 입력을 100자까지로 지정 -->
+<!-- required 속성을 설정하면 필수입력 사항이된다. -->
+<!-- pattern 속성을 이용한 정규표현식으로 데이터의 유효성 검사를 할 수 있다. -->
+      <input type="text" class="form-control" id="title"
+       placeholder="제목 입력(4-100)" name="title"
+       maxlength="100" required="required"
+       pattern=".{4,100}">
     </div>
 
-
-    <form class="wow fadeInUp" data-wow-delay="0.3s">
-      <div class="row g-3" style="width: 70%; margin:0 auto">
-
-
-
-            <div class="col-12">
-          <div class="form-floating">
-            <input type="text" class="form-control" id="subject" placeholder="Subject">
-            <label for="subject">제목</label>
-          </div>
-        </div>
-        <div class="col-12">
-          <!--        첨부파일            -->
-          <input type="file" onchange="readURL(this);">
-          <img id="preview" style="width:100px"/>
-          <script>
-            function readURL(input) {
-              if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                  document.getElementById('preview').src = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
-              } else {
-                document.getElementById('preview').src = "";
-              }
-            }
-          </script>
-          <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 500px"></textarea>
-
-            <label for="message">내용</label>
-
-          </div>
-        </div>
-        <div class="col-12">
-          <button class="btn btn-primary rounded-pill py-1 px-3" type="submit" style="font-size:20px">레시피 발행</button>
-        </div>
-      </div>
-    </form>
+  <div class="stepBox" style="margin-top:20px;">
+    <div class="form-group" style="margin-top:20px; width: 85%; float:right;">
+      
+   <label for="content">Step1</label>
+<!--  여러줄의 데이터를 입력하고 하고자 할때 textarea 태그를 사용한다. -->
+<!--  textarea 안에 있는 모든 글자는 그대로 나타난다. 공백문자, tag, enter -->
+   <textarea class="form-control" rows="5" id="content"
+    name="content" placeholder="내용을 입력해주세요."></textarea>
+ </div>
+    <div class="form-group" style="width:150px;height:150px;background-color: aliceblue;">
+      <input type="file" class="imgFile">
     </div>
   </div>
-</div>
-<!-- Products End -->
+
+  <div class="stepBox" style="margin-top:20px;">
+    <div class="form-group" style="margin-top:20px; width: 85%; float:right;">
+      <label for="content">Step2</label>
+   <!--  여러줄의 데이터를 입력하고 하고자 할때 textarea 태그를 사용한다. -->
+   <!--  textarea 안에 있는 모든 글자는 그대로 나타난다. 공백문자, tag, enter -->
+      <textarea class="form-control" rows="5" id="content"
+       name="content" placeholder="내용을 입력해주세요."></textarea>
+    </div>
+       <div class="form-group" style="margin-top:20px;width:150px;height:150px;background-color: aliceblue;">
+         <input type="file" class="imgFile">
+       </div>
+    </div>
+
+  <div class="stepBox" style="margin-top:20px;">
+       <div class="form-group" style="margin-top:20px; width: 85%; float:right;">
+        <label for="content">Step3</label>
+     <!--  여러줄의 데이터를 입력하고 하고자 할때 textarea 태그를 사용한다. -->
+     <!--  textarea 안에 있는 모든 글자는 그대로 나타난다. 공백문자, tag, enter -->
+        <textarea class="form-control" rows="5" id="content"
+         name="content" placeholder="내용을 입력해주세요."></textarea>
+      </div>
+         <div class="form-group" style="margin-top:20px; width:150px;height:150px;background-color: aliceblue;">
+           <input type="file" class="imgFile">
+         </div>   
+  </div>
+
+    <button class="btn btn-primary rounded-pill py-1 px-3" type="submit" style="font-size:20px">레시피 발행</button>
+  </form>
+
+  
+      
+     
+
+    
+  </div><!--container py-5-->
+</div><!-- container-fluid product py-5-->
+<!-- Write End -->
 
 
 <!-- Footer Start -->

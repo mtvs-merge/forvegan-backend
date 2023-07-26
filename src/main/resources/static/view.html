@@ -108,17 +108,76 @@
 <!-- Page Header End -->
 
 
-<!-- Testimonial Start -->
+<!-- View Start -->
 <div class="container-fluid py-5">
   <div class="container">
     <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <p class="fs-5 fw-medium fst-italic text-primary">레시피 게시글 클릭하면</p>
-            <h1 class="display-6">보이는 화면</h1>
-
+            <p class="fs-5 fw-medium fst-italic text-primary">게시글 작성 완료 했습니까?</p>
+            <h1 class="display-6">이 화면이 보일 것</h1>
     </div>
+
+    <div class="col-12">
+      
+      <div class="btnContainer">
+        <button type="submit" class="editContent">수정</button>
+        <button type="submit" class="deleteContent">삭제</button>
+      </div>
+
+      <div class="viewContainer">
+
+        <div class="subject">
+          <h3>제목 :</h3> 
+        </div>
+
+        <div class="viewContents">
+
+         <div class="viewArticle">
+          <img src="" class="viewImg" style="width:100px; height:100px; background-color: aquamarine;">
+          <p class="viewP">Step 1. </p>
+          <hr>
+         </div>
+
+         <div class="viewArticle">
+          <img src="" class="viewImg" style="width:100px; height:100px; background-color: aquamarine;">
+          <p class="viewP">Step 1. </p>
+          <hr>
+         </div>
+         
+         <div class="viewArticle">
+          <img src="" class="viewImg" style="width:100px; height:100px; background-color: aquamarine;">
+          <p class="viewP">Step 1. </p>
+          <hr>
+         </div>
+
+        </div>
+
+          <!-- Comments section-->
+          <section class="mb-5">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <!-- Comment form-->
+                    <form class="mb-4"><textarea class="form-control" rows="1" placeholder="댓글을 남겨주세요."></textarea> <button class="commentSubmit" type="submit">등록</button></form>
+               
+                
+                    <!-- Single comment-->
+                    <div class="d-flex">
+                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                        <div class="ms-3">
+                            <div class="fw-bold">가나다라</div>
+                            우와 정말 맛있어 보여요!
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+      </div>
+    </div>
+
   </div>
 </div>
-<!-- Testimonial End -->
+<!-- View End -->
 
 
 
@@ -200,6 +259,7 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
+
 </body>
 
 </html>
