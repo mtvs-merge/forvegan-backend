@@ -13,17 +13,21 @@ import lombok.*;
 public class PostDTO {
 
     private int postNum;
-    private String postName;
     private int postLike;
+    private String postName;
     private String postWriter;
     private String postHighlight;
-    private String postShowState;
+    private String postState;
     private String postDate;
     private String postDetail;
     private int views;
     private int postCategoryNum;
-    private String postAttachmentNum;
+    private String attachment;
     private int postMemberNum;
+
+    public static Object toEntity() {
+        return null;
+    }
 
     public PostDTO(int postNum, String postName, int postLike, String postWriter, String postHighlight, String postShowState, String postDate, String postDetail, int views, int postCategoryNum, String postAttachmentNum, int postMemberNum) {
         this.postNum = postNum;

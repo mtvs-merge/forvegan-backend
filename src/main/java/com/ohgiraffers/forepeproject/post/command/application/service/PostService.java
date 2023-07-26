@@ -8,19 +8,19 @@ package com.ohgiraffers.forepeproject.post.command.application.service;
 // Update
 // Delete
 
-import com.ohgiraffers.forepeproject.post.command.domain.repository.PostRepository;
+import com.ohgiraffers.forepeproject.post.command.domain.repository.PostsRepository;
 import org.springframework.stereotype.Service;
 
 
 
 @Service
 public class PostService {
-    private PostRepository postRepository;
+    private PostsRepository postsRepository;
 
     // 게시글 생성
 
-    public PostService(PostRepository postRepository){
-        this.postRepository = postRepository;
+    public PostService(PostsRepository postsRepository){
+        this.postsRepository = postsRepository;
     }
 
 
