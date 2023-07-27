@@ -19,6 +19,7 @@ public class PostCreateController {
 
     private PostCreateService postCreateService;
 
+    @Autowired
     public PostCreateController(PostCreateService postCreateService){
         this.postCreateService = postCreateService;
     }
@@ -35,7 +36,7 @@ public class PostCreateController {
 
     @PostMapping("/post")
     public String create(PostDTO postDTO){
-        PostCreateService.savePost(postDTO);
+        postCreateService.savePost(postDTO);
         return "redirect:/";
     }
 }

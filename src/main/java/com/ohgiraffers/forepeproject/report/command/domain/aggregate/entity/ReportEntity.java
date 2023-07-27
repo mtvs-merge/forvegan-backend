@@ -40,6 +40,9 @@ public class ReportEntity {
     @Column(name ="REPORT_REASON")
     private String reportReason;
 
+    @Column(name = "REPORT_SHOW_STATE")
+    private String reportShowState;
+
     @PrePersist
     public void onPrePersist() { this.reportDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));}
 }

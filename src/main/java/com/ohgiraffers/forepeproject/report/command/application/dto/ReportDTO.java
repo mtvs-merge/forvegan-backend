@@ -16,8 +16,10 @@ public class ReportDTO {
 
     private String reportReason;
 
+    private String reportShowState;
 
-    public ReportDTO(int reportNum, String reportDate, int reportCommentNum, int reportPostNum, String reporter, String reportee, String reportReason) {
+
+    public ReportDTO(int reportNum, String reportDate, int reportCommentNum, int reportPostNum, String reporter, String reportee, String reportReason, String reportShowState) {
         this.reportNum = reportNum;
         this.reportDate = reportDate;
         this.reportCommentNum = reportCommentNum;
@@ -25,6 +27,7 @@ public class ReportDTO {
         this.reporter = reporter;
         this.reportee = reportee;
         this.reportReason = reportReason;
+        this.reportShowState = reportShowState;
     }
 
     public int getReportNum() {
@@ -81,5 +84,13 @@ public class ReportDTO {
 
     public void setReportReason(String reportReason) {
         this.reportReason = reportReason;
+    }
+
+    public String getReportShowState() {
+        return reportShowState;
+    }
+
+    public void setReportShowState(String reportShowState) {
+        this.reportShowState = reportShowState;
     }
 }
