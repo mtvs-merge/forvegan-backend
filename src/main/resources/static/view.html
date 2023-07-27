@@ -29,6 +29,7 @@
 
   <!-- Template Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/sy.css">
 </head>
 
 <body>
@@ -94,11 +95,11 @@
 <!-- Page Header Start -->
 <div class="container-fluid page-header py-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
   <div class="container text-center py-5">
-    <h1 class="display-2 text-dark mb-4 animated slideInDown">게시글 확인 화면</h1>
+    <h1 class="display-2 text-dark mb-4 animated slideInDown">비건</h1>
     <nav aria-label="breadcrumb animated slideInDown">
       <ol class="breadcrumb justify-content-center mb-0">
-<!--        <li class="breadcrumb-item"><a href="#">나의 나무</a></li>-->
-<!--        <li class="breadcrumb-item"><a href="#">회원정보수정</a></li>-->
+       <li class="breadcrumb-item"><a href="#">vegan recipe</a></li>
+      <!-- <li class="breadcrumb-item"><a href="#">비건</a></li> -->
 <!--        <li class="breadcrumb-item"><a href="#">회원탈퇴</a></li>-->
         <!--                    <li class="breadcrumb-item text-dark" aria-current="page">회원탈퇴</li>-->
       </ol>
@@ -112,64 +113,115 @@
 <div class="container-fluid py-5">
   <div class="container">
     <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <p class="fs-5 fw-medium fst-italic text-primary">게시글 작성 완료 했습니까?</p>
-            <h1 class="display-6">이 화면이 보일 것</h1>
+            <p class="fs-5 fw-medium fst-italic text-primary"> 인기 게시물 </p>
+            <h1 class="display-6">비건 마라샹궈</h1>
     </div>
 
     <div class="col-12">
       
-      <div class="btnContainer">
+      <!-- <div class="btnContainer">
         <button type="submit" class="editContent">수정</button>
         <button type="submit" class="deleteContent">삭제</button>
-      </div>
+      </div> -->
 
-      <div class="viewContainer">
-
-        <div class="subject">
-          <h3>제목 :</h3> 
+        <div class="maintitle">
+          <div class="mt-left">
+            <span>비건</span>
+            <span>비건 마라샹궈</span>
+          </div>
+          <div class="mt-right">
+            <button>수정</button>
+            <button>삭제</button>
+            <button>신고</button>
+          </div>
         </div>
 
-        <div class="viewContents">
+        <div class="title">레시피</div>
 
-         <div class="viewArticle">
-          <img src="" class="viewImg" style="width:100px; height:100px; background-color: aquamarine;">
-          <p class="viewP">Step 1. </p>
-          <hr>
-         </div>
-
-         <div class="viewArticle">
-          <img src="" class="viewImg" style="width:100px; height:100px; background-color: aquamarine;">
-          <p class="viewP">Step 1. </p>
-          <hr>
-         </div>
-         
-         <div class="viewArticle">
-          <img src="" class="viewImg" style="width:100px; height:100px; background-color: aquamarine;">
-          <p class="viewP">Step 1. </p>
-          <hr>
-         </div>
-
-        </div>
-
-          <!-- Comments section-->
-          <section class="mb-5">
-            <div class="card bg-light">
-                <div class="card-body">
-                    <!-- Comment form-->
-                    <form class="mb-4"><textarea class="form-control" rows="1" placeholder="댓글을 남겨주세요."></textarea> <button class="commentSubmit" type="submit">등록</button></form>
-               
-                
-                    <!-- Single comment-->
-                    <div class="d-flex">
-                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                        <div class="ms-3">
-                            <div class="fw-bold">가나다라</div>
-                            우와 정말 맛있어 보여요!
-                          </div>
-                    </div>
-                </div>
+        <div class="contents">
+          <div class="steps step">
+            <div class="image">
+              <img src="https://dummyimage.com/300x300/ECDFE3/000.png" alt="">
             </div>
-        </section>
+            <div class="text">
+              <div class="subtitle">Step 1</div>
+              <div class="steptext">기름을 충분히 예열한 후 고춧가루와 마늘을 넣어 고추기름을 내준다.</div>
+            </div>
+          </div>
+          <div class="steps step">
+            <div class="image">
+              <img src="https://dummyimage.com/300x300/ECDFE3/000.png" alt="">
+            </div>
+            <div class="text">
+              <div class="subtitle">Step 2</div>
+              <div class="steptext">모든 재료를 넣어 볶는다.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="like-wrap" style="cursor: pointer;">
+          <div class="likes like">
+            <span class="txt">공감</span>
+            <span class="count">5</span>
+          </div>
+        </div>
+
+        <div class="comment-wrap">
+          <div class="comment-each">
+            <div class="pf-img">
+              <img src="https://dummyimage.com/300x300/ECDFE3/000.png" alt="">
+            </div>
+            <div class="pf-txt">
+              <div class="comment-id">
+                <span class="id">김지수</span>
+                <span class="time">2023.07.25 08:17</span>
+                <span><button class="comment-call">신고</button></span>
+              </div>
+              <div class="comment">무슨 맛인가요?</div>
+
+            </div>
+          </div>
+
+          <div class="comment-each">
+            <div class="pf-img">
+              <img src="https://dummyimage.com/300x300/ECDFE3/000.png" alt="">
+            </div>
+            <div class="pf-txt">
+              <div class="comment-id">
+                <span class="id">김지수</span>
+                <span class="time">2023.07.25 08:17</span>
+                <span><button class="comment-call">신고</button></span>
+
+              </div>
+              <div class="comment">무슨 맛인가요?</div>
+            </div>
+          </div>
+
+          <div class="comment-each">
+            <div class="pf-img">
+              <img src="https://dummyimage.com/300x300/ECDFE3/000.png" alt="">
+            </div>
+            <div class="pf-txt">
+              <div class="comment-id">
+                <span class="id">김지수</span>
+                <span class="time">2023.07.25 08:17</span>
+                <span><button class="comment-call">신고</button></span>
+
+              </div>
+              <div class="comment">무슨 맛인가요?</div>
+            </div>
+          </div>
+
+          <div class="comment-write">
+            <textarea name="" id="" cols="30" rows="3"></textarea>
+            <button>등록</button>
+          </div>
+        </div>
+
+
+
+
+
     </div>
 
       </div>
