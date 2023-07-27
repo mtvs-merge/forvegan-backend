@@ -46,10 +46,4 @@ public class ReportService {
         }
 
     }
-
-    public List<ReportDTO> getAllReports() {
-
-
-
-    }
 }

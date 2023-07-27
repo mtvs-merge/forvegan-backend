@@ -93,4 +93,5 @@ public class ReportDTO {
     public void setReportShowState(String reportShowState) {
         this.reportShowState = reportShowState;
     }
+
 }
