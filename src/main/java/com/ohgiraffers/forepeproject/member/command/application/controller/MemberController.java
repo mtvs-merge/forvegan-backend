@@ -1,3 +1,4 @@
+/**
 package com.ohgiraffers.forepeproject.member.command.application.controller;
 
 import com.ohgiraffers.forepeproject.common.ResponseDto;
@@ -51,3 +52,4 @@ public class MemberController {
 
 
 }
+ **/

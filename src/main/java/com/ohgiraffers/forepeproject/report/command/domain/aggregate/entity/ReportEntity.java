@@ -1,6 +1,9 @@
 package com.ohgiraffers.forepeproject.report.command.domain.aggregate.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -48,6 +51,8 @@ public class ReportEntity {
         this.reportee = reportee;
         this.reportReason = reportReason;
     }
+
+
 
     @PrePersist
     public void onPrePersist() { this.reportDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));}

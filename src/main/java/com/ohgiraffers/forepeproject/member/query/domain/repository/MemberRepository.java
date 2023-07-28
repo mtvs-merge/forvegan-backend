@@ -1,6 +1,6 @@
 package com.ohgiraffers.forepeproject.member.query.domain.repository;
 
-
+/*
 import com.ohgiraffers.forepeproject.member.command.domain.aggregate.entity.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -19,3 +19,4 @@ public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
     @Query("SELECT m FROM Member AS m WHERE m.socialLogin LIKE :socialLogin AND m.socialId = :socialId")
     MemberEntity findBySocialId(String socialLogin, long socialId);
 }
+*/

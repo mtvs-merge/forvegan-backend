@@ -5,8 +5,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost/mergedb
-    username: merge
-    password: merge
+    username: root
+    password: 123456789
     hikari:
       auto-commit: false
   main:

@@ -1,5 +1,6 @@
-package com.ohgiraffers.forepeproject.member.command.application.service;
 
+package com.ohgiraffers.forepeproject.member.command.application.service;
+/**
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -50,7 +51,7 @@ public class MemberService {
 
     public MemberDTO findBySocialId(String socialLogin, String socialId) {
 
-        MemberEntity foundMember = memberRepository.findBySocialId(socialLogin, socialId);
+        MemberEntity foundMember = memberRepository.findBySocialId(socialLogin, Long.parseLong(socialId));
 
         if (foundMember == null) {
             return null;
@@ -144,5 +145,5 @@ public class MemberService {
 //        return modelMapper.map(member, MemberDTO.class);
 //    }
 }
-
+**/
 
