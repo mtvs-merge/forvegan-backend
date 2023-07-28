@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -29,6 +29,25 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        table {
+            width: 100%;
+            border-top: 1px solid #444444;
+            border-collapse: collapse;
+        }
+        th, td {
+            border-bottom: 1px solid #444444;
+            border-left: 1px solid #444444;
+            padding: 10px;
+        }
+        th:first-child, td:first-child {
+            border-left: none;
+        }
+        .whiter{
+            color: #006400;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -116,42 +135,31 @@
                 <p class="fs-5 fw-medium fst-italic text-primary">나의 나무</p>
                 <h1 class="display-6">당신의 채식으로 키운 나무가 자라고 있어요!</h1>
             </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.5s">
-                <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4">현재까지 총 N끼의 채식을 실천하셨군요! <br> 당신의 채식으로 살린 나무를 가꿔보세요!</p>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img class="img-fluid flex-shrink-0" src="img/mypage_tree-1.jpg" alt="">
-                        <div class="text-start ms-3">
-                            <h5> Lv.1 새싹</h5>
-                            <span class="text-primary">은행나무</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4"> 배고파ㅠㅠ</p>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img class="img-fluid flex-shrink-0" src="img/mypage_tree-1.jpg" alt="">
-                        <div class="text-start ms-3">
-                            <h5>Lv.2 조금 큰 새싹</h5>
-                            <span class="text-primary">떡갈나무</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4">채식 실천 중</p>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img class="img-fluid flex-shrink-0" src="img/mypage_tree-1.jpg" alt="">
-                        <div class="text-start ms-3">
-                            <h5>Lv.3 잎파리</h5>
-                            <span class="text-primary">너도밤나무</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-    <!-- Testimonial End -->
 
+    <table>
+        <tr>
+            <th class="whiter">reportnum</th>
+            <th class="whiter">reportDate</th>
+            <th class="whiter">reportCommentNum</th>
+            <th class="whiter">reportPostNum</th>
+            <th class="whiter">reporter</th>
+            <th class="whiter">reportee</th>
+            <th class="whiter">reportReason</th>
+        </tr>
+        <tr th:each="board : ${boardList}">
+
+            <td th:text="${board.reportNum}"></td>
+            <td th:text="${board.reportDate}"></td>
+            <td th:text="${board.reportCommentNum}"></td>
+            <td th:text="${board.reportPostNum}"></td>
+            <td th:text="${board.reporter}"></td>
+            <td th:text="${board.reportee}"></td>
+            <td th:text="${board.reportReason}"></td>
+
+        </tr>
+    </table>
     <!-- Footer Start -->
     <div class="container-fluid bg-dark footer mt-5 py-1 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
