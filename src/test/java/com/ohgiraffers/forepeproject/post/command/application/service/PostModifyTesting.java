@@ -11,6 +11,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalTime;
 import java.util.stream.Stream;
 
 @SpringBootTest
@@ -19,53 +20,19 @@ public class PostModifyTesting {
     @Autowired
     private PostModifyService postModifyService;
 
-    private static Stream<Arguments> modifyPost() {
-
-        return Stream.of(
-                Arguments.of(
-                        1,
-                        "ee",
-                        23,
-                        "aef",
-                        "ag",
-                        "Y",
-                        "faope",
-                        "imbanana",
-                        4,
-                        2,
-                        "safjlewa",
-                        3
-                )
-        );
-
-    }
 
     @DisplayName("post modify test")
     @ParameterizedTest
-    @MethodSource("modifyPost")
-    void testModifyPost(int postNum, String postName, int postLike, String postWriter, String postHighlight,
-                        String postState, String postDate, String postDetail, int views, int postCategoryNum,
-                        String attachment, int postMemberNum) {
-        PostDTO postDTO = new PostDTO(
-                postNum,
-                postName,
-                postLike,
-                postWriter,
-                postHighlight,
-                postState,
-                postDate,
-                postDetail,
-                views,
-                postCategoryNum,
-                attachment,
-                postMemberNum
-        );
+    void testModifyPost() {
+        PostDTO postDTO = new PostDTO();
 
-        PostEntity postEntity = new PostEntity();
+        postDTO.setPostName("lsafasd");
+        postDTO.setPostWriter("dsfa");
+        postDTO.setPostDetail("lastjoweitj");
+        postDTO.setPostCategoryNum(1);
 
-        BeanUtils.copyProperties(postDTO, postEntity);
 
-        postModifyService.modifyAll(postEntity);
+        postModifyService.updatePost(postDTO);
 
     }
 
