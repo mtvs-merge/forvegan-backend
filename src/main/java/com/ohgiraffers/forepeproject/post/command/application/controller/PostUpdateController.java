@@ -19,8 +19,8 @@ public class PostUpdateController {
         this.postUpdateService = postUpdateService;
     }
 
-    @PostMapping("/row")
-    public ResponesEnum updatePost(@RequestParam Long postNum) {
-        return postUpdateService.updatePost(postNum);
-    }
+//    @PostMapping("/row")
+//    public ResponesEnum updatePost(@RequestParam Long postNum) {
+//        return postUpdateService.updatePost(postNum);
+//    }
 }

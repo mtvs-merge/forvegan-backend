@@ -15,12 +15,12 @@ public class PostUpdateService {
         this.postsRepository = postsRepository;
     }
 
-    public ResponesEnum updatePost(Long PostNum){
-        try{
-            postsRepository.findById(postNum);
-            return ResponesEnum.SUCCESS;
-        } catch (Exception exception){
-            return ResponesEnum.FAILURE;
-        }
-    }
+//    public ResponesEnum updatePost(Long PostNum){
+//        try{
+//            postsRepository.findById(postNum);
+//            return ResponesEnum.SUCCESS;
+//        } catch (Exception exception){
+//            return ResponesEnum.FAILURE;
+//        }
+//    }
 }

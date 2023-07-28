@@ -27,17 +27,6 @@ public class PostDeleteController {
     @PostMapping("/row")
     public String deletePost(@RequestParam PostDeleteDTO postDeleteDTO, RedirectAttributes redirectAttributes) {
 
-//        PostEntity e = postRepository.findByPostNum(postDeleteDTO.getPostNum());
-//
-//        if(postDeleteDTO.getPostMemberNum() == e.getPostMemberNum()){
-//            try {
-//                postDeleteService.deletePost(postDeleteDTO.getPostNum());
-//            } catch (Exception exception) {
-//                redirectAttributes.addFlashAttribute("message", "존재하지 않는 게시판입니다");
-//            }
-//        } else {
-//            redirectAttributes.addFlashAttribute("message", "게시판 작성자가 아닙니다");
-//        }
         // Check if owner
         if(postDeleteService.isOwner(postDeleteDTO)) {
             try{
