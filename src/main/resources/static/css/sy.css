@@ -158,3 +158,17 @@ flex-direction: column;
     padding: 10px;
     border-radius: 5px;
 }
+
+.steptext-write textarea{
+    width: 100%;
+}
+
+.write-finish{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.write-finish .finish{
+    padding: 20px !important
+}
