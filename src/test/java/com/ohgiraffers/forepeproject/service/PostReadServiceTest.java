@@ -22,6 +22,6 @@ public class PostReadServiceTest {
         PostCreateController.Post post = postReadService.readPost(postId);
 
         // Then
-        assertNull(post); // 실제로 구현되지 않았으므로 null을 반환할 것으로 예상합니다.
+        assertNull(post);
     }
 }

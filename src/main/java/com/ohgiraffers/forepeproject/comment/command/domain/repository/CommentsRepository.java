@@ -16,6 +16,7 @@ public class CommentsRepository {
         return null;
     }
 
-    public void delete(CommentEntity commentEntity) {
+    public Comment delete(CommentEntity commentEntity) {
+        return null;
     }
 }

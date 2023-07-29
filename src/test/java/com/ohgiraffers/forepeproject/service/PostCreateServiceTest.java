@@ -22,14 +22,14 @@ public class PostCreateServiceTest {
     public void testCreatePost() {
         // Given
         PostCreateDTO createDTO = new PostCreateDTO();
-        createDTO.setPostName("테스트 게시물");
-        createDTO.setPostDetail("테스트 게시물 상세 내용");
+        createDTO.setPostName("테스트 게시물 제목입니다.");
+        createDTO.setPostDetail("테스트 게시물 상세 내용입니다.");
 
         // When
         PostCreateController.Post createdPost = postCreateService.createPost(createDTO);
 
         // Then
-        assertEquals("테스트 게시물", createdPost.getPostName());
-        assertEquals("테스트 게시물 상세 내용", createdPost.getPostDetail());
+        assertEquals("테스트 게시물 제목 입니다.", createdPost.getPostName());
+        assertEquals("테스트 게시물 상세 내용입니다.", createdPost.getPostDetail());
     }
 }

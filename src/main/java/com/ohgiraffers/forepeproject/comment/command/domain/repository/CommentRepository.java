@@ -5,7 +5,11 @@ package com.ohgiraffers.forepeproject.comment.command.domain.repository;
         import org.springframework.stereotype.Repository;
 
         import javax.xml.stream.events.Comment;
+        import java.util.Optional;
+
 @Repository
+public
 interface CommentRepository extends JpaRepository<CommentEntity, Integer> {
+        Optional<Object> findById(Long commentId);
 }
 

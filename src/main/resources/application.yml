@@ -13,7 +13,6 @@ spring:
     allow-circular-references: true
 
   jpa:
-    generate-ddl: false
     show-sql: true
     database: mysql
     properties:
@@ -21,7 +20,18 @@ spring:
         '[format_sql]': true
         hbm2ddl:
           auto: update
+    hibernate:
+      ddl-auto: create
 
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 10MB
+
+mybatis:
+  type-aliases-package: com.ohgiraffers.forepeproject.postAttachment.query.domain.entity
+  config: config/mybatis/mybatis-config.xml
+  mapper-locations: config/mybatis/mapper/*.xml
 
 
 #  mybatis:

@@ -9,7 +9,9 @@ import com.ohgiraffers.forepeproject.post.command.domain.repository.PostReposito
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 public class PostDeleteServiceTest {
 
     @DisplayName("게시물 삭제 테스트")
