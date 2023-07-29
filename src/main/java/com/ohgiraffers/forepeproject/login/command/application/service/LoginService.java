@@ -181,8 +181,6 @@ public class LoginService {
                 String.class
         );
 
-        System.out.println("kakaoProfileResponse = " + kakaoProfileResponse);
-
         KakaoProfileDTO kakaoProfileDTO = new KakaoProfileDTO();
         ObjectMapper objectMapper = new ObjectMapper();
 

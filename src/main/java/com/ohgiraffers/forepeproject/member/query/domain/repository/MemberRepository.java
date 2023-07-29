@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
+public interface MemberRepository extends JpaRepository<MemberEntity, Integer> {
 
 //    Optional<MemberEntity> findByMemberNickname(String memberNickname);
 //
@@ -18,4 +18,6 @@ public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
 
     @Query("SELECT m FROM Member AS m WHERE m.socialLogin LIKE :socialLogin AND m.socialId = :socialId")
     MemberEntity findBySocialId(String socialLogin, long socialId);
+
+
 }

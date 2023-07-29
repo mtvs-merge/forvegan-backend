@@ -25,6 +25,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,9 +40,9 @@ public class LoginController {
     private final LoginService loginService;
 
 
-    @GetMapping("/login")
+    @GetMapping("/auth/login")
     public String login() {
-        return "loginForm";
+        return "user/login";
     }
 
 
@@ -49,18 +50,10 @@ public class LoginController {
     @PreAuthorize("permitAll()")
     @ApiOperation(value = "카카오 인가 코드 받아와서 액세스 토큰 발급")
     @GetMapping("/auth/kakao/callback")
-    public ResponseEntity<?> getKakaoCode(@RequestParam("code") String code) {
-
-        System.out.println("코드 받아서 백엔드 시작됨");
-        System.out.println("code = " + code);
-
-        System.out.println("test");
+    public void getKakaoCode(@RequestParam("code") String code, HttpServletResponse response) {
 
         /* 인가 코드로 액세스 토큰 발급 */
         OauthTokenDTO oauthToken = loginService.getAccessToken(code);
-
-        System.out.println("oauthToken : " + oauthToken);
-        System.out.println(oauthToken.getAccess_token());
 
         /* 액세스 토큰으로 DB 저장 or 확인 후 JWT 생성 */
         AccessTokenDTO jwtToken = loginService.getJwtToken(oauthToken);
@@ -68,23 +61,22 @@ public class LoginController {
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("token", jwtToken);
 
-        System.out.println("jwtToken : " + jwtToken);
 
         ResponseCookie cookie = ResponseCookie.from("jwtToken", jwtToken.getAccessToken())
                 .maxAge(3600)
-                .httpOnly(true)
                 .secure(true)
+                .sameSite("strict")
                 .path("/")
                 .build();
 
-        HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.add(HttpHeaders.SET_COOKIE, cookie.toString());
-
+        response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
 
         /* JWT와 응답 결과를 프론트에 전달 */
-        return ResponseEntity
-                .ok()
-                .body(new ResponseDto(HttpStatus.OK, "로그인 성공", responseMap));
+        try {
+            response.sendRedirect("http://localhost:8888");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @ApiOperation(value = "jwt 액세스 토큰 만료되어 재발급")

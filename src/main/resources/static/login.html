@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title> 포레피 Forepe - 회원정보수정</title>
+    <title> 포레피 Forepe - 로그인</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -114,33 +114,47 @@
 </div>
 <!-- Testimonial End -->
 
-<!-- Script to check login status -->
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- 로그인 상태를 확인하는 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     function sendKakaoAuthRequest() {
         // 카카오 인가 페이지로 이동
         window.location.href = 'https://kauth.kakao.com/oauth/authorize?client_id=94407d0193a445443e41394304ebfacd&redirect_uri=http://localhost:8888/auth/kakao/callback&response_type=code';
     }
-    function onKakaoLoginSuccess(jwtToken) {
-        // jwtToken을 로컬 스토리지에 저장
-        localStorage.setItem('accessToken', jwtToken);
 
-        // 로그인 완료 후 메인 페이지로 리다이렉트 또는 원하는 동작 수행
-        window.location.href = 'index.html'; // 메인 페이지로 이동
+    function handleKakaoLogin(code) {
+        const url = 'http://localhost:8888/auth/kakao/callback';
+        const data = { code: code };
+
+        axios.get(url, { params: data })
+            .then(response => {
+                if (response.data && response.data.result && response.data.result.token) {
+                    console.log("토큰 받아옴:", response.data.result.token.accessToken);
+                    localStorage.setItem('jwtToken', response.data.result.token.accessToken);
+                    console.log("토큰 저장 완료");
+                    console.log("리다이렉트 시작");
+                    window.location.href = 'http://localhost:8888';
+                } else {
+                    console.error('토큰을 받아오지 못함', response.data);
+                }
+            })
+            .catch(error => {
+                console.error('서버에서 에러 발생:', error);
+            });
     }
 
     const urlParams = new URLSearchParams(window.location.search);
-    const jwtToken = urlParams.get('code');
-    if (jwtToken) {
-        onKakaoLoginSuccess(jwtToken);
+    const code = urlParams.get('code');
+    if(code) {
+        handleKakaoLogin(code);
     }
-
 
 </script>
 
+<!-- ... (나머지 HTML 코드) ... -->
 
 
-
+</script>
 
 <!-- Footer Start -->
 <div class="container-fluid bg-dark footer mt-5 py-1 wow fadeIn" data-wow-delay="0.1s">
