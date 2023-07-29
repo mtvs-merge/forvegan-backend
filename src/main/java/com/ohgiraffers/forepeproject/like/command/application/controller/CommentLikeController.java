@@ -25,18 +25,16 @@ public class CommentLikeController {
         commentLikeService.addCommentLike(commentLikeDTO);
     }
 
-
-    // 삭제
-    @DeleteMapping("/comment/like/{commentLikeNum}")
-    public void removeCommentLike(@PathVariable int commentLikeNum) {
-        commentLikeService.removeCommentLike(commentLikeNum);
-    }
-
     // 조회
     @GetMapping("/comment/like/{commentLikeNum}")
     public CommentLikeEntity getCommentLike(@PathVariable int commentLikeNum) {
         return commentLikeService.getCommentLike(commentLikeNum);
     }
 
+    // 삭제
+    @DeleteMapping("/comment/like/{commentLikeNum}")
+    public void removeCommentLike(@PathVariable int commentLikeNum) {
+        commentLikeService.removeCommentLike(commentLikeNum);
+    }
 
 }

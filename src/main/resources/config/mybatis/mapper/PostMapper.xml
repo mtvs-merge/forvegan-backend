@@ -22,4 +22,9 @@
         ORDER BY POST_NUM
         LIMIT 15 OFFSET #{page}
     </select>
+    <select id="getPostDetails" resultMap="postResultMap">
+        SELECT *
+        FROM POST
+        WHERE POST_NUM = #{postNum}
+    </select>
 </mapper>

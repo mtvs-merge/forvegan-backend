@@ -19,11 +19,11 @@ public class PostReadController {
         this.postReadService = postReadService;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<PostCreateController.Post> readPost(@PathVariable Long id) {
-        PostCreateController.Post post = postReadService.readPost(id);
-        return new ResponseEntity<>(post, HttpStatus.OK);
-    }
+//    @GetMapping("/{id}")
+//    public ResponseEntity<PostCreateController.Post> readPost(@PathVariable Long id) {
+//        PostCreateController.Post post = postReadService.readPost(id);
+//        return new ResponseEntity<>(post, HttpStatus.OK);
+//    }
 
     @GetMapping("/vegan")
     public String getVeganPost(@RequestParam int page, Model model) {
