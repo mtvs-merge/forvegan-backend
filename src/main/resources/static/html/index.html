@@ -21,14 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="../lib/animate/animate.min.css" rel="stylesheet">
-    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -72,7 +72,10 @@
                         </div>
                         <a href="recipeReview.html" class="nav-item nav-link">레시피 후기</a>
                         <a href="feedback.html" class="nav-item nav-link">피드백</a>
-                        <a href="login.html" style="margin-top:10px; margin-right:20px"><button type="button" class="btn btn-primary py-1 position-relative top-0 end-0 mt-2 me-2">로그인</button></a>
+                        <a href="login.html" style="margin-top:10px; margin-right:20px">
+                            <button id="login-button" type="button" class="btn btn-primary py-1 position-relative top-0 end-0 mt-2 me-2">로그인</button>
+                            <button id="logout-button" type="button" class="btn btn-primary py-1 position-relative top-0 end-0 mt-2 me-2">로그아웃</button>
+                        </a>
                     </div>
                     <div class="border-start ps-4 d-none d-lg-block">
                         <div class="btnS">
@@ -96,7 +99,7 @@
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="../img/main_banner.jpg" alt="Image">
+                    <img class="w-100" src="img/main_banner.jpg" alt="Image">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
@@ -110,7 +113,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="../img/main_banner2.jpg" alt="Image">
+                    <img class="w-100" src="img/main_banner2.jpg" alt="Image">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
@@ -146,12 +149,12 @@
                 <div class="col-lg-6">
                     <div class="row g-3">
                         <div class="col-6 text-end">
-                            <img class="img-fluid bg-white w-100 mb-3 wow fadeIn" data-wow-delay="0.1s" src="../img/main_introduce-1.jpg" alt="">
-                            <img class="img-fluid bg-white w-50 wow fadeIn" data-wow-delay="0.2s" src="../img/main_introduce-5.jpg" alt="">
+                            <img class="img-fluid bg-white w-100 mb-3 wow fadeIn" data-wow-delay="0.1s" src="img/main_introduce-1.jpg" alt="">
+                            <img class="img-fluid bg-white w-50 wow fadeIn" data-wow-delay="0.2s" src="img/main_introduce-5.jpg" alt="">
                         </div>
                         <div class="col-6">
-                            <img class="img-fluid bg-white w-50 mb-3 wow fadeIn" data-wow-delay="0.3s" src="../img/main_introduce-3.jpg" alt="">
-                            <img class="img-fluid bg-white w-100 wow fadeIn" data-wow-delay="0.4s" src="../img/main_introduce-4.jpg" alt="">
+                            <img class="img-fluid bg-white w-50 mb-3 wow fadeIn" data-wow-delay="0.3s" src="img/main_introduce-3.jpg" alt="">
+                            <img class="img-fluid bg-white w-100 wow fadeIn" data-wow-delay="0.4s" src="img/main_introduce-4.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -162,7 +165,7 @@
                     </div>
                     <div class="row g-3 mb-4">
                         <div class="col-sm-4">
-                            <img class="img-fluid bg-white w-100" src="../img/main_vegan.jpg" alt="">
+                            <img class="img-fluid bg-white w-100" src="img/main_vegan.jpg" alt="">
                         </div>
                         <div class="col-sm-8">
                             <h5>비건</h5>
@@ -176,13 +179,13 @@
                             <p class="mb-0"><br>유제품과 난류까지는 허용하는 채식주의</p>
                         </div>
                         <div class="col-sm-4">
-                            <img class="img-fluid bg-white w-100" src="../img/main_lactoovo.jpg" alt="">
+                            <img class="img-fluid bg-white w-100" src="img/main_lactoovo.jpg" alt="">
                         </div>
                     </div>
                     <div class="border-top mb-4"></div>
                     <div class="row g-3 mb-4">
                         <div class="col-sm-4">
-                            <img class="img-fluid bg-white w-100" src="../img/main_pesco-1.jpg" alt="">
+                            <img class="img-fluid bg-white w-100" src="img/main_pesco-1.jpg" alt="">
                         </div>
                         <div class="col-sm-8">
                             <h5>페스코/폴로</h5>
@@ -270,13 +273,15 @@
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/wow/wow.min.js"></script>
-    <script src="../lib/easing/easing.min.js"></script>
-    <script src="../lib/waypoints/waypoints.min.js"></script>
-    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="../js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/loginCheck.js"></script>
+
 </body>
 
 </html>

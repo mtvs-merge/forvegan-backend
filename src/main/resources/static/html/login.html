@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title> 포레피 Forepe - 회원정보수정</title>
+    <title> 포레피 Forepe - 로그인</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -21,14 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="../lib/animate/animate.min.css" rel="stylesheet">
-    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -104,17 +104,57 @@
 <div class="container-fluid py-5">
     <div class="container">
         <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <a href="">
-                <img src="../img/kakao_login_large_narrow.png">
+            <!-- 인가 코드를 받기 위해 카카오 인가 페이지로 이동하는 버튼 -->
+            <a onclick="sendKakaoAuthRequest()">
+                <img src="img/kakao_login_large_narrow.png">
             </a>
             <p style="margin-top: 100px;">카카오로만 로그인 할 수 있음~~~</p>
         </div>
-
     </div>
 </div>
 <!-- Testimonial End -->
 
+    <!-- 로그인 상태를 확인하는 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    function sendKakaoAuthRequest() {
+        // 카카오 인가 페이지로 이동
+        window.location.href = 'https://kauth.kakao.com/oauth/authorize?client_id=94407d0193a445443e41394304ebfacd&redirect_uri=http://localhost:8888/auth/kakao/callback&response_type=code';
+    }
 
+    function handleKakaoLogin(code) {
+        const url = 'http://localhost:8888/auth/kakao/callback';
+        const data = { code: code };
+
+        axios.get(url, { params: data })
+            .then(response => {
+                if (response.data && response.data.result && response.data.result.token) {
+                    console.log("토큰 받아옴:", response.data.result.token.accessToken);
+                    localStorage.setItem('jwtToken', response.data.result.token.accessToken);
+                    console.log("토큰 저장 완료");
+                    console.log("리다이렉트 시작");
+                    window.location.href = 'http://localhost:8888';
+                } else {
+                    console.error('토큰을 받아오지 못함', response.data);
+                }
+            })
+            .catch(error => {
+                console.error('서버에서 에러 발생:', error);
+            });
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    if(code) {
+        handleKakaoLogin(code);
+    }
+
+</script>
+
+<!-- ... (나머지 HTML 코드) ... -->
+
+
+</script>
 
 <!-- Footer Start -->
 <div class="container-fluid bg-dark footer mt-5 py-1 wow fadeIn" data-wow-delay="0.1s">
@@ -187,13 +227,13 @@
 <!-- JavaScript Libraries -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../lib/wow/wow.min.js"></script>
-<script src="../lib/easing/easing.min.js"></script>
-<script src="../lib/waypoints/waypoints.min.js"></script>
-<script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
 <!-- Template Javascript -->
-<script src="../js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 
 </html>

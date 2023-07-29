@@ -21,14 +21,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
   <!-- Libraries Stylesheet -->
-  <link href="../lib/animate/animate.min.css" rel="stylesheet">
-  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Customized Bootstrap Stylesheet -->
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Template Stylesheet -->
-  <link href="../css/style.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -72,7 +72,10 @@
           </div>
           <a href="recipeReview.html" class="nav-item nav-link">레시피 후기</a>
           <a href="feedback.html" class="nav-item nav-link">피드백</a>
-          <a href="" style="margin-top:10px; margin-right:20px"><button type="button" class="btn btn-primary py-1 position-relative top-0 end-0 mt-2 me-2">로그인</button></a>
+          <a href="login.html" style="margin-top:10px; margin-right:20px">
+            <button id="login-button" type="button" class="btn btn-primary py-1 position-relative top-0 end-0 mt-2 me-2">로그인</button>
+            <button id="logout-button" type="button" class="btn btn-primary py-1 position-relative top-0 end-0 mt-2 me-2">로그아웃</button>
+          </a>
         </div>
         <div class="border-start ps-4 d-none d-lg-block">
           <div class="btnS">
@@ -193,13 +196,14 @@
 <!-- JavaScript Libraries -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../lib/wow/wow.min.js"></script>
-<script src="../lib/easing/easing.min.js"></script>
-<script src="../lib/waypoints/waypoints.min.js"></script>
-<script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
 <!-- Template Javascript -->
-<script src="../js/main.js"></script>
+<script src="js/main.js"></script>
+<script src="js/loginCheck.js"></script>
 </body>
 
 </html>
