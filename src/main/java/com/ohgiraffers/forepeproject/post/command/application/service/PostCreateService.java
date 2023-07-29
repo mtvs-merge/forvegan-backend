@@ -2,6 +2,7 @@ package com.ohgiraffers.forepeproject.post.command.application.service;
 
 import com.ohgiraffers.forepeproject.post.command.application.controller.PostCreateController;
 import com.ohgiraffers.forepeproject.post.command.application.dto.PostCreateDTO;
+import com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity.PostEntity;
 import com.ohgiraffers.forepeproject.post.command.domain.repository.PostRepository;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,13 @@ public class PostCreateService {
         this.postRepository = postRepository;
     }
 
-    public PostCreateController.Post createPost(PostCreateDTO createDTO) {
-        PostCreateController.Post post = new PostCreateController.Post();
-        post.setPostName(createDTO.getPostName());
-        post.setPostDetail(createDTO.getPostDetail());
+    public void createPost(PostEntity postEntity) {
+        PostEntity post = new PostEntity();
+        post.setPostName(postEntity.getPostName());
+        post.setPostDetail(postEntity.getPostDetail());
 
-        return postRepository.save(post);
+        postRepository.save(post);
+        postRepository.flush();
     }
 }
 

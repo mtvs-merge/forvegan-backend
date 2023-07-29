@@ -8,15 +8,15 @@ import java.util.Optional;
 
 @Repository
 public class CommentsRepository {
-    public Optional<Object> findById() {
-        return null;
-    }
-
-    public Comment save(CommentEntity commentEntity) {
-        return null;
-    }
-
-    public Comment delete(CommentEntity commentEntity) {
-        return null;
-    }
+//    public Optional<Object> findById() {
+//        return null;
+//    }
+//
+//    public Comment save(CommentEntity commentEntity) {
+//        return null;
+//    }
+//
+//    public Comment delete(CommentEntity commentEntity) {
+//        return null;
+//    }
 }

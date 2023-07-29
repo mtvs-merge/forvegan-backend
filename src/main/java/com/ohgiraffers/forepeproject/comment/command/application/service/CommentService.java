@@ -2,6 +2,7 @@ package com.ohgiraffers.forepeproject.comment.command.application.service;
 
 import com.ohgiraffers.forepeproject.comment.command.application.dto.CommentDTO;
 import com.ohgiraffers.forepeproject.comment.command.domain.aggregate.entity.CommentEntity;
+import com.ohgiraffers.forepeproject.comment.command.domain.repository.CommentRepository;
 import com.ohgiraffers.forepeproject.comment.command.domain.repository.CommentsRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,21 +11,21 @@ import javax.xml.stream.events.Comment;
 
 @Service
 public class CommentService {
-    private final CommentsRepository commentsRepository;
+    private final CommentRepository commentRepository;
 
-    public CommentService(CommentsRepository commentsRepository) {
-        this.commentsRepository = commentsRepository;
+    public CommentService(CommentRepository commentRepository) {
+        this.commentRepository = commentRepository;
     }
 
-    public CommentEntity createComment(CommentDTO commentDTO) {
+    public void createComment(CommentDTO commentDTO) {
         CommentEntity commentEntity = new CommentEntity();
         commentEntity.setCommentDetail(commentDTO.getComments());
 
-        return (CommentEntity) commentsRepository.save(commentEntity);
+        commentRepository.save(commentEntity);
     }
 
-    public CommentDTO readComment(Long id) {
-        CommentEntity commentEntity = (CommentEntity) commentsRepository.findById()
+    public CommentDTO readComment(Integer id) {
+        CommentEntity commentEntity = (CommentEntity) commentRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("댓글을 찾을 수 없습니다."));
 
         CommentDTO commentDTO = new CommentDTO();
@@ -34,20 +35,20 @@ public class CommentService {
         return commentDTO;
     }
 
-    public Comment updateComment(Long id, CommentDTO commentDTO) {
-        CommentEntity commentEntity = (CommentEntity) commentsRepository.findById()
+    public void updateComment(Integer id, CommentDTO commentDTO) {
+        CommentEntity commentEntity = (CommentEntity) commentRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("댓글을 찾을 수 없습니다."));
 
         commentEntity.setCommentNum(commentDTO.getCommentNum());
 
-        return commentsRepository.save(commentEntity);
+        commentRepository.save(commentEntity);
     }
 
-    public void deleteComment(Long id) {
-        CommentEntity commentEntity = (CommentEntity) commentsRepository.findById()
+    public void deleteComment(Integer id) {
+        CommentEntity commentEntity = (CommentEntity) commentRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("댓글을 찾을 수 없습니다."));
 
-        commentsRepository.delete(commentEntity);
+        commentRepository.delete(commentEntity);
     }
 
     public void updateComment(Long commentNum) {

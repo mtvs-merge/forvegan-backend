@@ -48,6 +48,4 @@ public class KakaoProfileDTO {
     public static class Profile {
         private String nickname;
     }
-
-
 }

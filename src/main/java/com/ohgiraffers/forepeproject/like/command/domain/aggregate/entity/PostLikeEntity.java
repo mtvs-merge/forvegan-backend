@@ -12,8 +12,8 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity(name = "post")
-@Table(name = "POST")
+@Entity(name = "postLike")
+@Table(name = "POST_LIKE")
 @SequenceGenerator(
         name = "POST_SEQ_GENERATOR",
         sequenceName = "SEQ_POST_NUM",

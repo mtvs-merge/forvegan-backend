@@ -10,6 +10,6 @@ package com.ohgiraffers.forepeproject.comment.command.domain.repository;
 @Repository
 public
 interface CommentRepository extends JpaRepository<CommentEntity, Integer> {
-        Optional<Object> findById(Long commentId);
+//        Optional<Object> findById(Long commentId);
 }
 

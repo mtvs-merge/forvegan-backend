@@ -31,7 +31,7 @@ public class Attachment {
     @Column(name = "FILE_TYPE",nullable = false)
     private String fileType;
 
-    @Column(name = "DELETE_YN" ,columnDefinition = " default 'N'")
+    @Column(name = "DELETE_YN" ,columnDefinition = "CHAR(1) default 'N'")
     private String deleteYN;
 
     @Column(name = "POST_NUM",nullable = false,length = 40)

@@ -1,7 +1,6 @@
 package com.ohgiraffers.forepeproject.report.query.application.service;
 
 import com.ohgiraffers.forepeproject.report.command.application.dto.ReportDTO;
-import com.ohgiraffers.forepeproject.report.command.domain.repository.ReportRepository;
 import com.ohgiraffers.forepeproject.report.query.infrastructure.repository.ReportMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -17,12 +17,12 @@ public class PostDTO {
     private String postName;
     private String postWriter;
     private String postHighlight;
-    private String postState;
+    private String postShowState;
     private String postDate;
     private String postDetail;
     private int views;
     private int postCategoryNum;
-    private String attachment;
+    private String postAttachmentNum;
     private int postMemberNum;
 
     public static Object toEntity() {

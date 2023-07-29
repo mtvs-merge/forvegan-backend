@@ -18,25 +18,25 @@ public class CommentController {
     }
 
     @PostMapping
-    public ResponseEntity<Comment> createComment(@RequestBody CommentDTO commentDTO) {
-        Comment createdComment = (Comment) commentService.createComment(commentDTO);
-        return new ResponseEntity<>(createdComment, HttpStatus.CREATED);
+    public String createComment(@RequestBody CommentDTO commentDTO) {
+//        Comment createdComment = (Comment) commentService.createComment(commentDTO);
+        return "/post";
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CommentDTO> readComment(@PathVariable Long id) {
+    public ResponseEntity<CommentDTO> readComment(@PathVariable Integer id) {
         CommentDTO commentDTO = commentService.readComment(id);
         return new ResponseEntity<>(commentDTO, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Comment> updateComment(@PathVariable Long id, @RequestBody CommentDTO commentDTO) {
-        Comment updatedComment = commentService.updateComment(id, commentDTO);
-        return new ResponseEntity<>(updatedComment, HttpStatus.OK);
+    public String updateComment(@PathVariable Integer id, @RequestBody CommentDTO commentDTO) {
+        commentService.updateComment(id, commentDTO);
+        return "/post";
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteComment(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteComment(@PathVariable Integer id) {
         commentService.deleteComment(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
