@@ -21,7 +21,7 @@ spring:
         hbm2ddl:
           auto: update
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
   servlet:
     multipart:
