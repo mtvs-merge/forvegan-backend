@@ -31,6 +31,7 @@ public class AttachmentDTO {
         this.size=size;
     }
 
+
     public void setPostNum(long postNum) {
         this.postNum = postNum;
     }

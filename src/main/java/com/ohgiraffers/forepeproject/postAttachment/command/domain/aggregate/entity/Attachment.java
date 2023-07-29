@@ -31,8 +31,7 @@ public class Attachment {
     @Column(name = "FILE_TYPE",nullable = false)
     private String fileType;
 
-    @Column(name = "DELETE_YN")
-    @ColumnDefault("'N'")
+    @Column(name = "DELETE_YN" ,columnDefinition = " default 'N'")
     private String deleteYN;
 
     @Column(name = "POST_NUM",nullable = false,length = 40)
@@ -46,6 +45,14 @@ public class Attachment {
         this.attachName = attachName;
         this.attachRename = attachRename;
         this.fileType = fileType;
+        this.fileSize = fileSize;
+    }
+
+    public Attachment(String attachName, String attachRename, String fileType, String deleteYN, FileSize fileSize) {
+        this.attachName = attachName;
+        this.attachRename = attachRename;
+        this.fileType = fileType;
+        this.deleteYN = deleteYN;
         this.fileSize = fileSize;
     }
 
