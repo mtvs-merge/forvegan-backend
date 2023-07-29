@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface PostMapper {
     List<PostEntity> getAllPost(int page, int postCategoryNum);
+
+    PostEntity getPostDetails(int postNum);
 }

@@ -9,6 +9,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PostLikeDTO {
+
     private int postNum;
+    private int postLikeNum;
     private String postWriter;
+    private String postLikeUser;
 }
