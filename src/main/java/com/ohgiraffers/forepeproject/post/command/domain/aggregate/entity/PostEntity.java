@@ -1,12 +1,11 @@
 package com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity;
 
+import com.ohgiraffers.forepeproject.post.command.application.controller.PostCheckController;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.http.HttpStatus;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 // Entity 클래스는 Table 혹은 Record 역할을 하는 DB 그 자체
@@ -26,7 +25,7 @@ import java.time.format.DateTimeFormatter;
         initialValue = 1,
         allocationSize = 1
 )
-public class PostEntity {
+public class PostEntity<P> {
 
     @Id
     @GeneratedValue(
@@ -70,6 +69,10 @@ public class PostEntity {
 
     @Column(name = "POST_MEMBER_NUM")
     private int postMemberNum;
+
+//    public PostEntity(PostCheckController.Post post, HttpStatus httpStatus) {
+//    }
+
 
 //    @CreatedDate
 //    @Column(name ="POST_CREATED_DATE", updatable = false)

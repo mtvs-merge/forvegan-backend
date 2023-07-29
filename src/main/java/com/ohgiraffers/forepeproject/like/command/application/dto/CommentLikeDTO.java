@@ -10,6 +10,8 @@ import lombok.*;
 public class CommentLikeDTO {
 
     private int commentNum;
+    private int commentLikeNum;
     private String commentWriter;
+    private String commentLikeUser;
 
 }
