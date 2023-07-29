@@ -19,6 +19,7 @@ public class Controller {
         this.attachmentService = attachmentService;
         this.fileUtils= fileUtils;
     }
+
     @RequestMapping("/test/attachment")
     public String saveFile(Model model, @RequestParam("files") List<MultipartFile> multipartFileList){
         Long postNum=2L;

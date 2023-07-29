@@ -6,5 +6,6 @@
         <mapper resource="AttachmentMapperQuery.xml"/>
         <mapper resource="test.xml"/>
         <mapper resource="AttachmentMapper.xml"/>
+        <mapper resource="PostMapper.xml"/>
     </mappers>
 </configuration>

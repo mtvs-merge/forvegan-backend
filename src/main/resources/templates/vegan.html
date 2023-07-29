@@ -113,68 +113,88 @@
     <!-- About Start -->
     <div class="container-fluid product py-5">
         <div class="container py-5">
-            <button class="btn_write wow fadeInUp" data-wow-delay="0.3s"><a href="write.html">레시피 작성</a></button>
-
-            <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <button class="btn_write wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;"><a href="write.html">레시피 작성</a></button>
+            <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                 <p class="fs-5 fw-medium fst-italic text-primary">당신의 레시피를 알려주세요!</p>
                 <h1 class="display-6">채소만을 활용한 레시피</h1>
-<!--                <button class="btn_write" type="submit">글쓰기</button>-->
             </div>
-            <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s" style="margin-bottom: 100px">
+            <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s" data-items="1" style="margin-bottom: 100px; visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
 
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-2.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">하이라이트 게시물</h4>
-                        <span class="text-body">두유그릭요거트</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-3.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">버섯꿔바로우</h4>
-                        <span class="text-body">달콤하고 쫀득한 버섯꿔바로우!</span>
-                    </div>
-                </a>
-                <a href="view.html" class="d-block product-item rounded">
-                    <img src="img/product-4.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">인기 게시물</h4>
-                        <span class="text-body">비건 마라샹궈</span>
-                    </div>
-                </a>
-            </div>
-            <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s">
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-1.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">비건 마라샹궈</h4>
-                        <span class="text-body">비건으로 더 맛있는 마라샹궈 만들기</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-2.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">비건 똠얌꿍</h4>
-                        <span class="text-body">박소연의 숨은 레시피</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-3.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">수제 두유그릭요거트</h4>
-                        <span class="text-body">요거트 스타터만 있으면 간단하게 가능!</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-4.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">당근라페 샌드위치</h4>
-                        <span class="text-body">한끼로 든든한 당근라페 샌드위치</span>
-                    </div>
-                </a>
+                <!-- Iterate over the postList and create carousel items -->
+                <div th:each="post : ${postList}" class="item">
+                    <a th:href="@{/post/{postNum}(postNum=${post.postNum})}" class="d-block product-item rounded">
+                        <img src="img/product-2.jpg" alt="">
+                        <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
+                            <h4 th:text="${post.postName}" class="text-primary"></h4>
+                            <span th:text="${post.postHighlight}"></span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
+<!--        <div class="container py-5">-->
+<!--            <button class="btn_write wow fadeInUp" data-wow-delay="0.3s"><a href="write.html">레시피 작성</a></button>-->
+<!--            <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">-->
+<!--                <p class="fs-5 fw-medium fst-italic text-primary">당신의 레시피를 알려주세요!</p>-->
+<!--                <h1 class="display-6">채소만을 활용한 레시피</h1>-->
+<!--                &lt;!&ndash;                <button class="btn_write" type="submit">글쓰기</button>&ndash;&gt;-->
+<!--            </div>-->
+<!--            <div th:each="post : ${postList}" class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s" data-items="1" style="margin-bottom: 100px">-->
+
+<!--                <a href="" class="d-block product-item rounded">-->
+<!--                    <img src="img/product-2.jpg" alt="">-->
+<!--                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">-->
+<!--                        <h4 th:text="${post.postName}" class="text-primary"></h4>-->
+<!--                        <span th:text="${post.postHighlight}"></span>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash;                <a href="" class="d-block product-item rounded">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <img src="img/product-3.jpg" alt="">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <h4 class="text-primary">버섯꿔바로우</h4>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <span class="text-body">달콤하고 쫀득한 버섯꿔바로우!</span>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--            &lt;!&ndash;                </a>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <a href="view.html" class="d-block product-item rounded">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <img src="img/product-4.jpg" alt="">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <h4 class="text-primary">인기 게시물</h4>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <span class="text-body">비건 마라샹궈</span>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--            &lt;!&ndash;                </a>&ndash;&gt;-->
+<!--            &lt;!&ndash;            </div>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s">&ndash;&gt;-->
+<!--            &lt;!&ndash;                <a href="" class="d-block product-item rounded">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <img src="img/product-1.jpg" alt="">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <h4 class="text-primary">비건 마라샹궈</h4>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <span class="text-body">비건으로 더 맛있는 마라샹궈 만들기</span>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--            &lt;!&ndash;                </a>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <a href="" class="d-block product-item rounded">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <img src="img/product-2.jpg" alt="">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <h4 class="text-primary">비건 똠얌꿍</h4>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <span class="text-body">박소연의 숨은 레시피</span>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--            &lt;!&ndash;                </a>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <a href="" class="d-block product-item rounded">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <img src="img/product-3.jpg" alt="">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <h4 class="text-primary">수제 두유그릭요거트</h4>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <span class="text-body">요거트 스타터만 있으면 간단하게 가능!</span>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--            &lt;!&ndash;                </a>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <a href="" class="d-block product-item rounded">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <img src="img/product-4.jpg" alt="">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <h4 class="text-primary">당근라페 샌드위치</h4>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <span class="text-body">한끼로 든든한 당근라페 샌드위치</span>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--            &lt;!&ndash;                </a>&ndash;&gt;-->
+<!--        </div>-->
     </div>
     <!-- Products End -->
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.forepeproject.post.query.domain.entity.PostMapper">
+    <resultMap id="postResultMap" type="com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity.PostEntity">
+        <id property="postNum" column="POST_NUM" />
+        <result property="postName" column="POST_NAME" />
+        <result property="postLike" column="POST_LIKE" />
+        <result property="postWriter" column="POST_WRITER" />
+        <result property="postHighlight" column="POST_HIGHLIGHT" />
+        <result property="postState" column="POST_STATE" />
+        <result property="postDate" column="POST_DATE" />
+        <result property="postDetail" column="POST_DETAIL" />
+        <result property="views" column="VIEWS" />
+        <result property="postCategoryNum" column="POST_CATEGORY_NUM" />
+        <result property="attachment" column="ATTACHMENT" />
+        <result property="postMemberNum" column="POST_MEMBER_NUM" />
+    </resultMap>
+    <select id="getAllPost" resultMap="postResultMap">
+        SELECT *
+        FROM POST
+        WHERE POST_CATEGORY_NUM = #{postCategoryNum}
+        ORDER BY POST_NUM
+        LIMIT 15 OFFSET #{page}
+    </select>
+</mapper>
