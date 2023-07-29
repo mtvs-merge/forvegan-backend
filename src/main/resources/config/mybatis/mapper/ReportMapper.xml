@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.forepeproject.report.query.infrastructure.repository.ReportMapper">
+    <select id="findAllReports">
+        SELECT *
+        FROM REPORT
+        WHERE REPORT_SHOW_STATE = "Y"
+        ORDER BY REPORT_NUM
+        LIMIT 10 OFFSET #{page}
+    </select>
+    <select id="findReportDetails">
+        SELECT *
+        FROM REPORT
+        WHERE REPORT_NUM = #{reportNum}
+    </select>
+</mapper>

@@ -1,8 +1,6 @@
 package com.ohgiraffers.forepeproject.postAttachment.command.application.service;
 
 import com.ohgiraffers.forepeproject.postAttachment.command.application.dto.AttachmentDTO;
-import com.ohgiraffers.forepeproject.postAttachment.command.domain.aggregate.entity.AttachmentMybatis;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;

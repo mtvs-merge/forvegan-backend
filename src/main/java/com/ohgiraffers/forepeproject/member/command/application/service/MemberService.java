@@ -3,6 +3,7 @@ package com.ohgiraffers.forepeproject.member.command.application.service;
 
 import com.ohgiraffers.forepeproject.member.command.application.dto.MemberDTO;
 import com.ohgiraffers.forepeproject.member.command.domain.aggregate.entity.MemberEntity;
+import com.ohgiraffers.forepeproject.member.query.domain.repository.MemberMapper;
 import com.ohgiraffers.forepeproject.member.query.domain.repository.MemberRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,14 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
     private final ModelMapper modelMapper;
+    private final MemberMapper memberMapper;
+//    private final JwtUtil jwtUtil;
 
     @Autowired
-    public MemberService(MemberRepository memberRepository, ModelMapper modelMapper) {
+    public MemberService(MemberRepository memberRepository, ModelMapper modelMapper, MemberMapper memberMapper) {
         this.memberRepository = memberRepository;
         this.modelMapper = modelMapper;
+        this.memberMapper = memberMapper;
     }
     public List<MemberDTO> findMemberList() {
 
@@ -48,5 +52,16 @@ public class MemberService {
 
         return memberRepository.save(modelMapper.map(newMember, MemberEntity.class)).getMemberNum();
     }
+
+
+    public MemberEntity findMemberByNum(int memberNum) {
+
+       return memberMapper.findMemberByNum(memberNum);
+    }
+
+
+
+
+
 }
 

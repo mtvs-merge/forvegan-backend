@@ -7,5 +7,5 @@ import javax.persistence.Embeddable;
 public class CommentWriter {
 
     @Column()
-    private int commentWriterMemberNo;
+    private int commentWriterMemberNum;
 }

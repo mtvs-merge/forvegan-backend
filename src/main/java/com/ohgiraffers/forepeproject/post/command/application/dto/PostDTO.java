@@ -17,13 +17,32 @@ public class PostDTO {
     private String postName;
     private String postWriter;
     private String postHighlight;
-    private String postState;
+    private String postShowState;
     private String postDate;
     private String postDetail;
     private int views;
     private int postCategoryNum;
-    private String attachment;
+    private String postAttachmentNum;
     private int postMemberNum;
+
+    public static Object toEntity() {
+        return null;
+    }
+
+    public PostDTO(int postNum, String postName, int postLike, String postWriter, String postHighlight, String postShowState, String postDate, String postDetail, int views, int postCategoryNum, String postAttachmentNum, int postMemberNum) {
+        this.postNum = postNum;
+        this.postName = postName;
+        this.postLike = postLike;
+        this.postWriter = postWriter;
+        this.postHighlight = postHighlight;
+        this.postShowState = postShowState;
+        this.postDate = postDate;
+        this.postDetail = postDetail;
+        this.views = views;
+        this.postCategoryNum = postCategoryNum;
+        this.postAttachmentNum = postAttachmentNum;
+        this.postMemberNum = postMemberNum;
+    }
 }
 
 

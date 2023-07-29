@@ -13,13 +13,13 @@ import java.time.format.DateTimeFormatter;
 @ToString
 @Entity(name = "Report")
 @Table(name = "REPORT")
-@SequenceGenerator(
-        name = "REPORT_SEQ_GENERATOR",
-        sequenceName = "SEQ_REPORT_NUM",
-        initialValue = 1,
-        allocationSize = 1
-)
 public class ReportEntity {
+    @SequenceGenerator(
+            name = "REPORT_SEQ_GENERATOR",
+            sequenceName = "SEQ_REPORT_NUM",
+            initialValue = 1,
+            allocationSize = 1
+    )
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -40,6 +40,12 @@ public class ReportEntity {
     @Column(name ="REPORT_REASON")
     private String reportReason;
 
+    @Column(name = "REPORT_SHOW_STATE")
+    private String reportShowState;
+
     @PrePersist
-    public void onPrePersist() { this.reportDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));}
+    public void onPrePersist() {
+        this.reportDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        this.reportShowState = "Y";
+    }
 }

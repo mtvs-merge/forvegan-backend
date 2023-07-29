@@ -1,7 +1,7 @@
 package com.ohgiraffers.forepeproject.postAttachment.command.application.dto;
 
 
-import com.ohgiraffers.forepeproject.postAttachment.command.domain.aggregate.vo.AttachmentDate;
+
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,6 +30,7 @@ public class AttachmentDTO {
         this.fileType=fileType;
         this.size=size;
     }
+
 
     public void setPostNum(long postNum) {
         this.postNum = postNum;
