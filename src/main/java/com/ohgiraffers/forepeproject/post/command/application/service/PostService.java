@@ -9,6 +9,7 @@ package com.ohgiraffers.forepeproject.post.command.application.service;
 // Delete
 
 import com.ohgiraffers.forepeproject.post.command.domain.repository.PostsRepository;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 

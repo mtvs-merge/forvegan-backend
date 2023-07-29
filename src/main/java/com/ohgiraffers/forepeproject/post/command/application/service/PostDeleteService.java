@@ -5,6 +5,7 @@ import com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity.PostEn
 import com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity.enumType.ResponesEnum;
 import com.ohgiraffers.forepeproject.post.command.domain.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
