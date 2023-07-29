@@ -1,6 +1,19 @@
 (function ($) {
     "use strict";
 
+    $(function(){ 
+
+        $(".call").click(function(){
+          $(".modal").fadeIn();
+        });
+        
+        $(".modal_report").click(function(){
+          $(".modal").fadeOut();
+        });
+        
+        });
+
+
     // Spinner
     var spinner = function () {
         setTimeout(function () {

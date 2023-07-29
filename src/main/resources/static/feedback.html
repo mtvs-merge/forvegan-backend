@@ -70,8 +70,8 @@
                                 <!--                                <a href="404.html" class="dropdown-item">404 Page</a>-->
                             </div>
                         </div>
-                        <a href="recipeReview.html" class="nav-item nav-link">레시피 후기</a>
-                        <a href="feedback.html" class="nav-item nav-link active">피드백</a>
+                        <!-- <a href="recipeReview.html" class="nav-item nav-link">레시피 후기</a> -->
+                        <a href="feedback.html" class="nav-item nav-link active">방명록</a>
                         <a href="" style="margin-top:10px; margin-right:20px"><button type="button" class="btn btn-primary py-1 position-relative top-0 end-0 mt-2 me-2">로그인</button></a>
 
                     </div>
@@ -93,11 +93,13 @@
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center py-5">
-            <h1 class="display-2 text-dark mb-4 animated slideInDown">리뷰</h1>
+        <div class="container text-center py-3">
+            <h1 class="display-2 text-dark mb-4 animated slideInDown">방명록</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="#">당신의 소중한 의견을 기다리고 있어요.</a></li>
+                    <li class="breadcrumb-item"><a href="#"> 포레피의 어떤 점이 좋았나요? 포레피의 어떤 점이 불편했나요? <br>
+                        당신의 소중한 의견을 남겨주세요. <br>
+                        적극적으로 의견을 수렴하여 더 나은 포레피가 되도록 노력하겠습니다.</a></li>
 <!--                    <li class="breadcrumb-item"><a href="#">Pages</a></li>-->
 <!--                    <li class="breadcrumb-item text-dark" aria-current="page">Contact</li>-->
                 </ol>
@@ -110,61 +112,147 @@
     <!-- Contact Start -->
     <div class="container-xxl contact py-5">
         <div class="container">
-            <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="fs-5 fw-medium fst-italic text-primary">리뷰와 피드백</p>
-                <h1 class="display-6">포레피는 당신의 리뷰를<br>기다리고 있어요.</h1>
-            </div>
+            <!-- <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="fs-5 fw-medium fst-italic text-primary">포레피를 방문해주셔서 정말 감사합니다.</p>
+                <h1 class="display-6">포레피에게 전할 말이 있다면<br>모두 적어주세요!</h1>
+            </div> -->
 
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="mb-4">좋았던 점, 불편했던 점을 모두 자유롭게 남겨주세요.</h3>
-                    <p class="mb-4">포레피를 방문해주셔서 정말 감사합니다. <br>
-                        포레피의 어떤 점이 좋았나요? 포레피의 어떤 점이 불편했나요? <br>
-                        당신의 소중한 의견을 남겨주세요. <br>
-                        적극적으로 의견을 수렴하여 더 나은 포레피가 되도록 노력하겠습니다.
-<!--                        <a href="https://htmlcodex.com/contact-form">Download Now</a>.-->
-                    </p>
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">별명</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">이메일</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">제목</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 120px"></textarea>
-                                    <label for="message">내용</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">작성</button>
-                            </div>
-                        </div>
+
+            <style type="text/css">
+                /* #t1, div {
+                    border: 1px solid black;
+                } */
+                </style>
+                <script>
+                    let cnt = 1;
+                    function a() {
+                        let writer = f.writer.value;
+                        let pwd = f.pwd.value;
+                        let content = f.content.value;
+                        let el = mkDiv(writer, pwd, content);
+                        let list = document.getElementById("list");
+                        list.appendChild(el);
+                        f.writer.value = "";
+                        f.pwd.value = "";
+                        f.content.value = "";
+                    }
+                    function mkDiv(writer, pwd, content) {
+                        let newDiv = document.createElement("div");//새 div태그 생성  <div id="d_1" pwd='111'>
+                        newDiv.id = "d_" + cnt;//생성한 div에 id 지정. d_cnt
+                        newDiv.pwd = pwd;
+                        let html = ""; //생성된 div에 출력될 내용
+                        html += "writer:<span id='w_"+cnt+"'>" + writer + "</span><br/>";
+                        html += "content:<span id='c_"+cnt+"'>" + content + "</span><br/>";
+                        html += "<input type='button' value='수정' onclick=editForm(" + cnt
+                                + ")>"; //editForm(2)
+                        html += "<input type='button' value='삭제' onclick=del(" + cnt + ")>";
+                        newDiv.innerHTML = html;
+                        cnt++;
+                        return newDiv;
+                    }
+                    function editForm(cnt) {
+                        let editDiv = document.getElementById("d_" + cnt); //수정할 글의 div
+                        let editForm = document.getElementById("editf");
+                        editDiv.appendChild(editForm);
+                        let writer = document.getElementById("w_" + cnt).innerHTML;
+                        let content = document.getElementById("c_" + cnt).innerHTML;
+                        document.getElementById("editwriter").value = writer;
+                        document.getElementById("editcontent").value = content;
+                        document.getElementById("editbtn").cnt = cnt;//버튼에 cnt속성을 추가해서, 수정 글번호를 저장
+                        editForm.style.display = '';
+                    }
+                    function cancel() {
+                        let editForm = document.getElementById("editf");
+                        editForm.style.display = 'none';
+                        document.getElementsByTagName("body")[0].appendChild(editForm);
+                
+                    }
+                    function edit() {
+                        let cnt = document.getElementById("editbtn").cnt;
+                        let editDiv = document.getElementById("d_" + cnt);
+                        let pwd2 = document.getElementById("editpwd").value;//수정폼에 입력한 글 비밀번호
+                        if (editDiv.pwd != pwd2) {
+                            alert("글 비밀번호 불일치. 수정불가");
+                        } else {
+                            let newWriter = document.getElementById("editwriter").value;
+                            let newContent = document.getElementById("editcontent").value;
+                            document.getElementById("w_" + cnt).innerHTML = newWriter;
+                            document.getElementById("c_" + cnt).innerHTML = newContent;
+                        }
+                        document.getElementById("editwriter").value = "";
+                        document.getElementById("editcontent").value = "";
+                        document.getElementById("editpwd").value = "";
+                        cancel();
+                    }
+                    function del(cnt) {
+                        let pwd = prompt("글 비밀번호");
+                        let delDiv = document.getElementById("d_" + cnt);
+                        if (pwd == delDiv.pwd) {
+                            document.getElementById("list").removeChild(delDiv);
+                        }else{
+                            alert("글 비밀번호 불일치. 삭제취소");
+                        }
+                    }
+                </script>
+                </head>
+                <body>
+                    <div class="row g-5">
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <!-- <h3 class="mb-4">좋았던 점, 불편했던 점을 모두 자유롭게 남겨주세요.</h3>
+                            <p class="mb-4">포레피를 방문해주셔서 정말 감사합니다. <br>
+                                포레피의 어떤 점이 좋았나요? 포레피의 어떤 점이 불편했나요? <br>
+                                당신의 소중한 의견을 남겨주세요. <br>
+                                적극적으로 의견을 수렴하여 더 나은 포레피가 되도록 노력하겠습니다.
+                                <a href="https://htmlcodex.com/contact-form">Download Now</a>.
+                            </p> -->
+                    <h3>방명록</h3>
+                    <form name="f">
+                        <table id="t1">
+                            <tr>
+                                <th>작성자</th>
+                                <td><input type="text" name="writer" id="writer"></td>
+                            </tr>
+                            <tr>
+                                <th>글 비밀번호</th>
+                                <td><input type="password" name="pwd" id="pwd"></td>
+                            </tr>
+                            <tr>
+                                <th>내용</th>
+                                <td><input type="text" name="content" id="content"></td>
+                            </tr>
+                            <tr>
+                                <th>작성</th>
+                                <td><input type="button" value="작성" onclick="a()"></td>
+                            </tr>
+                        </table>
                     </form>
+                    <div id="list"></div>
+                    <!-- 수정폼 -->
+                    <table id="editf" style="display: none;">
+                        <tr>
+                            <th>작성자</th>
+                            <td><input type="text" name="editwriter" id="editwriter"></td>
+                        </tr>
+                        <tr>
+                            <th>글 비밀번호</th>
+                            <td><input type="password" name="editpwd" id="editpwd"></td>
+                        </tr>
+                        <tr>
+                            <th>내용</th>
+                            <td><input type="text" name="editcontent" id="editcontent"></td>
+                        </tr>
+                        <tr>
+                            <th>수정완료</th>
+                            <td><input type="button" value="수정완료" id="editbtn"
+                                onclick="edit()"> <input type="button" value="취소"
+                                onclick="cancel()"></td>
+                        </tr>
+                    </table>
+
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <img src="/img/logo.png" style="width: 300px; margin-left: 70px; margin-top:100px;">
-<!--                    <div class="h-100">-->
-<!--                       -->
-<!--                        <iframe class="w-100 rounded"-->
-<!--                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"-->
-<!--                        frameborder="0" style="height: 100%; min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false"-->
-<!--                        tabindex="0"></iframe>-->
-<!--                    </div>-->
+
                 </div>
             </div>
         </div>

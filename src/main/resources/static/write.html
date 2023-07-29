@@ -29,6 +29,7 @@
 
   <!-- Template Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/sy.css" rel="stylesheet">
 
 </head>
 
@@ -57,7 +58,7 @@
           <div class="nav-item dropdown">
             <a href="mytree.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">마이페이지</a>
             <div class="dropdown-menu bg-light rounded-0 m-0">
-              <a href="mytree.html" class="dropdown-item">나의 나무</a>
+              <a href="mytree.html" class="dropdown-item">내가 쓴 게시글</a>
               <a href="editnickname.html" class="dropdown-item">회원정보수정</a>
               <a href="deleteaccount.html" class="dropdown-item">회원탈퇴</a>
             </div>
@@ -70,8 +71,8 @@
               <a href="pescopolo.html" class="dropdown-item">페스코/폴로</a>
             </div>
           </div>
-          <a href="recipeReview.html" class="nav-item nav-link">레시피 후기</a>
-          <a href="feedback.html" class="nav-item nav-link">피드백</a>
+          <!-- <a href="recipeReview.html" class="nav-item nav-link">레시피 후기</a> -->
+          <a href="feedback.html" class="nav-item nav-link">방명록</a>
           <a href="" style="margin-top:10px; margin-right:20px"><button type="button" class="btn btn-primary py-1 position-relative top-0 end-0 mt-2 me-2">로그인</button></a>
 
         </div>
@@ -116,61 +117,52 @@
     <h1 class="display-6">레시피 작성 화면 - 수정 중</h1>
   </div>
 
-  <form action="" method="post">
-    <div class="form-group">
-      <label for="title">제목</label>
-<!-- placeholder 속성 입력한 데이터가 없는 경우 배경으로 나타난다.실제적으로 입력을 100자까지로 지정 -->
-<!-- required 속성을 설정하면 필수입력 사항이된다. -->
-<!-- pattern 속성을 이용한 정규표현식으로 데이터의 유효성 검사를 할 수 있다. -->
-      <input type="text" class="form-control" id="title"
-       placeholder="제목 입력(4-100)" name="title"
-       maxlength="100" required="required"
-       pattern=".{4,100}">
-    </div>
-
-  <div class="stepBox" style="margin-top:20px;">
-    <div class="form-group" style="margin-top:20px; width: 85%; float:right;">
-      
-   <label for="content">Step1</label>
-<!--  여러줄의 데이터를 입력하고 하고자 할때 textarea 태그를 사용한다. -->
-<!--  textarea 안에 있는 모든 글자는 그대로 나타난다. 공백문자, tag, enter -->
-   <textarea class="form-control" rows="5" id="content"
-    name="content" placeholder="내용을 입력해주세요."></textarea>
- </div>
-    <div class="form-group" style="width:150px;height:150px;background-color: aliceblue;">
-      <input type="file" class="imgFile">
-    </div>
+  <form class="contents">
+    <div class="form-floating subtitle" style="margin-bottom: 30px;">
+      <input type="text" class="form-control" id="subject" placeholder="Subject">
+      <label for="subject">제목</label>
   </div>
-
-  <div class="stepBox" style="margin-top:20px;">
-    <div class="form-group" style="margin-top:20px; width: 85%; float:right;">
-      <label for="content">Step2</label>
-   <!--  여러줄의 데이터를 입력하고 하고자 할때 textarea 태그를 사용한다. -->
-   <!--  textarea 안에 있는 모든 글자는 그대로 나타난다. 공백문자, tag, enter -->
-      <textarea class="form-control" rows="5" id="content"
-       name="content" placeholder="내용을 입력해주세요."></textarea>
-    </div>
-       <div class="form-group" style="margin-top:20px;width:150px;height:150px;background-color: aliceblue;">
-         <input type="file" class="imgFile">
-       </div>
-    </div>
-
-  <div class="stepBox" style="margin-top:20px;">
-       <div class="form-group" style="margin-top:20px; width: 85%; float:right;">
-        <label for="content">Step3</label>
-     <!--  여러줄의 데이터를 입력하고 하고자 할때 textarea 태그를 사용한다. -->
-     <!--  textarea 안에 있는 모든 글자는 그대로 나타난다. 공백문자, tag, enter -->
-        <textarea class="form-control" rows="5" id="content"
-         name="content" placeholder="내용을 입력해주세요."></textarea>
+    <div class="steps step">
+      <div class="image" style="width: 300px; height:300px; background-color: #dbff80;">
+        <input type="file">
       </div>
-         <div class="form-group" style="margin-top:20px; width:150px;height:150px;background-color: aliceblue;">
-           <input type="file" class="imgFile">
-         </div>   
-  </div>
+      <div class="text">
+        <!-- <div class="subtitle" style="font-size: 20px; border:none; padding:0;">Step 1</div> -->
+        <div class="steptext-write" style="margin-top: 5px;">
+          <textarea name="" id="" cols="30" rows="12">Step 1</textarea>
+        </div>
+      </div>
+    </div>
 
-    <button class="btn btn-primary rounded-pill py-1 px-3" type="submit" style="font-size:20px">레시피 발행</button>
+    <div class="steps step">
+      <div class="image" style="width: 300px; height:300px; background-color: #dbff80;">
+        <input type="file">
+      </div>
+      <div class="text">
+        <!-- <div class="subtitle" style="font-size: 20px; border:none; padding:0;">Step 1</div> -->
+        <div class="steptext-write" style="margin-top: 5px;">
+          <textarea name="" id="" cols="30" rows="12">Step 2</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="steps step">
+      <div class="image" style="width: 300px; height:300px; background-color: #dbff80;">
+        <input type="file">
+      </div>
+      <div class="text">
+        <!-- <div class="subtitle" style="font-size: 20px; border:none; padding:0;">Step 1</div> -->
+        <div class="steptext-write" style="margin-top: 5px;">
+          <textarea name="" id="" cols="30" rows="12">Step 3</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="write-finish">
+      <button calss="finish" type="post">작성완료</button>
+    </div>
   </form>
-
+ 
   
       
      
