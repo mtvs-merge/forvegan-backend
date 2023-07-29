@@ -24,7 +24,6 @@ public class AttachmentMapper {
     public void del(Long num){
         String jpql = "UPDATE Attachment set deleteYN = 'Y' where postNum = "+num;
         manager.createQuery(jpql).executeUpdate();
-
     }
 
     public void modify(Long num){

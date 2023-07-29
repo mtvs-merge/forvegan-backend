@@ -81,7 +81,7 @@ public class SecurityConfiguration {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         // 로컬에서 오는 요청은 CORS 허용해준다.
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:3001"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8888", "http://forepe.store"));
         configuration.setAllowedMethods(Arrays.asList("GET", "PUT", "POST", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Access-Control-Allow-Origin", "Content-Type",
                 "Access-Control-Allow-Headers", "Authorization", "X-Requested-With", "Auth"));

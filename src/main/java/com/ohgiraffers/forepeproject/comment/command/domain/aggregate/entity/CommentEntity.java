@@ -29,7 +29,6 @@ public class CommentEntity {
 
     @Column(name = "COMMENT_NUM")
     private int commentNum;
-
     @Column(name = "COMMENT_DETAIL")
     private String commentDetail;
     @Column(name = "COMMENT_DATE")
@@ -44,4 +43,10 @@ public class CommentEntity {
     @PrePersist
     public void onPrePersist() { this.commentDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")); }
 
+    public void setCommentId(Long commentId) {
+        
+    }
+
+    public void setCommentWriter(String previousWriter) {
+    }
 }
