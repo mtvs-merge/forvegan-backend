@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title> 포레피 Forepe - 회원탈퇴</title>
+  <title>포레피 Forepe - 비건</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -29,6 +29,10 @@
 
   <!-- Template Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/sy.css" rel="stylesheet">
+  <link href="css/board.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -43,7 +47,7 @@
 <div class="container-fluid bg-white sticky-top">
   <div class="container">
     <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
-      <a href="index.html" class="navbar-brand" style="margin-top:10px; font-weight:bold; font-size: 40px">
+      <a href="index.html" class="navbar-brand" style="margin-top:5px; font-weight:bold; font-size: 40px">
         <!--                    <img class="img-fluid" src="img/logo.png" alt="Logo">-->
         FOREPE
       </a>
@@ -54,25 +58,25 @@
         <div class="navbar-nav ms-auto">
           <a href="index.html" class="nav-item nav-link">홈</a>
           <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">마이페이지</a>
+            <a href="mytree.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">마이페이지</a>
             <div class="dropdown-menu bg-light rounded-0 m-0">
               <a href="mytree.html" class="dropdown-item">내가 쓴 게시글</a>
               <a href="editnickname.html" class="dropdown-item">회원정보수정</a>
-              <a href="deleteaccount.html" class="dropdown-item active">회원탈퇴</a>
+              <a href="deleteaccount.html" class="dropdown-item">회원탈퇴</a>
             </div>
           </div>
           <div class="nav-item dropdown">
-            <a href="vegan.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">레시피</a>
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">레시피</a>
             <div class="dropdown-menu bg-light rounded-0 m-0">
               <a href="vegan.html" class="dropdown-item">비건</a>
               <a href="lactoovo.html" class="dropdown-item">락토/오보</a>
               <a href="pescopolo.html" class="dropdown-item">페스코/폴로</a>
-              <!--                                <a href="404.html" class="dropdown-item">404 Page</a>-->
             </div>
           </div>
           <!-- <a href="recipeReview.html" class="nav-item nav-link">레시피 후기</a> -->
           <a href="feedback.html" class="nav-item nav-link">방명록</a>
           <a href="" style="margin-top:10px; margin-right:20px"><button type="button" class="btn btn-primary py-1 position-relative top-0 end-0 mt-2 me-2">로그인</button></a>
+
         </div>
         <div class="border-start ps-4 d-none d-lg-block">
           <div class="btnS">
@@ -82,8 +86,7 @@
             <input type="text" placeholder="검색어를 입력하세요." id="keyword" name="keyword">
             <label for="keyword">검색어 입력하기</label>
             <a href="#">검색</a>
-          </div>
-        </div>
+          </div>                    </div>
       </div>
     </nav>
   </div>
@@ -94,13 +97,12 @@
 <!-- Page Header Start -->
 <div class="container-fluid page-header py-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
   <div class="container text-center py-5">
-    <h1 class="display-2 text-dark mb-4 animated slideInDown">회원탈퇴</h1>
+    <h1 class="display-2 text-dark mb-4 animated slideInDown">방명록</h1>
     <nav aria-label="breadcrumb animated slideInDown">
       <ol class="breadcrumb justify-content-center mb-0">
-        <li class="breadcrumb-item"><a href="#">나의 나무</a></li>
-        <li class="breadcrumb-item"><a href="#">회원정보수정</a></li>
-        <li class="breadcrumb-item"><a href="#">회원탈퇴</a></li>
-        <!--                    <li class="breadcrumb-item text-dark" aria-current="page">회원탈퇴</li>-->
+        <li class="breadcrumb-item"><a href="#"> 포레피의 어떤 점이 좋았나요? 포레피의 어떤 점이 불편했나요? <br>
+            당신의 소중한 의견을 남겨주세요. <br>
+            적극적으로 의견을 수렴하여 더 나은 포레피가 되도록 노력하겠습니다.</a></li>
       </ol>
     </nav>
   </div>
@@ -108,25 +110,45 @@
 <!-- Page Header End -->
 
 
-<!-- Testimonial Start -->
-<div class="container-fluid py-5">
-  <div class="container">
-    <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-      <p class="fs-5 fw-medium fst-italic text-primary">포레피를 떠날 생각이세요ㅠㅠ?</p>
-      <h1 class="display-6">정말로 탈퇴하시겠습니까?</h1>
-    </div>
+<!-- Write Start -->
+<div class="container-fluid product py-5">
+  <div class="container py-5">
 
-    <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.3s" style="max-width: 500px;">
-      <button style="margin-right: 50px;"><a href="">예</a></button>
-      <button style="font-size: 100px"><a href="">아니오</a></button>
+  <!-- <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;"> -->
+    <!-- <p class="fs-5 fw-medium fst-italic text-primary">레시피 작성해주세요!</p> -->
+    <!-- <h1 class="display-6">방명록 작성</h1> -->
+  <!-- </div> -->
 
-
-    </div>
+  <form class="contents">
+    <div class="form-floating subtitle" style="margin-bottom: 30px;">
+      <input type="text" class="form-control" id="subject" placeholder="Subject">
+      <label for="subject">제목</label>
   </div>
+    <div class="steps step">
+   
+      <div class="text">
+        <!-- <div class="subtitle" style="font-size: 20px; border:none; padding:0;">Step 1</div> -->
+        <div class="steptext-write" style="margin-top: 5px;">
+          <textarea name="" id="" cols="30" rows="12"></textarea>
+        </div>
+      </div>
+    </div>
 
-</div>
-<!-- Testimonial End -->
 
+
+    <div class="write-finish" style="margin-top: -10px;">
+        <a href=""><button type="button" class="btn btn-primary py-1 position-relative top-0 end-0 mt-2 me-2" style="font-size:30px; border-radius: 10px;">작성</button></a>
+    </div>
+  </form>
+ 
+  
+      
+     
+
+    
+  </div><!--container py-5-->
+</div><!-- container-fluid product py-5-->
+<!-- Write End -->
 
 
 <!-- Footer Start -->
