@@ -30,6 +30,10 @@ public class ReportDTO {
         this.reportShowState = reportShowState;
     }
 
+    public ReportDTO() {
+
+    }
+
     public int getReportNum() {
         return reportNum;
     }

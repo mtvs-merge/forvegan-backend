@@ -4,10 +4,12 @@ import com.ohgiraffers.forepeproject.report.command.application.dto.ReportDTO;
 import com.ohgiraffers.forepeproject.report.command.domain.aggregate.entity.ReportEntity;
 import com.ohgiraffers.forepeproject.report.command.domain.repository.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
 public class ReportService {
 
     private final ReportRepository reportRepository;
@@ -34,6 +36,9 @@ public class ReportService {
         ReportEntity reportEntity = new ReportEntity();
         reportEntity.setReportNum(reportNum);
         reportEntity.setReportShowState("N");
+
+        reportRepository.save(reportEntity);
+        reportRepository.flush();
     }
 
     public boolean ownerVerification(ReportEntity reportEntity) {

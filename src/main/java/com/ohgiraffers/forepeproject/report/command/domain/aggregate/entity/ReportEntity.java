@@ -44,5 +44,8 @@ public class ReportEntity {
     private String reportShowState;
 
     @PrePersist
-    public void onPrePersist() { this.reportDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));}
+    public void onPrePersist() {
+        this.reportDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        this.reportShowState = "Y";
+    }
 }
