@@ -24,6 +24,8 @@ public interface PostRepository extends JpaRepository<PostEntity, Integer> {
 //    }
 
     PostEntity<P> findByPostNum(int postNum);
+    PostEntity<P> findByPostString(String postNum);
+
 
 //    void findById(Long postNum);
 }

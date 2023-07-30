@@ -17,4 +17,13 @@ public class PostUpdateDTO {
     private String postDetail;
     private int postCategoryNum;
     private String attachment;
+
+    public PostUpdateDTO(String postName, String postHighlight, String postState, String postDetail, int postCategoryNum, String attachment) {
+        this.postName = postName;
+        this.postHighlight = postHighlight;
+        this.postState = postState;
+        this.postDetail = postDetail;
+        this.postCategoryNum = postCategoryNum;
+        this.attachment = attachment;
+    }
 }
