@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="/img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/board.css" rel="stylesheet">
 </head>
 
 <body>
@@ -68,7 +69,7 @@
                 <!-- <p class="fs-5 fw-medium fst-italic text-primary">내가 쓴 게시글</p> -->
                 <!-- <h1 class="display-6">내가 쓴 게시글</h1> -->
             </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.5s">
+            <div class="wow fadeInUp" data-wow-delay="0.5s">
 
                 <div class="board_wrap">
                     <div class="board_title">
@@ -84,40 +85,14 @@
                                 <div class="date">작성일</div>
                                 <div class="count">조회</div>
                             </div>
-                            <div>
-                                <div class="num">5</div>
-                                <div class="title"><a href="view.html">비건 마라샹궈</a></div>
-                                <div class="writer">김이름</div>
-                                <div class="date">2021.1.15</div>
-                                <div class="count">33</div>
-                            </div>
-                            <div>
-                                <div class="num">4</div>
-                                <div class="title"><a href="view.html">토마토 프리타타</a></div>
-                                <div class="writer">김이름</div>
-                                <div class="date">2021.1.15</div>
-                                <div class="count">33</div>
-                            </div>
-                            <div>
-                                <div class="num">3</div>
-                                <div class="title"><a href="view.html">당근라페 샌드위치</a></div>
-                                <div class="writer">김이름</div>
-                                <div class="date">2021.1.15</div>
-                                <div class="count">33</div>
-                            </div>
-                            <div>
-                                <div class="num">2</div>
-                                <div class="title"><a href="view.html">두유그릭요거트</a></div>
-                                <div class="writer">김이름</div>
-                                <div class="date">2021.1.15</div>
-                                <div class="count">33</div>
-                            </div>
-                            <div>
-                                <div class="num">1</div>
-                                <div class="title"><a href="view.html">비건 똠얌꿍</a></div>
-                                <div class="writer">김이름</div>
-                                <div class="date">2021.1.15</div>
-                                <div class="count">33</div>
+                            <div th:each="post : ${postList}">
+                                <div th:text="${post.postNum" class="num"></div>
+                                <div th:text="${post.postName" class="title">
+                                    <a th:href="@{/post/${post.postNum}}"></a>
+                                </div>
+                                <div th:text="${post.postWriter" class="writer"></div>
+                                <div th:text="${post.postDate" class="date"></div>
+                                <div th:text="${post.views" class="count"></div>
                             </div>
                         </div>
                         <div class="board_page">

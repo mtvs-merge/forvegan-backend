@@ -29,21 +29,21 @@ public class PostReadController {
     public String getVeganPost(@RequestParam(required = false, defaultValue = "1") int page, Model model) {
         model.addAttribute("currentPage", page);
         model.addAttribute("postList", postReadService.getAllPost(page, 1));
-        return "/vegan";
+        return "/mytree";
     }
 
     @GetMapping("/lactoovo")
     public String getLactoPost(@RequestParam(required = false, defaultValue = "1") int page, Model model) {
         model.addAttribute("currentPage", page);
         model.addAttribute("postList", postReadService.getAllPost(page, 2));
-        return "/lactoovo";
+        return "/mytree";
     }
 
     @GetMapping("/pescopolo")
     public String getPescoPost(@RequestParam(required = false, defaultValue = "1") int page, Model model) {
         model.addAttribute("currentPage", page);
         model.addAttribute("postList", postReadService.getAllPost(page, 3));
-        return "/pescopolo";
+        return "/mytree";
     }
 }
 

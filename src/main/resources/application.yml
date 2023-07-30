@@ -1,5 +1,8 @@
 server:
   port: 8888
+  tomcat:
+    accesslog:
+      enabled: false
 
 spring:
   devtools:
@@ -33,14 +36,8 @@ spring:
 
 mybatis:
   type-aliases-package: com.ohgiraffers.forepeproject.postAttachment.query.domain.entity
-  config: config/mybatis/mybatis-config.xml
   mapper-locations: config/mybatis/mapper/*.xml
-
-
-  mybatis:
-    type-aliases-package: com.ohgiraffers.forepeproject.postAttachment.query.domain.entity
-    mapper-locations: config/mybatis/mapper/*.xml
-    config : config/mybatis/mybatis-config.xml
+  config : config/mybatis/mybatis-config.xml
 
 
 
@@ -66,3 +63,8 @@ jwt:
 #    org.hibernate: DEBUG
 #    org.thymeleaf: DEBUG
 #    com.ohgiraffers: DEBUG
+
+logging:
+  level:
+    org.springframework.security: OFF
+    org.springframework.security.core.SpringSecurityCoreLogger: OFF
