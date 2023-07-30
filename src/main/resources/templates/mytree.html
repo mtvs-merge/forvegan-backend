@@ -86,13 +86,13 @@
                                 <div class="count">조회</div>
                             </div>
                             <div th:each="post : ${postList}">
-                                <div th:text="${post.postNum" class="num"></div>
-                                <div th:text="${post.postName" class="title">
+                                <div th:text="${post.postNum}" class="num"></div>
+                                <div th:text="${post.postName}" class="title">
                                     <a th:href="@{/post/${post.postNum}}"></a>
                                 </div>
-                                <div th:text="${post.postWriter" class="writer"></div>
-                                <div th:text="${post.postDate" class="date"></div>
-                                <div th:text="${post.views" class="count"></div>
+                                <div th:text="${post.postWriter}" class="writer"></div>
+                                <div th:text="${post.postDate}" class="date"></div>
+                                <div th:text="${post.views}" class="count"></div>
                             </div>
                         </div>
                         <div class="board_page">
