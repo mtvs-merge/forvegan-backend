@@ -8,7 +8,10 @@ import com.ohgiraffers.forepeproject.postAttachment.command.application.service.
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
@@ -29,11 +32,12 @@ public class Controller {
     }
 
     @GetMapping("/attachment/save")
-    public String saveFile(Model model){
+    public String saveFile(Model model, HttpSession session, RedirectAttributes redirectAttributes){
         Long postNum=2L;
-        List<MultipartFile> multipartFileList = (List<MultipartFile>) model.getAttribute("files");
-        fileUtils.log("test중"+multipartFileList.get(0).getSize());
-        List<AttachmentDTO> files= fileUtils.uploadFiles(multipartFileList);
+        List<MultipartFile> multipartFileList = (List<MultipartFile>) session.getAttribute("fileInfoList");
+        List<String> savePath = (List<String>) model.getAttribute("tempPath");
+
+        List<AttachmentDTO> files= fileUtils.uploadFiles(multipartFileList,savePath);
         attachmentService.addAttachment(postNum,files);
 
         return "redirect:/post/" +1;
