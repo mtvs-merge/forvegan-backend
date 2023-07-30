@@ -30,7 +30,7 @@ public class PostUpdateController {
         // Check if owner
         if(PostUpdateService.isOwner(postUpdateDTO)) {
             try{
-                PostUpdateService.deletePost(postUpdateDTO);
+                PostUpdateService.UpdatePost(postUpdateDTO);
             } catch (Exception e){
                 redirectAttributes.addFlashAttribute("message", "존재하지 않는 게시판입니다");
             }
