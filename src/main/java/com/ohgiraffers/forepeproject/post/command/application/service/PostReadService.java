@@ -24,10 +24,7 @@ public class PostReadService {
 
     public List<PostEntity> getAllPost(int page, int postCategeroyNum) {
 
-        page = 15 * (page - 1);
-
-        System.out.println(page);
-        System.out.println(postCategeroyNum);
+        page = 6 * (page - 1);
 
         return postMapper.getAllPost(page, postCategeroyNum);
     }

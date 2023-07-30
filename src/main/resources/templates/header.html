@@ -5,7 +5,7 @@
     <div class="container-fluid bg-white sticky-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
-                <a href="/home" class="navbar-brand" style="margin-top:10px; font-weight:bold; font-size: 40px">
+                <a th:href="@{/home}" class="navbar-brand" style="margin-top:10px; font-weight:bold; font-size: 40px">
                     <!--                    <img class="img-fluid" src="img/logo.png" alt="Logo">-->
                     FOREPE
                 </a>
@@ -14,7 +14,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="/home" class="nav-item nav-link">홈</a>
+                        <a th:href="@{/home}" class="nav-item nav-link">홈</a>
                         <div class="nav-item dropdown">
                             <a href="mytree.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">마이페이지</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
@@ -24,11 +24,11 @@
                             </div>
                         </div>
                         <div class="nav-item dropdown">
-                            <a href="/post/vegan?page=1" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">레시피</a>
+                            <a th:href="@{/post/vegan}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">레시피</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
-                                <a href="/post/vegan?page=1" class="dropdown-item">비건</a>
-                                <a href="/post/lactoovo?page=1" class="dropdown-item">락토/오보</a>
-                                <a href="/post/pescopolo?page=1" class="dropdown-item">페스코/폴로</a>
+                                <a th:href="@{/post/vegan}" class="dropdown-item">비건</a>
+                                <a th:href="@{/post/lactoovo}" class="dropdown-item">락토/오보</a>
+                                <a th:href="@{/post/pescopolo}" class="dropdown-item">페스코/폴로</a>
                                 <!--                                <a href="404.html" class="dropdown-item">404 Page</a>-->
                             </div>
                         </div>

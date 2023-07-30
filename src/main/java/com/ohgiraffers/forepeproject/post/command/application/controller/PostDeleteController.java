@@ -41,7 +41,6 @@ public class PostDeleteController {
 
         postDeleteService.deletePost(postNum);
 
-
         return "redirect:/post/vegan";
 
     }
