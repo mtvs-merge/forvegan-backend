@@ -63,13 +63,13 @@
 
 
 <!-- Testimonial Start -->
-<div class="container mt-5">
+<div class="container mt-5 d-flex flex-column min-vh-100">
   <h1 class="post-title" th:text="${postEntity.postName}">Sample Post</h1>
-  <p class="post-content" th:text="${postEntity.postDetail}">
+  <p class="post-content flex-grow-1" th:text="${postEntity.postDetail}">
     <!-- Your post content here -->
   </p>
 
-  <div class="btn-container">
+  <div class="btn-container mt-3">
     <!-- Button to delete the post -->
     <form th:action="@{/post/delete/{postNum}(postNum=${postEntity.postNum})}" method="post">
       <!-- Button to delete the post -->

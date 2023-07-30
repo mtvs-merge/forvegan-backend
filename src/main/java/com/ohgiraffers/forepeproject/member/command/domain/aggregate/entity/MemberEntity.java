@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 @Entity(name = "Member")
 @Table(name = "MEMBER")
@@ -17,7 +18,7 @@ import java.time.format.DateTimeFormatter;
         name = "MEMBER_SEQ_GENERATOR",
         sequenceName = "SEQ_MEMBER_NUM",
         initialValue = 1,
-        allocationSize = 50
+        allocationSize = 1
 )
 public class MemberEntity {
 
@@ -29,53 +30,48 @@ public class MemberEntity {
     @Column(name = "MEMBER_NUM")
     private int memberNum;
 
-    @Column(name = "MEMBER_NAME", nullable = false)
+    @Column(name = "MEMBER_NAME")
     private String memberName;
 
-    @Column(name = "MEMBER_NICKNAME", unique = true, nullable = false)
-    private String memberNickname;
+    @Column(name = "MEMBER_ID")
+    private String memberId;
 
-    @Column(name = "BLACKLIST", nullable = false)
+    @Column(name = "MEMBER_PWD")
+    private int memberPwd;
+
+    @Column(name = "MEMBER_NICKNAME", unique = true)
+    private String memberNickName;
+
+    @Column(name = "BLACKLIST")
     private Boolean blacklist;
 
-    @Column(name = "REPORT_COUNT", nullable = false)
+    @Column(name = "REPORT_COUNT")
     private int reportCount;
 
     @CreatedDate
-    @Column(name = "JOIN_DATE", nullable = false)
+    @Column(name = "JOIN_DATE")
     private String joinDate;
 
-    @Column(name = "LEVEL_UP_POINT", nullable = false)
+    @Column(name = "LEVEL_UP_POINT")
     private int levelUpPoint;
 
-    @Column(name = "SOCIAL_LOGIN", nullable = false)
+    @Column(name = "SOCIAL_LOGIN")
     private String socialLogin;
 
-    @Column(name = "SOCIAL_ID", nullable = false)
-    private String socialId;
+    @Column(name = "SOCIAL_ID")
+    private long socialId;
 
-    @Column(name = "ACCESS_TOKEN", nullable = false)
+    @Column(name = "ACCESS_TOKEN")
     private String accessToken;
 
-    @Column(name = "ACCESS_TOKEN_EXPIRE_DATE", nullable = false)
+    @Column(name = "ACCESS_TOKEN_EXPIRE_DATE")
     private long accessTokenExpireDate;
 
-    @Column(name = "REFRESH_TOKEN", nullable = false)
+    @Column(name = "REFRESH_TOKEN")
     private String refreshToken;
 
-    @Column(name = "REFRESH_TOKEN_EXPIRE_DATE", nullable = false)
+    @Column(name = "REFRESH_TOKEN_EXPIRE_DATE")
     private long refreshTokenExpireDate;
-
-    @Column(name = "PREFERRED_LOCATION")
-    private String preferredLocation;
-
-    @Column(name = "PREFERRED_TYPE")
-    private String preferredType;
-
-    @Column(name = "IS_DELETED", columnDefinition = "varchar (2)", nullable = false)
-    private String isDeleted;
-
-    public MemberEntity() {}
 
     public int getMemberNum() {
         return memberNum;
@@ -87,15 +83,4 @@ public class MemberEntity {
     }
 
 
-    public void setPreferredLocation(String preferredLocation) {
-        this.preferredLocation = preferredLocation;
-    }
-
-    public void setPreferredType(String preferredType) {
-        this.preferredType = preferredType;
-    }
-
-    public void setIsDeleted(String isDeleted) {
-        this.isDeleted = isDeleted;
-    }
 }
