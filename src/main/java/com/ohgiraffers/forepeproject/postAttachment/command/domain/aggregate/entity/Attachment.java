@@ -19,22 +19,22 @@ public class Attachment {
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
     )
-    @Column(name = "ATTACH_NUM",nullable = false)
+    @Column(name = "ATTACH_NUM")
     private int attachNum;
 
-    @Column(name = "ATTACH_NAME",nullable = false)
+    @Column(name = "ATTACH_NAME")
     private String attachName;
 
-    @Column(name = "ATTACH_RENAME",nullable = false)
+    @Column(name = "ATTACH_RENAME")
     private String attachRename;
 
-    @Column(name = "FILE_TYPE",nullable = false)
+    @Column(name = "FILE_TYPE")
     private String fileType;
 
     @Column(name = "DELETE_YN" ,columnDefinition = "CHAR(1) default 'N'")
     private String deleteYN;
 
-    @Column(name = "POST_NUM",nullable = false,length = 40)
+    @Column(name = "POST_NUM",length = 40)
     private long postNum;
 
     @Embedded

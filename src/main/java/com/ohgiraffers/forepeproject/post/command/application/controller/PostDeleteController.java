@@ -38,10 +38,10 @@ public class PostDeleteController {
         } else {
             redirectAttributes.addFlashAttribute("message", "게시판 작성자가 아닙니다");
         }*/
-
+        redirectAttributes.addFlashAttribute("postNum",postNum);
         postDeleteService.deletePost(postNum);
 
-        return "redirect:/post/vegan";
+        return "redirect:/attachment/delete";
 
     }
 

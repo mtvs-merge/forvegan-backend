@@ -8,7 +8,7 @@ function handleKakaoLogin(code) {
             const token = response.data.token.accessToken;
             document.cookie = `jwtToken=${token}; max-age=3600; path=/; secure; HttpOnly`;
             // 로그인 성공 후 메인 페이지로 리디렉션 (메인 페이지 URL로 변경 필요)
-            window.location.href = "http://localhost:8888";
+            window.location.href = "http://forepe.store:8888";
         })
         .catch((error) => {
             console.error(error);
@@ -17,7 +17,7 @@ function handleKakaoLogin(code) {
 }
 function onKakaoLoginSuccess(jwtToken) {
     localStorage.setItem('jwtToken', jwtToken);
-    window.location.href = 'http://localhost:8888'; // 로그인 성공 시 메인 페이지로 이동
+    window.location.href = 'http://forepe.store:8888'; // 로그인 성공 시 메인 페이지로 이동
 }
 
 function checkLoginStatus() {
