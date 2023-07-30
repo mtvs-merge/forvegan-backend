@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 @RestController
 @RequiredArgsConstructor   // Bean 주입 : @Autowired 대신에 생성자로!
-@RequestMapping("/vegan")
+//@RequestMapping("/vegan")
 
 public class PostController {
     private PostService postService;

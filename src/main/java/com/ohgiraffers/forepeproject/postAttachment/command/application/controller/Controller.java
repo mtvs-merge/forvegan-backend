@@ -1,6 +1,7 @@
 package com.ohgiraffers.forepeproject.postAttachment.command.application.controller;
 
 
+import com.ohgiraffers.forepeproject.post.command.application.dto.PostCreateDTO;
 import com.ohgiraffers.forepeproject.postAttachment.command.application.dto.AttachmentDTO;
 import com.ohgiraffers.forepeproject.postAttachment.command.application.service.AttachmentService;
 import com.ohgiraffers.forepeproject.postAttachment.command.application.service.FileUtils;
@@ -19,12 +20,24 @@ public class Controller {
         this.attachmentService = attachmentService;
         this.fileUtils= fileUtils;
     }
-    @RequestMapping("/test/attachment")
-    public String saveFile(Model model, @RequestParam("files") List<MultipartFile> multipartFileList){
+
+    @RequestMapping("/write")
+    public String write(Model model){
+        PostCreateDTO createDTO = new PostCreateDTO();
+        model.addAttribute("createDTO",createDTO);
+        return "/write";
+    }
+
+    @GetMapping("/attachment/save")
+    public String saveFile(Model model){
         Long postNum=2L;
+
+        List<MultipartFile> multipartFileList = (List<MultipartFile>) model.getAttribute("files");
+        fileUtils.log("test중"+multipartFileList.get(0).getSize());
         List<AttachmentDTO> files= fileUtils.uploadFiles(multipartFileList);
         attachmentService.addAttachment(postNum,files);
-        return "/test/1";
+
+        return "redirect:/post/" +1;
     }
 
 
