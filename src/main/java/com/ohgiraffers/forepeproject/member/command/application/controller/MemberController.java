@@ -37,6 +37,7 @@ public class MemberController {
 
         return "redirect:/editnickname";
     }
+
     @GetMapping("/editnickname")
     public ModelAndView editNickname(@RequestParam(name = "memberNickName", required = false) String memberNickName,
                                      @RequestParam(name = "socialLogin", required = false) String socialLogin) {
