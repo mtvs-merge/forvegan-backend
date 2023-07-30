@@ -10,4 +10,6 @@ public interface PostMapper {
     List<PostEntity> getAllPost(int page, int postCategoryNum);
 
     PostEntity getPostDetails(int postNum);
+
+    int getCountOfPost(int postCategoryNum);
 }

@@ -95,16 +95,11 @@
                                 <div th:text="${post.views}" class="count"></div>
                             </div>
                         </div>
-                        <div class="board_page">
-                            <a href="#" class="bt first"><<</a>
-                            <a href="#" class="bt prev"><</a>
-                            <a href="#" class="num on">1</a>
-                            <a href="#" class="num">2</a>
-                            <a href="#" class="num">3</a>
-                            <a href="#" class="num">4</a>
-                            <a href="#" class="num">5</a>
-                            <a href="#" class="bt next">></a>
-                            <a href="#" class="bt last">>></a>
+                        <div>
+                            <form th:action="@{'/post/' + ${postCategory}}" method="get">
+                                <input type="number" name="currentPage" min="1" max="${maxPage}" th:value="${currentPage}">
+                                <input type="submit" value="Go">
+                            </form>
                         </div>
                         <div class="bt_wrap">
                             <!-- <a href="write.html" class="on">등록</a> -->

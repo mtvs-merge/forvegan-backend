@@ -24,8 +24,15 @@ public class PostReadService {
 
     public List<PostEntity> getAllPost(int page, int postCategeroyNum) {
 
-        page = 6 * (page - 1);
+        page = 10 * (page - 1);
 
         return postMapper.getAllPost(page, postCategeroyNum);
+    }
+
+    public int getMaxPage(int postCategoryNum) {
+
+        int totalPosts = postMapper.getCountOfPost(postCategoryNum);
+        int maxPage = (int) Math.ceil((double) totalPosts / 10);
+        return maxPage;
     }
 }

@@ -20,11 +20,16 @@
         FROM POST
         WHERE POST_CATEGORY_NUM = #{postCategoryNum} AND POST_STATE = "Y"
         ORDER BY POST_NUM
-        LIMIT 6 OFFSET #{page}
+        LIMIT 10 OFFSET #{page}
     </select>
     <select id="getPostDetails" resultMap="postResultMap">
         SELECT *
         FROM POST
         WHERE POST_NUM = #{postNum}
+    </select>
+    <select id="getCountOfPost" resultType="int">
+        SELECT COUNT(*)
+        FROM POST
+        WHERE POST_CATEGORY_NUM = #{postCategoryNum}
     </select>
 </mapper>
