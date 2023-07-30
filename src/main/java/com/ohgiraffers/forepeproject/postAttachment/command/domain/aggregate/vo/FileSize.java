@@ -6,7 +6,7 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class FileSize {
-    @Column(name = "FILESIZE",nullable = false,length = 40)
+    @Column(name = "FILESIZE",length = 40)
     private long size;
 
     public FileSize(long size) {

@@ -1,14 +1,11 @@
 package com.ohgiraffers.forepeproject.post.command.application.controller;
 
 import com.ohgiraffers.forepeproject.post.command.application.service.PostReadService;
-import com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity.PostEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/post")
@@ -29,21 +26,20 @@ public class PostReadController {
     public String getVeganPost(@RequestParam(required = false, defaultValue = "1") int page, Model model) {
         model.addAttribute("currentPage", page);
         model.addAttribute("postList", postReadService.getAllPost(page, 1));
-        return "/mytree";
+        return "/vegan";
     }
 
     @GetMapping("/lactoovo")
     public String getLactoPost(@RequestParam(required = false, defaultValue = "1") int page, Model model) {
         model.addAttribute("currentPage", page);
         model.addAttribute("postList", postReadService.getAllPost(page, 2));
-        return "/mytree";
+        return "/lactoovo";
     }
 
     @GetMapping("/pescopolo")
     public String getPescoPost(@RequestParam(required = false, defaultValue = "1") int page, Model model) {
         model.addAttribute("currentPage", page);
         model.addAttribute("postList", postReadService.getAllPost(page, 3));
-        return "/mytree";
+        return "/pescopolo";
     }
 }
-

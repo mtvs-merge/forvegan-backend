@@ -27,7 +27,7 @@ import java.util.UUID;
 
 @Controller
 @SessionAttributes("fileInfoList")
-@RequestMapping("/posts")
+@RequestMapping("/post")
 public class PostCreateController {
     private final PostCreateService postCreateService;
 
@@ -36,24 +36,25 @@ public class PostCreateController {
     }
 
     @PostMapping
-    public String createPost(@ModelAttribute("createDTO") PostCreateDTO createDTO, @RequestParam("file")List<MultipartFile> files, RedirectAttributes redirectAttributes, HttpSession session) {
+    public String createPost(@ModelAttribute("createDTO") PostCreateDTO createDTO, @RequestParam("file")List<MultipartFile> files, RedirectAttributes redirectAttributes, HttpSession session,Model model) {
 
         PostEntity postEntity = new PostEntity();
-
+        FileUtils fileUtils =new FileUtils();
+        int categoryNum = (int) model.getAttribute("categoryNum");
+        fileUtils.log("카테고리 넘버"+categoryNum);
+        createDTO.setPostCategoryNum(categoryNum);
         BeanUtils.copyProperties(createDTO, postEntity);
 
         postCreateService.createPost(postEntity);
 
-        List<Long> fileSize = new ArrayList<>();
-        for (MultipartFile file : files){
-            fileSize.add(file.getSize());
-        }
-        FileUtils fileUtils = new FileUtils();
-        fileUtils.log("이것도안되나"+files.get(0).getSize());
+
         Path path = Paths.get("");
         String uploadPath = "/src/main/resources/static/loadImg";
         List<String> paths = new ArrayList<>();
         for (MultipartFile file: files){
+            if(file.getContentType()=="null"){
+                return "redirect:/post/" +1;
+            }
             if(path.isAbsolute()){
                 uploadPath = path.toString() + uploadPath;
             }else {
@@ -75,13 +76,17 @@ public class PostCreateController {
         redirectAttributes.addAttribute("postNum", postEntity.getPostNum());
         session.setAttribute("fileInfoList", files);
         redirectAttributes.addFlashAttribute("tempPath",paths);
-//        return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
-//        return "redirect:/post";
-//        return "/attachment/saves";
+
         return "redirect:attachment/save";
     }
 
-
+    @GetMapping("/write/category/{num}")
+    public String write(Model model,@PathVariable Integer num){
+        PostCreateDTO createDTO = new PostCreateDTO();
+        model.addAttribute("categoryNum",num);
+        model.addAttribute("createDTO",createDTO);
+        return "/write";
+    }
 
 
 

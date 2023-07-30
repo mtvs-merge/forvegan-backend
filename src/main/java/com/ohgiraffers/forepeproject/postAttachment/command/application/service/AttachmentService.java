@@ -69,7 +69,6 @@ public class AttachmentService {
             return result;
         }
         attachmentMapper.modify(postNum);
-//        attachmentMapper.modifyAllByPostId(postNum);
         addAttachment(postNum,files);
         return result;
     }

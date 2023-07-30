@@ -64,7 +64,7 @@ jwt:
 #    org.thymeleaf: DEBUG
 #    com.ohgiraffers: DEBUG
 
-logging:
-  level:
-    org.springframework.security: OFF
-    org.springframework.security.core.SpringSecurityCoreLogger: OFF
+#logging:
+#  level:
+#    org.springframework.security: OFF
+#    org.springframework.security.core.SpringSecurityCoreLogger: OFF
