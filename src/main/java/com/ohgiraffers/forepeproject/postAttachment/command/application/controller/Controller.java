@@ -1,12 +1,14 @@
 package com.ohgiraffers.forepeproject.postAttachment.command.application.controller;
 
 
+import com.ohgiraffers.forepeproject.post.command.application.dto.PostCreateDTO;
 import com.ohgiraffers.forepeproject.postAttachment.command.application.dto.AttachmentDTO;
 import com.ohgiraffers.forepeproject.postAttachment.command.application.service.AttachmentService;
 import com.ohgiraffers.forepeproject.postAttachment.command.application.service.FileUtils;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -19,12 +21,25 @@ public class Controller {
         this.attachmentService = attachmentService;
         this.fileUtils= fileUtils;
     }
-    @RequestMapping("/test/attachment")
-    public String saveFile(Model model, @RequestParam("files") List<MultipartFile> multipartFileList){
+    @RequestMapping("/vegan")
+    public String test(Model model){
+        return "/vegan";
+    }
+    @RequestMapping("/write")
+    public String write(Model model){
+        PostCreateDTO createDTO = new PostCreateDTO();
+        model.addAttribute("createDTO",createDTO);
+        return "/write";
+    }
+
+    @GetMapping("/attachment/save")
+    public String saveFile(Model model){
         Long postNum=2L;
-        List<AttachmentDTO> files= fileUtils.uploadFiles(multipartFileList);
-        attachmentService.addAttachment(postNum,files);
-        return "/test/1";
+        System.out.println("denrjwekfkeljwqkogpefrqwnjfpe[k;wlqkjfkek;klqwbgerk;klqbjfe;qwl");
+        List<MultipartFile> multipartFileList = (List<MultipartFile>) model.getAttribute("files");
+        List<AttachmentDTO> file= fileUtils.uploadFiles(multipartFileList);
+        attachmentService.addAttachment(postNum,file);
+        return "/view";
     }
 
 

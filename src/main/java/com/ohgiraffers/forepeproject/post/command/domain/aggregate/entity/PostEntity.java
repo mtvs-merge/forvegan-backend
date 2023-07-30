@@ -33,17 +33,16 @@ public class PostEntity {
             strategy = GenerationType.SEQUENCE,
             generator = "POST_SEQ_GENERATOR"
     )
-
-    @Column(name = "POST_NUM", nullable = false)
+    @Column(name = "POST_NUM")
     private int postNum;
 
-    @Column(name = "POST_NAME", length = 20, nullable = false)
+    @Column(name = "POST_NAME", length = 20)
     private String postName;
 
     @Column(name = "POST_LIKE")
     private int postLike;
 
-    @Column(name = "POST_WRITER", nullable = false)
+    @Column(name = "POST_WRITER")
     private String postWriter;
 
     @Column(name = "POST_HIGHLIGHT")
@@ -52,17 +51,17 @@ public class PostEntity {
     @Column(name = "POST_STATE")
     private String postState;
 
-    @Column(name = "POST_DATE", nullable = false)
+    @Column(name = "POST_DATE")
     private String postDate;
 
     @Column(name = "POST_DETAIL",
-            columnDefinition = "TEXT", nullable = false)
+            columnDefinition = "TEXT")
     private String postDetail;
 
     @Column(name = "VIEWS")
     private int views;
 
-    @Column(name = "POST_CATEGORY_NUM",nullable = false)
+    @Column(name = "POST_CATEGORY_NUM")
     private int postCategoryNum;
 
     @Column(name = "ATTACHMENT")

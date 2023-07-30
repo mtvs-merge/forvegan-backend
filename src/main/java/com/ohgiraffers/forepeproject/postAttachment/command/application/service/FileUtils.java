@@ -1,6 +1,8 @@
 package com.ohgiraffers.forepeproject.postAttachment.command.application.service;
 
 import com.ohgiraffers.forepeproject.postAttachment.command.application.dto.AttachmentDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,23 +19,33 @@ import java.util.UUID;
 
 @Service
 public class FileUtils {
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     private final Path dir = Paths.get("");
     private String uploadPath = "/src/main/resources/static/uploadImg";
 
-
+    private void log(String name){
+        logger.trace("trace log={}",name);
+        logger.debug("debug log={}",name);
+        logger.info("info log={}",name);
+        logger.warn("warn log={}",name);
+        logger.error("error log={}",name);
+    }
     public List<AttachmentDTO> uploadFiles(List<MultipartFile> multipartFileList){
         List<AttachmentDTO> files= new ArrayList<>();
+        log("테스트1");
         for(MultipartFile multipartFile : multipartFileList){
             if(multipartFile.isEmpty()){
                 continue;
             }
             files.add(uploadFile(multipartFile));
         }
+        log("테스트3");
         return files;
     }
 
     private AttachmentDTO uploadFile(MultipartFile multipartFile) {
         if (multipartFile.isEmpty()){
+            log("테스트2");
             return null;
         }
         if(dir.isAbsolute()){
@@ -71,6 +83,7 @@ public class FileUtils {
     }
 
     private String saveFileName(String originalFilename) {
+        log("테스트4");
         String uuid= UUID.randomUUID().toString().replaceAll("-","");
         String extension = StringUtils.getFilenameExtension(originalFilename);
         return uuid+"."+extension;
