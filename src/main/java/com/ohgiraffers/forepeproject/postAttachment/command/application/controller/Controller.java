@@ -31,9 +31,12 @@ public class Controller {
     @GetMapping("/attachment/save")
     public String saveFile(Model model){
         Long postNum=2L;
+        List<MultipartFile> multipartFileList = (List<MultipartFile>) model.getAttribute("files");
+        fileUtils.log("test중"+multipartFileList.get(0).getSize());
         List<AttachmentDTO> files= fileUtils.uploadFiles(multipartFileList);
         attachmentService.addAttachment(postNum,files);
-        return "/test/1";
+
+        return "redirect:/post/" +1;
     }
 
 
