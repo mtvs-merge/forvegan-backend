@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/board.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -46,11 +48,13 @@
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center py-5">
-            <h1 class="display-2 text-dark mb-4 animated slideInDown">리뷰</h1>
+        <div class="container text-center py-3">
+            <h1 class="display-2 text-dark mb-4 animated slideInDown">방명록</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="#">당신의 소중한 의견을 기다리고 있어요.</a></li>
+                    <li class="breadcrumb-item"><a href="#"> 포레피의 어떤 점이 좋았나요? 포레피의 어떤 점이 불편했나요? <br>
+                        당신의 소중한 의견을 남겨주세요. <br>
+                        적극적으로 의견을 수렴하여 더 나은 포레피가 되도록 노력하겠습니다.</a></li>
 <!--                    <li class="breadcrumb-item"><a href="#">Pages</a></li>-->
 <!--                    <li class="breadcrumb-item text-dark" aria-current="page">Contact</li>-->
                 </ol>
@@ -61,53 +65,71 @@
 
 
     <!-- Contact Start -->
-    <div class="container-xxl contact py-5">
+    <div class="container-fluid py-5">
         <div class="container">
-            <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="fs-5 fw-medium fst-italic text-primary">리뷰와 피드백</p>
-                <h1 class="display-6">포레피는 당신의 리뷰를<br>기다리고 있어요.</h1>
-            </div>
 
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="mb-4">좋았던 점, 불편했던 점을 모두 자유롭게 남겨주세요.</h3>
-                    <p class="mb-4">포레피를 방문해주셔서 정말 감사합니다. <br>
-                        포레피의 어떤 점이 좋았나요? 포레피의 어떤 점이 불편했나요? <br>
-                        당신의 소중한 의견을 남겨주세요. <br>
-                        적극적으로 의견을 수렴하여 더 나은 포레피가 되도록 노력하겠습니다.
-<!--                        <a href="https://htmlcodex.com/contact-form">Download Now</a>.-->
-                    </p>
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">별명</label>
+
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.5s">
+
+
+
+                            <div class="board_wrap">
+                                <div class="board_title">
+                                    <!-- <strong>공지사항</strong>
+                                    <p>공지사항을 빠르고 정확하게 안내해드립니다.</p> -->
+                                </div>
+                                <div class="board_list_wrap" style="font-size: 12px;">
+                                    <div class="board_list">
+                                        <div class="top">
+                                            <div class="num">번호</div>
+                                            <div class="title">제목</div>
+                                            <div class="writer">글쓴이</div>
+                                            <div class="date">작성일</div>
+                                            <div class="count">조회</div>
+                                        </div>
+
+                                        <div>
+                                            <div class="num">3</div>
+                                            <div class="title"><a href="view.html">포레피 예뻐요</a></div>
+                                            <div class="writer">박소연</div>
+                                            <div class="date">2023.07.29</div>
+                                            <div class="count">50</div>
+                                        </div>
+                                        <div>
+                                            <div class="num">2</div>
+                                            <div class="title"><a href="view.html">방명록 테스트</a></div>
+                                            <div class="writer">박소연</div>
+                                            <div class="date">2023.07.29</div>
+                                            <div class="count">33</div>
+                                        </div>
+                                        <div>
+                                            <div class="num">1</div>
+                                            <div class="title"><a href="view.html">일주일만 더 있으면 좋겠다..</a></div>
+                                            <div class="writer">박소연</div>
+                                            <div class="date">2023.07.29</div>
+                                            <div class="count">123</div>
+                                        </div>
+                                    </div>
+                                    <div class="board_page">
+                                        <a href="#" class="bt first"><<</a>
+                                        <a href="#" class="bt prev"><</a>
+                                        <a href="#" class="num on">1</a>
+                                        <a href="#" class="num">2</a>
+                                        <a href="#" class="num">3</a>
+                                        <a href="#" class="num">4</a>
+                                        <a href="#" class="num">5</a>
+                                        <a href="#" class="bt next">></a>
+                                        <a href="#" class="bt last">>></a>
+                                    </div>
+                                    <div class="bt_wrap">
+                                        <a href="writeReview.html" class="on">등록</a>
+
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">이메일</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">제목</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 120px"></textarea>
-                                    <label for="message">내용</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">작성</button>
-                            </div>
-                        </div>
-                    </form>
+                </div>
+
+
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <img src="/img/logo.png" style="width: 300px; margin-left: 70px; margin-top:100px;">
@@ -196,14 +218,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/wow/wow.min.js"></script>
-    <script src="/lib/easing/easing.min.js"></script>
-    <script src="/lib/waypoints/waypoints.min.js"></script>
-    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="/js/main.js"></script>
-    <script src="/js/loginCheck.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

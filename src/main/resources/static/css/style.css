@@ -6,6 +6,64 @@
     font-weight: normal;
     font-style: normal;
 }
+/** view **/
+.viewContainer{
+    /* height: inherit; */
+    /* background-color: #EEEEEE; */
+    display: inline-block;
+    width: 100%;
+    padding: 50px;
+    border-radius: 5px;
+}
+.subject{
+    margin-bottom: 20px;
+    line-height: inherit;
+    background-color: aliceblue;
+    padding: 5px;  
+    border-radius: 5px;
+}
+.viewContents{
+    padding: 10px;
+    border-radius: 10px;
+    height: 300px;
+    background-color: aliceblue;
+}
+.card{
+    position: relative;
+    margin-top: 30px;
+}
+
+.form-control{
+ width: 95%;
+ display: inline-block
+}
+
+.btnContainer{
+   margin-bottom: 20px;
+   float: right;
+   border-radius: 5px;
+
+}
+.commentSubmit{
+    float: right;
+    display: block;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.editContent{
+    margin-right: 10px;
+    border-radius: 5px;
+   
+}
+.deleteContent{
+    border-radius: 5px;
+   
+}
+.viewP{
+    display: block;
+    float: right;
+}
 
 :root {
     --primary: #88B44E;
