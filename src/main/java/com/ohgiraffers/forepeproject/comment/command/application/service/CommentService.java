@@ -3,11 +3,9 @@ package com.ohgiraffers.forepeproject.comment.command.application.service;
 import com.ohgiraffers.forepeproject.comment.command.application.dto.CommentDTO;
 import com.ohgiraffers.forepeproject.comment.command.domain.aggregate.entity.CommentEntity;
 import com.ohgiraffers.forepeproject.comment.command.domain.repository.CommentRepository;
-import com.ohgiraffers.forepeproject.comment.command.domain.repository.CommentsRepository;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
-import javax.xml.stream.events.Comment;
 
 @Service
 public class CommentService {
