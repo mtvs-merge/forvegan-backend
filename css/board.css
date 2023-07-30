@@ -211,7 +211,7 @@ a {
 
 .board_view .cont {
     padding: 15px;
-    border-bottom: 1px solid#5baa5e;
+    border-bottom: 1px solid #5baa5e;
     line-height: 160%;
     font-size: 1.4rem;
 }
@@ -227,7 +227,7 @@ a {
 
 .board_write .info {
     border-top: 1px dashed #ddd;
-    border-bottom: 1px solid#5baa5e;
+    border-bottom: 1px solid #5baa5e;
     font-size: 0;
 }
 
@@ -271,7 +271,7 @@ a {
 }
 
 .board_write .cont {
-    border-bottom: 1px solid#5baa5e;
+    border-bottom: 1px solid #5baa5e;
 }
 
 .board_write .cont textarea {

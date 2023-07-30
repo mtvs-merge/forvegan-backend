@@ -29,6 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/board.css" rel="stylesheet">
 </head>
 
 <body>
@@ -108,71 +109,92 @@
 
 
     <!-- About Start -->
-    <div class="container-fluid product py-5">
-        <div class="container py-5">
-            <button class="btn_write wow fadeInUp" data-wow-delay="0.3s"><a href="write.html">레시피 작성</a></button>
+    <div class="container-fluid py-5">
+        <div class="container">
+            <!-- <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;"> -->
+            <!-- <p class="fs-5 fw-medium fst-italic text-primary">내가 쓴 게시글</p> -->
+            <!-- <h1 class="display-6">내가 쓴 게시글</h1> -->
+        </div>
+        <div class="wow fadeInUp" data-wow-delay="0.5s">
 
-            <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="fs-5 fw-medium fst-italic text-primary">당신의 레시피를 알려주세요!</p>
-                <h1 class="display-6">채소만을 활용한 레시피</h1>
-<!--                <button class="btn_write" type="submit">글쓰기</button>-->
-            </div>
-            <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s" style="margin-bottom: 100px">
+            <div class="board_wrap">
+                <div class="board_title">
 
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-2.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">하이라이트 게시물</h4>
-                        <span class="text-body">두유그릭요거트</span>
+                </div>
+                <div class="board_list_wrap">
+                    <div class="board_list">
+                        <div class="top">
+                            <div class="num">번호</div>
+                            <div class="title">제목</div>
+                            <div class="writer">글쓴이</div>
+                            <div class="date">작성일</div>
+                            <div class="count">조회</div>
+                        </div>
+                        <div>
+                            <div class="num">6</div>
+                            <div class="title"><a href="view.html">된장찌개</a></div>
+                            <div class="writer">라현지</div>
+                            <div class="date">2021.1.15</div>
+                            <div class="count">33</div>
+                        </div>
+                        <div>
+                            <div class="num">5</div>
+                            <div class="title"><a href="view.html">비건 마라샹궈</a></div>
+                            <div class="writer">박소연</div>
+                            <div class="date">2021.1.15</div>
+                            <div class="count">33</div>
+                        </div>
+                        <div>
+                            <div class="num">4</div>
+                            <div class="title"><a href="view.html">토마토 프리타타</a></div>
+                            <div class="writer">김대철</div>
+                            <div class="date">2021.1.15</div>
+                            <div class="count">33</div>
+                        </div>
+                        <div>
+                            <div class="num">3</div>
+                            <div class="title"><a href="view.html">당근라페 샌드위치</a></div>
+                            <div class="writer">백승진</div>
+                            <div class="date">2021.1.15</div>
+                            <div class="count">33</div>
+                        </div>
+                        <div>
+                            <div class="num">2</div>
+                            <div class="title"><a href="view.html">두유그릭요거트</a></div>
+                            <div class="writer">이유열</div>
+                            <div class="date">2021.1.15</div>
+                            <div class="count">33</div>
+                        </div>
+                        <div>
+                            <div class="num">1</div>
+                            <div class="title"><a href="view.html">비건 똠얌꿍</a></div>
+                            <div class="writer">김지수</div>
+                            <div class="date">2021.1.15</div>
+                            <div class="count">33</div>
+                        </div>
                     </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-3.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">버섯꿔바로우</h4>
-                        <span class="text-body">달콤하고 쫀득한 버섯꿔바로우!</span>
+                    <div class="board_page">
+                        <a href="#" class="bt first"><<</a>
+                        <a href="#" class="bt prev"><</a>
+                        <a href="#" class="num on">1</a>
+                        <a href="#" class="num">2</a>
+                        <a href="#" class="num">3</a>
+                        <a href="#" class="num">4</a>
+                        <a href="#" class="num">5</a>
+                        <a href="#" class="bt next">></a>
+                        <a href="#" class="bt last">>></a>
                     </div>
-                </a>
-                <a href="view.html" class="d-block product-item rounded">
-                    <img src="img/product-4.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">인기 게시물</h4>
-                        <span class="text-body">비건 마라샹궈</span>
+                    <div class="bt_wrap">
+                        <!-- <a href="write.html" class="on">등록</a> -->
+                        <!--<a href="#">수정</a>-->
                     </div>
-                </a>
+                </div>
             </div>
-            <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s">
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-1.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">비건 마라샹궈</h4>
-                        <span class="text-body">비건으로 더 맛있는 마라샹궈 만들기</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-2.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">비건 똠얌꿍</h4>
-                        <span class="text-body">박소연의 숨은 레시피</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-3.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">수제 두유그릭요거트</h4>
-                        <span class="text-body">요거트 스타터만 있으면 간단하게 가능!</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-4.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">당근라페 샌드위치</h4>
-                        <span class="text-body">한끼로 든든한 당근라페 샌드위치</span>
-                    </div>
-                </a>
-            </div>
+
         </div>
     </div>
+    </div>
+
     <!-- Products End -->
 
 
