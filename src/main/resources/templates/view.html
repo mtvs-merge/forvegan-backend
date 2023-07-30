@@ -21,14 +21,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
   <!-- Libraries Stylesheet -->
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Customized Bootstrap Stylesheet -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Template Stylesheet -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -62,13 +63,23 @@
 
 
 <!-- Testimonial Start -->
-<div class="container-fluid py-5">
-  <div class="container">
-    <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <p th:text="${postEntity.postName}" class="fs-5 fw-medium fst-italic text-primary"></p>
-            <h1 th:text="${postEntity.postDetail}" class="display-6"></h1>
+<div class="container mt-5">
+  <h1 class="post-title" th:text="${postEntity.postName}">Sample Post</h1>
+  <p class="post-content" th:text="${postEntity.postDetail}">
+    <!-- Your post content here -->
+  </p>
 
-    </div>
+  <div class="btn-container">
+    <!-- Button to delete the post -->
+    <form th:action="@{/post/delete/{postNum}(postNum=${postEntity.postNum})}" method="post">
+      <!-- Button to delete the post -->
+      <button type="submit" class="btn btn-delete">Delete Post</button>
+    </form>
+
+    <!-- Button to edit the post -->
+    <form id="editForm" method="get" th:action="@{/post/update/{postNum}(postNum=${postEntity.postNum})}">
+      <button type="submit" class="btn btn-edit">Edit Post</button>
+    </form>
   </div>
 </div>
 <!-- Testimonial End -->

@@ -1,6 +1,6 @@
 package com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity;
 
-import com.ohgiraffers.forepeproject.post.command.application.controller.PostCheckController;
+//import com.ohgiraffers.forepeproject.post.command.application.controller.PostCheckController;
 import lombok.*;
 import org.springframework.http.HttpStatus;
 
@@ -40,7 +40,7 @@ public class PostEntity<P> {
     private String postName;
 
     @Column(name = "POST_LIKE")
-    private int postLike;
+    private Integer postLike;
 
     @Column(name = "POST_WRITER", nullable = false)
     private String postWriter;
@@ -59,7 +59,7 @@ public class PostEntity<P> {
     private String postDetail;
 
     @Column(name = "VIEWS")
-    private int views;
+    private Integer views;
 
     @Column(name = "POST_CATEGORY_NUM",nullable = false)
     private int postCategoryNum;
@@ -68,7 +68,7 @@ public class PostEntity<P> {
     private String attachment;
 
     @Column(name = "POST_MEMBER_NUM")
-    private int postMemberNum;
+    private Integer postMemberNum;
 
 //    public PostEntity(PostCheckController.Post post, HttpStatus httpStatus) {
 //    }

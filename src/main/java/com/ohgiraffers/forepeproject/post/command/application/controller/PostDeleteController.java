@@ -5,11 +5,10 @@ import com.ohgiraffers.forepeproject.post.command.application.dto.PostDeleteDTO;
 import com.ohgiraffers.forepeproject.post.command.application.service.PostDeleteService;
 import com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity.PostEntity;
 import com.ohgiraffers.forepeproject.post.command.domain.repository.PostRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -24,11 +23,13 @@ public class PostDeleteController {
     }
 
 
-    @PostMapping("/row")
-    public String deletePost(@RequestParam PostDeleteDTO postDeleteDTO, RedirectAttributes redirectAttributes) {
+    @PostMapping("/{postNum}")
+    public String deletePost(@PathVariable int postNum, RedirectAttributes redirectAttributes) {
+
+//        PostDeleteDTO postDeleteDTO = new PostDeleteDTO();
 
         // Check if owner
-        if(postDeleteService.isOwner(postDeleteDTO)) {
+        /*if(postDeleteService.isOwner(postDeleteDTO)) {
             try{
                 postDeleteService.deletePost(postDeleteDTO);
             } catch (Exception e){
@@ -36,10 +37,12 @@ public class PostDeleteController {
             }
         } else {
             redirectAttributes.addFlashAttribute("message", "게시판 작성자가 아닙니다");
-        }
+        }*/
+
+        postDeleteService.deletePost(postNum);
 
 
-        return "redirect:/post";
+        return "redirect:/post/vegan";
 
     }
 

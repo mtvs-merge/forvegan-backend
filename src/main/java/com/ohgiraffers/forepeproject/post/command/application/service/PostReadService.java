@@ -26,6 +26,9 @@ public class PostReadService {
 
         page = 15 * (page - 1);
 
+        System.out.println(page);
+        System.out.println(postCategeroyNum);
+
         return postMapper.getAllPost(page, postCategeroyNum);
     }
 }

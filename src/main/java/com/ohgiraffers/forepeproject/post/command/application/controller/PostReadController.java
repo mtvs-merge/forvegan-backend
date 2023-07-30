@@ -26,19 +26,19 @@ public class PostReadController {
 //    }
 
     @GetMapping("/vegan")
-    public String getVeganPost(@RequestParam int page, Model model) {
+    public String getVeganPost(@RequestParam(required = false, defaultValue = "1") int page, Model model) {
         model.addAttribute("postList", postReadService.getAllPost(page, 1));
         return "/vegan";
     }
 
     @GetMapping("/lactoovo")
-    public String getLactoPost(@RequestParam int page, Model model) {
+    public String getLactoPost(@RequestParam(required = false, defaultValue = "1") int page, Model model) {
         model.addAttribute("postList", postReadService.getAllPost(page, 2));
         return "/lactoovo";
     }
 
     @GetMapping("/pescopolo")
-    public String getPescoPost(@RequestParam int page, Model model) {
+    public String getPescoPost(@RequestParam(required = false, defaultValue = "1") int page, Model model) {
         model.addAttribute("postList", postReadService.getAllPost(page, 3));
         return "/pescopolo";
     }
