@@ -36,12 +36,15 @@ public class  TokenProvider {
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public AccessTokenDTO generateMemberTokenDTO(MemberDTO foundMember) {
+    public AccessTokenDTO generateMemberTokenDTO(MemberDTO foundMember, int memberNum) {
         log.info("[TokenProvider] generateTokenDTO start=======");
+
+        // 여기에서 memberNum 값을 int로 가져옵니다.
+        memberNum = foundMember.getMemberNum();
 
         Claims claims = Jwts
                 .claims()
-                .setSubject(String.valueOf(foundMember.getMemberNum()));
+                .setSubject(String.valueOf(memberNum));
         long now = (new Date()).getTime();
 
         // Access Token 생성
@@ -52,9 +55,10 @@ public class  TokenProvider {
                 .signWith(key, SignatureAlgorithm.HS512)
                 .compact();
 
-        return new AccessTokenDTO(BEARER_TYPE, foundMember.getMemberNum(), jwtToken,
+        return new AccessTokenDTO(BEARER_TYPE, memberNum, jwtToken,
                 accessTokenExpiresIn.getTime());
     }
+
 
     public Authentication getAuthentication(String accessToken) {
 
@@ -100,6 +104,21 @@ public class  TokenProvider {
             return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(accessToken).getBody();
         } catch (ExpiredJwtException e) {
             return e.getClaims();
+        }
+    }
+
+    public int getMemberNumFromToken(String token) {
+        try {
+            Claims claims = Jwts.parserBuilder()
+                    .setSigningKey(key)
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+
+            // Subject에 저장된 memberNum 값을 int로 변환하여 반환합니다.
+            return Integer.parseInt(claims.getSubject());
+        } catch (Exception e) {
+            throw new TokenException("JWT 토큰에서 memberNum 값을 추출하는 중 오류가 발생했습니다.", e);
         }
     }
 

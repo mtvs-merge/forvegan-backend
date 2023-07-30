@@ -108,8 +108,19 @@
 
     <!-- Thymeleaf를 사용하여 회원 정보를 표시 -->
     <div class="member-info">
-      <h2 th:text="${member.memberNickName}">Nickname</h2>
-      <p th:text="${member.socialId}">Social ID</p>
+      <p>닉네임 : <span th:text="${memberNickName}"></span></p>
+      <p>계정 : <span th:text="${socialLogin}"></span></p>
+      <br>
+      <form action="/updateNickname" method="post">
+        <label for="nickname">닉네임:</label>
+        <input type="text" id="nickname" name="nickname" value=""> <!-- 초기값으로 현재 닉네임을 설정 -->
+        <input type="submit" value="닉네임 변경">
+      </form>
+      <br>
+      <br>
+      <form action="/deleteMember" method="post">
+        <input type="submit" value="회원 탈퇴">
+      </form>
     </div>
   </div>
 </div>
