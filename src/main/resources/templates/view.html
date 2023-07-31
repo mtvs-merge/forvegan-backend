@@ -58,7 +58,9 @@
 
     <div class="mt-right">
       <button>수정</button>
-      <button>삭제</button>
+      <form th:action="@{/post/delete/{postId}(postId=${postEntity.postNum})}" method="post">
+        <button type="submit" class="delete-button">삭제</button>
+      </form>
       <button class="call">신고</button>
 
       <div class="modal">

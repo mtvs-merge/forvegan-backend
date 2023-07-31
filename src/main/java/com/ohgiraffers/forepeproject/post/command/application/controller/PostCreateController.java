@@ -35,12 +35,13 @@ public class PostCreateController {
         this.postCreateService = postCreateService;
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public String createPost(@ModelAttribute("createDTO") PostCreateDTO createDTO, @RequestParam("file")List<MultipartFile> files, RedirectAttributes redirectAttributes, HttpSession session,Model model) {
 
         PostEntity postEntity = new PostEntity();
         FileUtils fileUtils =new FileUtils();
-        int categoryNum = (int) model.getAttribute("categoryNum");
+//        int categoryNum = (int) model.getAttribute("categoryNum");
+        int categoryNum = createDTO.getPostCategoryNum();
         fileUtils.log("카테고리 넘버"+categoryNum);
         createDTO.setPostCategoryNum(categoryNum);
         BeanUtils.copyProperties(createDTO, postEntity);
@@ -73,17 +74,17 @@ public class PostCreateController {
                 throw new RuntimeException("파일 업로드 실패", e);
             }
         }
-        redirectAttributes.addAttribute("postNum", postEntity.getPostNum());
+        redirectAttributes.addFlashAttribute("postNum", postEntity.getPostNum());
         session.setAttribute("fileInfoList", files);
         redirectAttributes.addFlashAttribute("tempPath",paths);
 
-        return "redirect:attachment/save";
+        return "redirect:/attachment/save";
     }
 
-    @GetMapping("/write/category/{num}")
-    public String write(Model model,@PathVariable Integer num){
+    @GetMapping("/write")
+    public String write(Model model){
         PostCreateDTO createDTO = new PostCreateDTO();
-        model.addAttribute("categoryNum",num);
+//        model.addAttribute("categoryNum",num);
         model.addAttribute("createDTO",createDTO);
         return "/write";
     }

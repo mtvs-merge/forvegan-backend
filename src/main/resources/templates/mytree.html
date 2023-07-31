@@ -57,7 +57,7 @@
                 <div class="board_wrap">
                     <div class="board_title">
                         <!-- <strong>공지사항</strong> -->
-                        <p>여태까지 포레피에 등록한 나의 레시피를 확인합니다.</p>
+                        <p>레시피를 확인합니다.</p>
                     </div>
                     <div class="board_list_wrap">
                         <div class="board_list">
@@ -78,15 +78,16 @@
                                 <div th:text="${post.views}" class="count"></div>
                             </div>
                         </div>
-                        <div>
+                        <div style="align-self: center; margin-top: 20px; margin-left: 40%">
                             <form th:action="@{/post/{pc}(pc=${postCategory})}" method="get">
                                 <input type="number" name="currentPage" min="1" th:max="${totalPages}" th:value="${currentPage}">
                                 <input type="submit" value="Go">
                             </form>
                         </div>
                         <div class="bt_wrap">
-                            <!-- <a href="write.html" class="on">등록</a> -->
-                            <!--<a href="#">수정</a>-->
+
+                            <button class="btn_write wow fadeInUp" data-wow-delay="0.3s"><a href="/post/write">레시피 작성</a></button>
+
                         </div>
                     </div>
                 </div>

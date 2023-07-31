@@ -29,8 +29,8 @@ public class PostEntity<P> {
 
     @Id
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "POST_SEQ_GENERATOR"
+            strategy = GenerationType.IDENTITY
+//            generator = "POST_SEQ_GENERATOR"
     )
     @Column(name = "POST_NUM")
     private int postNum;
@@ -41,7 +41,7 @@ public class PostEntity<P> {
     @Column(name = "POST_LIKE")
     private Integer postLike;
 
-    @Column(name = "POST_WRITER")
+    @Column(name = "POST_WRITER", nullable = true)
     private String postWriter;
 
     @Column(name = "POST_HIGHLIGHT")

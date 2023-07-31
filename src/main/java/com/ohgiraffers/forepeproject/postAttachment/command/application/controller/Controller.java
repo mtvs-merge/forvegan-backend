@@ -36,7 +36,7 @@ public class Controller {
         fileUtils.log("파일 사이즈"+files.size());
         attachmentService.addAttachment(postNum,files);
 
-        return "redirect:/post/" +1;
+        return "redirect:/post/" + model.getAttribute("postNum");
     }
 
 
