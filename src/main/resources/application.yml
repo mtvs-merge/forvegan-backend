@@ -10,7 +10,7 @@ spring:
       additional-paths: src/main/resources/**, src/main/java/**
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/mergedb
+    url: jdbc:mysql://192.168.0.49/mergedb
     username: merge
     password: merge
     hikari:
@@ -25,9 +25,9 @@ spring:
       hibernate:
         '[format_sql]': true
         hbm2ddl:
-          auto: create
+          auto: update
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
   servlet:
     multipart:

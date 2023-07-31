@@ -20,7 +20,7 @@
         FROM POST
         WHERE POST_CATEGORY_NUM = #{postCategoryNum} AND POST_STATE = "Y"
         ORDER BY POST_NUM
-        LIMIT 10 OFFSET #{page}
+        LIMIT 5 OFFSET #{page}
     </select>
     <select id="getPostDetails" resultMap="postResultMap">
         SELECT *
