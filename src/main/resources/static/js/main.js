@@ -1,6 +1,54 @@
 (function ($) {
     "use strict";
 
+    $(function(){ 
+
+        $("#imageFile").on("change", function(event) {
+
+            var file = event.target.files[0];
+        
+            var reader = new FileReader(); 
+            reader.onload = function(e) {
+        
+                $("#preview").attr("src", e.target.result);
+            }
+        
+            reader.readAsDataURL(file);
+        
+        });
+
+        $("#imageFile2").on("change", function(event) {
+
+            var file = event.target.files[0];
+        
+            var reader = new FileReader(); 
+            reader.onload = function(e) {
+        
+                $("#preview").attr("src", e.target.result);
+            }
+        
+            reader.readAsDataURL(file);
+        
+        });
+
+
+     
+
+        
+
+
+
+        $(".call").click(function(){
+          $(".modal").fadeIn();
+        });
+        
+        $(".modal_report", "exit").click(function(){
+          $(".modal").fadeOut();
+        });
+        
+        });
+
+
     // Spinner
     var spinner = function () {
         setTimeout(function () {

@@ -6,6 +6,64 @@
     font-weight: normal;
     font-style: normal;
 }
+/** view **/
+.viewContainer{
+    /* height: inherit; */
+    /* background-color: #EEEEEE; */
+    display: inline-block;
+    width: 100%;
+    padding: 50px;
+    border-radius: 5px;
+}
+.subject{
+    margin-bottom: 20px;
+    line-height: inherit;
+    background-color: aliceblue;
+    padding: 5px;  
+    border-radius: 5px;
+}
+.viewContents{
+    padding: 10px;
+    border-radius: 10px;
+    height: 300px;
+    background-color: aliceblue;
+}
+.card{
+    position: relative;
+    margin-top: 30px;
+}
+
+.form-control{
+ width: 95%;
+ display: inline-block
+}
+
+.btnContainer{
+   margin-bottom: 20px;
+   float: right;
+   border-radius: 5px;
+
+}
+.commentSubmit{
+    float: right;
+    display: block;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.editContent{
+    margin-right: 10px;
+    border-radius: 5px;
+   
+}
+.deleteContent{
+    border-radius: 5px;
+   
+}
+.viewP{
+    display: block;
+    float: right;
+}
 
 :root {
     --primary: #88B44E;
@@ -221,7 +279,7 @@
 }
 
 .page-header {
-    background: linear-gradient(rgba(136, 180, 78, .7), rgba(136, 180, 78, .7)), url(carousel-1.jpg) center center no-repeat;
+    background: linear-gradient(rgba(136, 180, 78, .7), rgba(136, 180, 78, .7)), url(../img/carousel-1.jpg) center center no-repeat;
     background-size: cover;
 }
 
@@ -276,7 +334,7 @@
 
 /*** Products ***/
 .product {
-    background: linear-gradient(rgba(136, 180, 78, .1), rgba(136, 180, 78, .1)), url(product-bg.png) left bottom no-repeat;
+    background: linear-gradient(rgba(136, 180, 78, .1), rgba(136, 180, 78, .1)), url(../img/product-bg.png) left bottom no-repeat;
     background-size: auto;
 }
 
@@ -311,7 +369,7 @@
 
 /*** About ***/
 .video {
-    background: linear-gradient(rgba(136, 180, 78, .85), rgba(136, 180, 78, .85)), url(video-bg.jpg) center center no-repeat;
+    background: linear-gradient(rgba(136, 180, 78, .85), rgba(136, 180, 78, .85)), url(../img/video-bg.jpg) center center no-repeat;
     background-size: cover;
 }
 
@@ -441,7 +499,7 @@
 
 /*** Testimonial ***/
 .testimonial {
-    background: linear-gradient(rgba(136, 180, 78, .85), rgba(136, 180, 78, .85)), url(testimonial-bg.jpg) center center no-repeat;
+    background: linear-gradient(rgba(136, 180, 78, .85), rgba(136, 180, 78, .85)), url(../img/testimonial-bg.jpg) center center no-repeat;
     background-size: cover;
 }
 
