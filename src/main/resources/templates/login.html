@@ -57,26 +57,22 @@
 <div class="container-fluid py-5">
     <div class="container">
         <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <!-- 인가 코드를 받기 위해 카카오 인가 페이지로 이동하는 버튼 -->
-            <a onclick="sendKakaoAuthRequest()">
+            <a onclick="window.location.href='/kakao-auth'">
                 <img src="img/kakao_login_large_narrow.png">
             </a>
-            <p style="margin-top: 100px;">카카오로만 로그인 할 수 있음~~~</p>
+            <!-- <p style="margin-top: 100px;">카카오로만 로그인 할 수 있음~~~</p> -->
         </div>
+
     </div>
 </div>
 <!-- Testimonial End -->
 
-    <!-- 로그인 상태를 확인하는 스크립트 -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- 로그인 상태를 확인하는 스크립트 -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    function sendKakaoAuthRequest() {
-        // 카카오 인가 페이지로 이동
-        window.location.href = 'https://kauth.kakao.com/oauth/authorize?client_id=94407d0193a445443e41394304ebfacd&redirect_uri=http://localhost:8888/auth/kakao/callback&response_type=code';
-    }
 
     function handleKakaoLogin(code) {
-        const url = 'http://localhost:8888/auth/kakao/callback';
+        const url = 'http://forepe.store:8888/auth/kakao/callback';
         const data = { code: code };
 
         axios.get(url, { params: data })
@@ -86,7 +82,7 @@
                     localStorage.setItem('jwtToken', response.data.result.token.accessToken);
                     console.log("토큰 저장 완료");
                     console.log("리다이렉트 시작");
-                    window.location.href = 'http://localhost:8888';
+                    window.location.href = 'http://forepe.store:8888';
                 } else {
                     console.error('토큰을 받아오지 못함', response.data);
                 }

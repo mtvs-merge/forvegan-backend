@@ -30,6 +30,12 @@ public class PostCheckService {
     }
 
     public PostEntity checkPost(int postNum) {
-        return postMapper.getPostDetails(postNum);
+
+        PostEntity postEntity = postMapper.getPostDetails(postNum);
+
+        postEntity.setViews(postEntity.getViews() + 1);
+        postRepository.save(postEntity);
+
+        return postEntity;
     }
 }

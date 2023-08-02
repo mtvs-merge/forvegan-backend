@@ -22,11 +22,15 @@ public class PostDeleteService {
     }
 
     @Transactional
-    public void deletePost(PostDeleteDTO postDeleteDTO) {
+    public void deletePost(int postNum) {
 
-        PostEntity pe = postRepository.getReferenceById(postDeleteDTO.getPostNum());
+        Optional<PostEntity> peOptional = postRepository.findById(postNum);
+        PostEntity pe = peOptional.orElseThrow(() -> new IllegalArgumentException("Post not found with postNum" + postNum));
 
         pe.setPostState("N");
+
+//        postRepository.save(pe);
+//        postRepository.flush();
 
     }
 

@@ -4,10 +4,6 @@ package com.ohgiraffers.forepeproject.member.query.domain.repository;
 import com.ohgiraffers.forepeproject.member.command.domain.aggregate.entity.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-
-import java.util.List;
-import java.util.Optional;
 
 
 public interface MemberRepository extends JpaRepository<MemberEntity, Integer> {
@@ -20,4 +16,5 @@ public interface MemberRepository extends JpaRepository<MemberEntity, Integer> {
     MemberEntity findBySocialId(String socialLogin, long socialId);
 
 
+    MemberEntity findByMemberNum(int memberNum);
 }

@@ -71,59 +71,36 @@
                 <p class="fs-5 fw-medium fst-italic text-primary">당신의 레시피를 알려주세요!</p>
                 <h1 class="display-6">난류/유제품을 활용한 레시피</h1>
             </div>
-            <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s" style="margin-bottom: 100px">
+            <div class="container mt-4">
+                <div class="row">
+                    <!-- Iterate over the postList and create a column for each post -->
+                    <div th:each="post : ${postList}" class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="/img/product-2.jpg" class="card-img-top" alt="Post Image">
+                            <div class="card-body">
+                                <h4 class="card-title" th:text="${post.postName}"></h4>
+                                <p class="card-text" th:text="${post.postHighlight}"></p>
+                            </div>
+                            <div class="card-footer">
+                                <a th:href="@{/post/{postNum}(postNum=${post.postNum})}" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-2.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">하이라이트 게시물</h4>
-                        <span class="text-body">토마토 프리타타</span>
+                <!-- Input field for page number -->
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-4">
+                        <form th:action="@{/post/vegan}" method="get">
+                            <div class="input-group mb-3">
+                                <input type="number" name="page" class="form-control" th:value="${currentPage}" min="1">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Go to Page</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-3.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">오버나이트 오트밀</h4>
-                        <span class="text-body">그릭요거트와 건망고로 간편한 오나오!</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-4.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">인기 게시물</h4>
-                        <span class="text-body">마르게리타</span>
-                    </div>
-                </a>
-            </div>
-            <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s">
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-1.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">토마토 프리타타</h4>
-                        <span class="text-body">토마토와 계란으로 프리타타를 만들어 보아요!</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-2.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">오버나이트 오트밀</h4>
-                        <span class="text-body">그릭요거트와 건망고로 간편한 오나오!</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-3.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">수제 요거트</h4>
-                        <span class="text-body">요거트 스타터만 있으면 간단하게 가능!</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="img/product-4.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">에그마요 샌드위치</h4>
-                        <span class="text-body">한끼로 든든한 에그마요 샌드위치</span>
-                    </div>
-                </a>
+                </div>
             </div>
         </div>
     </div>

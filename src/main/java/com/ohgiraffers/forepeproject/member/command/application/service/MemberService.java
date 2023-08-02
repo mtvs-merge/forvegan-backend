@@ -1,6 +1,7 @@
 package com.ohgiraffers.forepeproject.member.command.application.service;
 
 
+import com.ohgiraffers.forepeproject.jwt.CookieUtil;
 import com.ohgiraffers.forepeproject.member.command.application.dto.MemberDTO;
 import com.ohgiraffers.forepeproject.member.command.domain.aggregate.entity.MemberEntity;
 import com.ohgiraffers.forepeproject.member.query.domain.repository.MemberMapper;
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,14 +55,39 @@ public class MemberService {
     }
 
 
-    public MemberEntity findMemberByNum(int memberNum) {
+    public MemberDTO findMemberByNum(int memberNum) {
 
-       return memberMapper.findMemberByNum(memberNum);
+       MemberEntity member = memberRepository.findByMemberNum(memberNum);
+
+       return convertToDTO(member);
     }
 
+    private MemberDTO convertToDTO(MemberEntity entity) {
+        MemberDTO dto = new MemberDTO();
+        dto.setMemberNum(entity.getMemberNum());
+        dto.setMemberNickname(entity.getMemberNickName());
+        dto.setSocialLogin(entity.getSocialLogin());
 
+        return dto;
+    }
 
+    public void updateNickname(int memberNum, String newNickname) {
+        MemberEntity member = memberRepository.findByMemberNum(memberNum);
+        if(member != null) {
+            member.setMemberNickName(newNickname);
+            memberRepository.save(member);
+        } else {
+            throw new RuntimeException("회원 정보가 존재하지 않습니다.");
+        }
 
+    }
 
+    public void deleteMember(int memberNum) {
+
+        MemberEntity member = memberRepository.findByMemberNum(memberNum);
+        if (member != null) {
+            memberRepository.delete(member);
+        }
+    }
 }
 

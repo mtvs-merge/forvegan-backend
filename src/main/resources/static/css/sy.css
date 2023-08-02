@@ -1,0 +1,205 @@
+.maintitle{
+    display: flex;
+    border-bottom: 1px solid black;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+}
+
+.maintitle .mt-left{
+display: flex;
+    flex: 1;
+flex-direction: column;
+}
+
+.maintitle .mt-left > span:first-child {
+    font-size: 20px;
+    
+}
+
+.maintitle .mt-left > span:last-child{
+    font-size: 40px;
+}
+
+.maintitle .mt-right{
+
+}
+
+
+.title{
+    font-size: 20px;
+    border-bottom: 3px solid #107010;
+    margin-bottom: 20px;
+}
+
+.contents .steps{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+.contents .image{
+    margin-right: 20px;
+}
+
+.contents .text{
+    flex: 1;
+}
+
+.contents .text .subtitle{
+    display: block;
+    font-size: 24px;
+    border-bottom: 3px solid #107010;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.like-wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.like-wrap .likes{
+    margin: 10px;
+    border: 1px solid gainsboro;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    line-height: 80px;
+    text-align: center;
+}
+
+.like-wrap .like{
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.like-wrap .like .txt{
+    padding-top: 25px;
+    padding-bottom: 5px;
+}
+
+.like-wrap .like .count{
+    color: red;
+}
+
+.comment-wrap{
+    display: flex;
+    background-color: #eee;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.comment-each {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.comment-wrap .pf-img{
+    margin-right: 20px;
+}
+.comment-wrap .pf-img img{
+    width: 80px;
+
+}
+
+.comment-wrap .pf-txt{
+    width: 100%;
+}
+
+.comment-wrap .pf-txt .comment-id{
+    font-size: 20px;
+    margin-bottom: 5px;
+
+}
+
+.comment-wrap .pf-txt .comment-id .time{
+    font-size: 13px;
+    color: #999;
+}
+
+.comment-wrap button{
+    font-size: 15px;
+    border: 1px solid #797979;
+}
+
+.comment-wrap .pf-txt .comment{
+    font-size: 14px;
+    background-color: #fff;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 7px;
+}
+
+.comment-write{
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.comment-write textarea{
+    width: 100%;
+    margin-right: 10px;
+}
+
+.comment-write button{
+    border: 1px solid #333;
+    background-color: #333;
+    color: #fff;
+    font-weight: normal;
+    width: 100px;
+    height: 100px;
+}
+
+.container-fluid .container .section-title span{
+    background-color: #dfdfdf;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.steptext-write textarea{
+    width: 100%;
+}
+
+.write-finish{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.write-finish .finish{
+    padding: 20px !important
+}
+
+.modal{ 
+    position: absolute;
+    width:100%; 
+    height:100%; 
+    background: rgba(0,0,0,0.8); 
+    top:0; 
+    left:0; 
+    display:none;
+  }
+  
+.modal_content{
+    width:400px; height:300px;
+    background:#fff; border-radius:10px;
+    position:absolute; top:50%; left:50%;
+    margin-top:-100px; margin-left:-200px;
+    text-align: left;
+    box-sizing:border-box; padding:20px;
+    line-height:23px; cursor:pointer;
+  }
+
+  .modal_content h4{
+    text-align: center;
+  }
+  .modalReport{
+    text-align: center;
+  }
+
+  .modal label{
+    margin-top: 15px;
+  }

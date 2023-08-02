@@ -21,9 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 // Delete - 정보 삭제
 
 @Controller
-@RestController
 @RequiredArgsConstructor   // Bean 주입 : @Autowired 대신에 생성자로!
-@RequestMapping("/vegan")
+//@RequestMapping("/vegan")
 
 public class PostController {
     private PostService postService;
@@ -35,6 +34,16 @@ public class PostController {
     @RequestMapping("/list.do")
     public String main(Model model) {
         return "main";
+    }
+
+    @RequestMapping("/mytree")
+    public String myTree() {
+        return "mytree";
+    }
+
+    @RequestMapping("/view")
+    public String view1() {
+        return "view";
     }
 
 

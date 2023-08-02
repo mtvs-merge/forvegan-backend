@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // 버튼 요소를 가져옴
     const loginButton = document.getElementById("login-button");
     const logoutButton = document.getElementById("logout-button");
+    const checkButton = document.getElementById("check-button")
 
     if (jwtToken) {
         // 로그인 상태라면 로그인 버튼 숨기기
@@ -15,6 +16,10 @@ document.addEventListener("DOMContentLoaded", function() {
         loginButton.style.display = "block";
         logoutButton.style.display = "none";
     }
+        loginButton.addEventListener("click", function() {
+            location.href = "/login";
+        });
+
 
     logoutButton.addEventListener("click", function() {
         deleteCookie("jwtToken");

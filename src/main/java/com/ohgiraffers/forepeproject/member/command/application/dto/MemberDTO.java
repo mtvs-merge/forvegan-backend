@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 public class MemberDTO {
-    private long MemberNum;
+    private int MemberNum;
     private String MemberName;
     private String socialLogin;
     private long socialId;
@@ -28,6 +28,4 @@ public class MemberDTO {
     private String joinDate;
     private int LevelUpPoint;
     private String lastAccessDate;
-    private String preferredLocation;
-    private String preferredType;
 }

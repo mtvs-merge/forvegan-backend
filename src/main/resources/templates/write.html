@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:form="http://www.w3.org/1999/html">
 
 <head>
   <meta charset="utf-8">
@@ -9,7 +9,7 @@
   <meta content="" name="description">
 
   <!-- Favicon -->
-  <link href="img/favicon.ico" rel="icon">
+  <link href="/img/favicon.ico" rel="icon">
 
   <!-- Google Web Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,20 +73,28 @@
     </div>
 
 
-    <form class="wow fadeInUp" data-wow-delay="0.3s">
+    <form class="wow fadeInUp"  data-wow-delay="0.3s" th:action="@{/post/create}" th:object="${createDTO}" method="post" enctype="multipart/form-data">
       <div class="row g-3" style="width: 70%; margin:0 auto">
 
 
+        <h1>Select Your Post Category</h1>
+        <label for="postCategoryNum">Choose a category:</label>
+        <select id="postCategoryNum" name="postCategoryNum" class="form-control">
+          <option value="1" th:selected="${createDTO.postCategoryNum == 1}">Vegan</option>
+          <option value="2" th:selected="${createDTO.postCategoryNum == 2}">Lactoovo</option>
+          <option value="3" th:selected="${createDTO.postCategoryNum == 3}">Pescopolo</option>
+        </select>
 
-            <div class="col-12">
+        <div class="col-12">
           <div class="form-floating">
-            <input type="text" class="form-control" id="subject" placeholder="Subject">
-            <label for="subject">제목</label>
+            <input type="text" th:field="*{postName}" class="form-control" id="postName" placeholder="Subject"/>
+            <label for="postName">제목</label>
           </div>
         </div>
+
         <div class="col-12">
           <!--        첨부파일            -->
-          <input type="file" onchange="readURL(this);">
+          <input type="file" onchange="readURL(this);" name="file"/>
           <img id="preview" style="width:100px"/>
           <script>
             function readURL(input) {
@@ -102,9 +110,9 @@
             }
           </script>
           <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 500px"></textarea>
+            <textarea th:field="*{postDetail}" class="form-control" placeholder="Leave a message here" id="postDetail" style="height: 500px"></textarea>
 
-            <label for="message">내용</label>
+            <label for="postDetail">내용</label>
 
           </div>
         </div>

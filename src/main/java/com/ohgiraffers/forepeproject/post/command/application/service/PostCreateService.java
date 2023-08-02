@@ -16,11 +16,12 @@ public class PostCreateService {
     }
 
     public void createPost(PostEntity postEntity) {
-        PostEntity post = new PostEntity();
-        post.setPostName(postEntity.getPostName());
-        post.setPostDetail(postEntity.getPostDetail());
 
-        postRepository.save(post);
+        postEntity.setPostWriter("imi");
+        postEntity.setPostState("Y");
+        postEntity.setViews(0);
+
+        postRepository.save(postEntity);
         postRepository.flush();
     }
 }

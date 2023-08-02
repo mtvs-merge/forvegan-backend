@@ -18,13 +18,18 @@
     <select id="getAllPost" resultMap="postResultMap">
         SELECT *
         FROM POST
-        WHERE POST_CATEGORY_NUM = #{postCategoryNum}
+        WHERE POST_CATEGORY_NUM = #{postCategoryNum} AND POST_STATE = "Y"
         ORDER BY POST_NUM
-        LIMIT 15 OFFSET #{page}
+        LIMIT 5 OFFSET #{page}
     </select>
     <select id="getPostDetails" resultMap="postResultMap">
         SELECT *
         FROM POST
         WHERE POST_NUM = #{postNum}
+    </select>
+    <select id="getCountOfPost" resultType="int">
+        SELECT COUNT(*)
+        FROM POST
+        WHERE POST_CATEGORY_NUM = #{postCategoryNum}
     </select>
 </mapper>

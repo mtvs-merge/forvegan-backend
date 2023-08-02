@@ -1,6 +1,5 @@
 package com.ohgiraffers.forepeproject.login.command.application.service;
 
-import antlr.Token;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ohgiraffers.forepeproject.jwt.TokenProvider;
@@ -104,6 +103,8 @@ public class LoginService {
 
         Date accessExpireDate = new Date(foundmember.getAccessTokenExpireDate());
 
+        int memberNum = foundmember.getMemberNum();
+
         if (accessExpireDate.before(new Date())) {
             RenewTokenDTO renewedToken = renewKakaoToken(foundmember);
 
@@ -119,7 +120,7 @@ public class LoginService {
 
 
 
-        return tokenProvider.generateMemberTokenDTO(foundmember);
+        return tokenProvider.generateMemberTokenDTO(foundmember, memberNum);
 
     }
 

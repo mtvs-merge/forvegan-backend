@@ -40,7 +40,7 @@ public class PostDeleteTesting {
         postDeleteDTO.setPostMemberNum(postMemberNum);
 
         Assertions.assertDoesNotThrow(
-                () -> postDeleteService.deletePost(postDeleteDTO)
+                () -> postDeleteService.deletePost(postDeleteDTO.getPostNum())
         );
     }
 

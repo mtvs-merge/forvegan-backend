@@ -3,7 +3,6 @@ package com.ohgiraffers.forepeproject.config;
 import com.ohgiraffers.forepeproject.jwt.JwtAccessDeniedHandler;
 import com.ohgiraffers.forepeproject.jwt.JwtAuthenticationEntryPoint;
 import com.ohgiraffers.forepeproject.jwt.TokenProvider;
-import io.swagger.annotations.Authorization;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;

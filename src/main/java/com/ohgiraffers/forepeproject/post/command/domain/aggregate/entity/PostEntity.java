@@ -1,6 +1,6 @@
 package com.ohgiraffers.forepeproject.post.command.domain.aggregate.entity;
 
-import com.ohgiraffers.forepeproject.post.command.application.controller.PostCheckController;
+//import com.ohgiraffers.forepeproject.post.command.application.controller.PostCheckController;
 import lombok.*;
 import org.springframework.http.HttpStatus;
 
@@ -29,20 +29,19 @@ public class PostEntity<P> {
 
     @Id
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "POST_SEQ_GENERATOR"
+            strategy = GenerationType.IDENTITY
+//            generator = "POST_SEQ_GENERATOR"
     )
-
-    @Column(name = "POST_NUM", nullable = false)
+    @Column(name = "POST_NUM")
     private int postNum;
 
-    @Column(name = "POST_NAME", length = 20, nullable = false)
+    @Column(name = "POST_NAME", length = 20)
     private String postName;
 
     @Column(name = "POST_LIKE")
-    private int postLike;
+    private Integer postLike;
 
-    @Column(name = "POST_WRITER", nullable = false)
+    @Column(name = "POST_WRITER", nullable = true)
     private String postWriter;
 
     @Column(name = "POST_HIGHLIGHT")
@@ -51,24 +50,24 @@ public class PostEntity<P> {
     @Column(name = "POST_STATE")
     private String postState;
 
-    @Column(name = "POST_DATE", nullable = false)
+    @Column(name = "POST_DATE")
     private String postDate;
 
     @Column(name = "POST_DETAIL",
-            columnDefinition = "TEXT", nullable = false)
+            columnDefinition = "TEXT")
     private String postDetail;
 
     @Column(name = "VIEWS")
-    private int views;
+    private Integer views;
 
-    @Column(name = "POST_CATEGORY_NUM",nullable = false)
+    @Column(name = "POST_CATEGORY_NUM")
     private int postCategoryNum;
 
     @Column(name = "ATTACHMENT")
     private String attachment;
 
     @Column(name = "POST_MEMBER_NUM")
-    private int postMemberNum;
+    private Integer postMemberNum;
 
 //    public PostEntity(PostCheckController.Post post, HttpStatus httpStatus) {
 //    }
